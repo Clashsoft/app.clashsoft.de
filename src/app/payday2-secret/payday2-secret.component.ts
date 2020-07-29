@@ -19,4 +19,19 @@ export class Payday2SecretComponent implements OnInit {
   openModal(content): void {
     this.modalService.open(content, {size: 'lg'});
   }
+
+  inputChanged(): void {
+  }
+
+  submitSearch(): void {
+  }
+
+  threeSymbolChanged(): void {
+  }
+
+  clearSaved(): void {
+  }
+
+  copySaved(): void {
+  }
 }
