@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { PasswordBoxComponent } from './password-box/password-box.component';
 import { MailtoComponent } from './mailto/mailto.component';
 import {FormsModule} from "@angular/forms";
+import { Payday2SecretComponent } from './payday2-secret/payday2-secret.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PasswordBoxComponent,
-    MailtoComponent
+    MailtoComponent,
+    Payday2SecretComponent,
   ],
   imports: [
     BrowserModule,
