@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-payday2-secret',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Payday2SecretComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal,
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  openModal(content): void {
+    this.modalService.open(content, {size: 'lg'});
+  }
 }
