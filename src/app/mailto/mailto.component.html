@@ -4,14 +4,14 @@
   <div class="form">
     <div class="form-group">
       <h2><label for="subject">Subject</label></h2>
-      <input type="text" class="form-control" id="subject" onchange="update()">
+      <input type="text" class="form-control" id="subject" (change)="update()" [(ngModel)]="subject">
       <small class="form-text text-muted">
         Supports variable insertion with <code>#1#</code>, <code>#2#</code>, ...
       </small>
     </div>
     <div class="form-group">
       <h2><label for="template">Template</label></h2>
-      <textarea class="form-control" id="template" rows="20" onchange="update()"></textarea>
+      <textarea class="form-control" id="template" rows="20" (change)="update()" [(ngModel)]="body"></textarea>
       <small class="form-text text-muted">
         Supports variable insertion with <code>#1#</code>, <code>#2#</code>, ...
         HTML is not supported.
@@ -23,7 +23,7 @@
     <div class="col-4">
       <div class="form form-group">
         <h2><label for="addresses">Addresses</label></h2>
-        <textarea class="form-control" id="addresses" rows="50" onchange="update()"></textarea>
+        <textarea class="form-control" id="addresses" rows="50" (change)="update()" [(ngModel)]="addressList" [rows]="rows"></textarea>
         <small class="form-text text-muted">
           One address per line.
         </small>
@@ -32,7 +32,7 @@
     <div class="col-4">
       <div class="form form-group">
         <h2><label for="variables">Variables</label></h2>
-        <textarea class="form-control" id="variables" rows="50" onchange="update()"></textarea>
+        <textarea class="form-control" id="variables" rows="50" (change)="update()" [(ngModel)]="variableList" [rows]="rows"></textarea>
         <small class="form-text text-muted">
           Variables corresponding to addresses on the same line.
           Multiple variables (<code>#1#</code>, <code>#2#</code>, ...) must be separated by tabs.
@@ -42,6 +42,10 @@
     <div class="col-4">
       <h2><label for="mailto-list">mailto-Links</label></h2>
       <div class="form-control h-auto" id="mailto-list">
+        <ng-container *ngFor="let link of links">
+          <a [href]="link">{{link.substring(0, link.indexOf('?'))}}</a>
+          <br/>
+        </ng-container>
       </div>
     </div>
   </div>
