@@ -1,1 +1,50 @@
-<p>mailto works!</p>
+<div class="container text-center">
+  <h1>mailto Link Generator</h1>
+
+  <div class="form">
+    <div class="form-group">
+      <h2><label for="subject">Subject</label></h2>
+      <input type="text" class="form-control" id="subject" onchange="update()">
+      <small class="form-text text-muted">
+        Supports variable insertion with <code>#1#</code>, <code>#2#</code>, ...
+      </small>
+    </div>
+    <div class="form-group">
+      <h2><label for="template">Template</label></h2>
+      <textarea class="form-control" id="template" rows="20" onchange="update()"></textarea>
+      <small class="form-text text-muted">
+        Supports variable insertion with <code>#1#</code>, <code>#2#</code>, ...
+        HTML is not supported.
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form form-group">
+        <h2><label for="addresses">Addresses</label></h2>
+        <textarea class="form-control" id="addresses" rows="50" onchange="update()"></textarea>
+        <small class="form-text text-muted">
+          One address per line.
+        </small>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form form-group">
+        <h2><label for="variables">Variables</label></h2>
+        <textarea class="form-control" id="variables" rows="50" onchange="update()"></textarea>
+        <small class="form-text text-muted">
+          Variables corresponding to addresses on the same line.
+          Multiple variables (<code>#1#</code>, <code>#2#</code>, ...) must be separated by tabs.
+        </small>
+      </div>
+    </div>
+    <div class="col-4">
+      <h2><label for="mailto-list">mailto-Links</label></h2>
+      <div class="form-control h-auto" id="mailto-list">
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO dark switch -->
+</div>
