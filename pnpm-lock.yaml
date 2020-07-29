@@ -7,6 +7,7 @@ dependencies:
   '@angular/platform-browser': 10.0.6_7b91c67c555231cd7f4611b94f0da367
   '@angular/platform-browser-dynamic': 10.0.6_075e819538dcfb2cc68ea201eb3d1adf
   '@angular/router': 10.0.6_0d871ad1d32e4974cd4f0235a8f3ed5b
+  '@ng-bootstrap/ng-bootstrap': 7.0.0_d53a8164ff64df8220fb0fa1dd12514c
   bootstrap: 4.5.0
   rxjs: 6.5.5
   tslib: 2.0.0
@@ -1224,6 +1225,22 @@ packages:
     dev: true
     resolution:
       integrity: sha512-TAdNkeGB5Fe4Og+ZkAr1Kvn9by2sfL44IAHFtxlh1BA1XJ5cLpO9iSNki5opWESv3l3vSHsZ9BNKuqFKbEbFaA==
+  /@ng-bootstrap/ng-bootstrap/7.0.0_d53a8164ff64df8220fb0fa1dd12514c:
+    dependencies:
+      '@angular/common': 10.0.6_@angular+core@10.0.6+rxjs@6.5.5
+      '@angular/core': 10.0.6_rxjs@6.5.5+zone.js@0.10.3
+      '@angular/forms': 10.0.6_0d871ad1d32e4974cd4f0235a8f3ed5b
+      rxjs: 6.5.5
+      tslib: 2.0.0
+    dev: false
+    peerDependencies:
+      '@angular/common': ^10.0.0
+      '@angular/core': ^10.0.0
+      '@angular/forms': ^10.0.0
+      '@angular/localize': ^10.0.0
+      rxjs: ^6.5.5
+    resolution:
+      integrity: sha512-SxUaptGWJmCxM0d2Zy1mx7K7p/YBwGZ69NmmBQVY4BE6p5av0hWrVmv9rzzfBz0rhxU7RPZLor2Jpaoq8Xyl4w==
   /@ngtools/webpack/10.0.4_dc84d43038cf09e9ed32bf196c458dd7:
     dependencies:
       '@angular-devkit/core': 10.0.4
@@ -9375,6 +9392,7 @@ specifiers:
   '@angular/platform-browser': ~10.0.2
   '@angular/platform-browser-dynamic': ~10.0.2
   '@angular/router': ~10.0.2
+  '@ng-bootstrap/ng-bootstrap': ^7.0.0
   '@types/jasmine': ~3.5.0
   '@types/jasminewd2': ~2.0.3
   '@types/node': ^12.11.1
