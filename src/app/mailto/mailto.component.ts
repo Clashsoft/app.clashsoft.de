@@ -27,8 +27,6 @@ export class MailtoComponent implements OnInit {
   }
 
   update(): void {
-    console.log('update');
-
     localStorage.setItem('variableNames', this.variableNames.join('\n'));
     localStorage.setItem('subjectTemplate', this.subject);
     localStorage.setItem('bodyTemplate', this.body);
