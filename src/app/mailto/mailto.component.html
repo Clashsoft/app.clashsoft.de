@@ -19,36 +19,21 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-4">
-      <div class="form form-group">
-        <h2><label for="addresses">Addresses</label></h2>
-        <textarea class="form-control" id="addresses" rows="50" (change)="update()" [(ngModel)]="addressList" [rows]="rows"></textarea>
-        <small class="form-text text-muted">
-          One address per line.
-        </small>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="form form-group">
-        <h2><label for="variables">Variables</label></h2>
-        <textarea class="form-control" id="variables" rows="50" (change)="update()" [(ngModel)]="variableList" [rows]="rows"></textarea>
-        <small class="form-text text-muted">
-          Variables corresponding to addresses on the same line.
-          Multiple variables (<code>#1#</code>, <code>#2#</code>, ...) must be separated by tabs.
-        </small>
-      </div>
-    </div>
-    <div class="col-4">
-      <h2><label for="mailto-list">mailto-Links</label></h2>
-      <div class="form-control h-auto" id="mailto-list">
-        <ng-container *ngFor="let link of links">
-          <a [href]="link">{{link.substring(0, link.indexOf('?'))}}</a>
-          <br/>
-        </ng-container>
-      </div>
-    </div>
-  </div>
+  <table class="table table-bordered">
+    <tr>
+      <th>Address</th>
+      <th *ngFor="let _ of variableNames; let i=index; trackBy:index"><input type="text" class="form-control" [(ngModel)]="variableNames[i]" (change)="update()"></th>
+      <th>mailto-Link</th>
+    </tr>
+    <tr *ngFor="let row of variables; let i=index">
+      <td><input type="email" class="form-control" [(ngModel)]="addresses[i]" (change)="update()"></td>
+      <td *ngFor="let _ of variableNames; let j=index; trackBy:index"><input type="text" class="form-control" [(ngModel)]="row[j]" (change)="update()"></td>
+      <td><a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a></td>
+    </tr>
+  </table>
+
+  <button type="button" class="btn btn-primary" (click)="addRow()">Add Row</button>
+  <button type="button" class="btn btn-primary" (click)="addColumn()">Add Variable</button>
 
   <!-- TODO dark switch -->
 </div>
