@@ -32,20 +32,34 @@ export class MailtoComponent implements OnInit {
     localStorage.setItem('variableNames', this.variableNames.join('\n'));
     localStorage.setItem('subjectTemplate', this.subject);
     localStorage.setItem('bodyTemplate', this.body);
-    localStorage.setItem('addresses', this.addresses.join('\n'));
-    localStorage.setItem('variables', this.variables.map(r => r.join('\t')).join('\n'));
+    this.saveRows();
 
     const links: string[] = [];
     for (let i = 0; i < this.addresses.length; i++) {
-      const recipient = this.addresses[i];
-      const variables = this.variables[i];
-
-      const subject = this.replaceVariables(this.subject, this.variableNames, variables);
-      const body = this.replaceVariables(this.body, this.variableNames, variables);
-
-      links.push(`mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      let link = this.getLink(i);
+      links.push(link);
     }
     this.links = links;
+  }
+
+  updateRow(index: number) {
+    this.saveRows();
+    this.links[index] = this.getLink(index);
+  }
+
+  private saveRows() {
+    localStorage.setItem('addresses', this.addresses.join('\n'));
+    localStorage.setItem('variables', this.variables.map(r => r.join('\t')).join('\n'));
+  }
+
+  private getLink(rowIndex: number) {
+    const recipient = this.addresses[rowIndex];
+    const variables = this.variables[rowIndex];
+
+    const subject = this.replaceVariables(this.subject, this.variableNames, variables);
+    const body = this.replaceVariables(this.body, this.variableNames, variables);
+
+    return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   replaceVariables(body: string, variableNames: string[], variables: string[]): string {
