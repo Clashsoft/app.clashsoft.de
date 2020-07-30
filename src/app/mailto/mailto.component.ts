@@ -70,7 +70,9 @@ export class MailtoComponent implements OnInit {
   }
 
   addRow(): void {
+    this.addresses.push('');
     this.variables.push(this.variableNames.slice());
+    this.links.push('');
   }
 
   addColumn(): void {
@@ -82,5 +84,39 @@ export class MailtoComponent implements OnInit {
 
   index(index: number, value: any): number {
     return index;
+  }
+
+  paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number) {
+    const text = event.clipboardData.getData('text');
+
+    const matrix = text.split('\n').map(s => s.split('\t'));
+
+    if (matrix.length == 1 && matrix[0].length == 1) {
+      return;
+    }
+
+    event.preventDefault();
+
+    for (let i = 0; i < matrix.length; i++) {
+      const rowIndex = startRowIndex + i;
+      if (rowIndex >= this.addresses.length) {
+        this.addRow();
+      }
+
+      for (let j = 0; j < matrix[i].length; j++) {
+        const colIndex = startColumnIndex + j;
+        if (colIndex >= this.variableNames.length) {
+          this.addColumn();
+        }
+
+        if (colIndex == -1) {
+          this.addresses[rowIndex] = matrix[i][j];
+        } else {
+          this.variables[rowIndex][colIndex] = matrix[i][j];
+        }
+      }
+    }
+
+    this.update();
   }
 }

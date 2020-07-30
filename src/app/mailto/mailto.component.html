@@ -26,8 +26,8 @@
       <th>mailto-Link</th>
     </tr>
     <tr *ngFor="let row of variables; let i=index">
-      <td><input type="email" class="form-control" [(ngModel)]="addresses[i]" (change)="updateRow(i)"></td>
-      <td *ngFor="let _ of variableNames; let j=index; trackBy:index"><input type="text" class="form-control" [(ngModel)]="row[j]" (change)="updateRow(i)"></td>
+      <td><input type="email" class="form-control" [(ngModel)]="addresses[i]" (change)="updateRow(i)" (paste)="paste($event, i, -1)"></td>
+      <td *ngFor="let _ of variableNames; let j=index; trackBy:index"><input type="text" class="form-control" [(ngModel)]="row[j]" (change)="updateRow(i)" (paste)="paste($event, i, j)"></td>
       <td><a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a></td>
     </tr>
   </table>
