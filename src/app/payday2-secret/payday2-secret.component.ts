@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Achievement} from "./achievement.interface";
 import {achievements} from "./achievements";
+import {AchievementService} from "./achievement.service";
 
 @Component({
   selector: 'app-payday2-secret',
@@ -10,9 +11,11 @@ import {achievements} from "./achievements";
 })
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;
+  searchText: string;
 
   constructor(
     private modalService: NgbModal,
+    private achievementService: AchievementService,
   ) {
   }
 
@@ -24,6 +27,7 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   inputChanged(): void {
+    this.achievements = this.achievementService.findMatching(this.searchText);
   }
 
   submitSearch(): void {
