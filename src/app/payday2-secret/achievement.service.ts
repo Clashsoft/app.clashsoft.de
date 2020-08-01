@@ -6,12 +6,21 @@ import {achievements, normalize} from "./achievements";
 export class AchievementService {
   pinned: Achievement[];
   completed: Achievement[];
-  threeSymbolMode: boolean;
+  private _threeSymbolMode: boolean;
 
   constructor() {
-    this.threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
+    this._threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
     this.pinned = localStorage.getItem('pinned')?.split('\n').map(n => this.getAchievement(n)) ?? [];
     this.completed = localStorage.getItem('completed')?.split('\n').map(n => this.getAchievement(n)) ?? [];
+  }
+
+  get threeSymbolMode(): boolean {
+    return this._threeSymbolMode;
+  }
+
+  set threeSymbolMode(value: boolean) {
+    this._threeSymbolMode = value;
+    localStorage.setItem('threeSymbolMode', `${value}`);
   }
 
   private getAchievement(title: string) {
@@ -29,7 +38,7 @@ export class AchievementService {
   findMatching(searchText: string): Achievement[] {
     const normalized = normalize(searchText);
     return achievements.filter(achievement => {
-      const anorm = this.threeSymbolMode ? achievement.threeSymbols : achievement.normalized;
+      const anorm = this._threeSymbolMode ? achievement.threeSymbols : achievement.normalized;
       return anorm.startsWith(normalized);
     });
   }
