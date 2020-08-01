@@ -33,9 +33,6 @@ export class Payday2SecretComponent implements OnInit {
     this.achievements = this.achievementService.findMatching(this.searchText);
   }
 
-  submitSearch(): void {
-  }
-
   clearSaved(): void {
   }
 
@@ -43,8 +40,10 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   pinned(achievement: Achievement) {
+    this.achievementService.pin(achievement);
   }
 
   completed(achievement: Achievement) {
+    this.achievementService.complete(achievement);
   }
 }

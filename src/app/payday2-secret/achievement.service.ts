@@ -25,4 +25,28 @@ export class AchievementService {
       return anorm.startsWith(normalized);
     });
   }
+
+  pin(achievement: Achievement) {
+    this.pinned.push(achievement);
+    this.uncomplete(achievement);
+  }
+
+  unpin(achievement: Achievement) {
+    const index = this.pinned.indexOf(achievement);
+    if (index >= 0) {
+      this.pinned.splice(index, 1);
+    }
+  }
+
+  complete(achievement: Achievement) {
+    this.completed.push(achievement);
+    this.unpin(achievement);
+  }
+
+  uncomplete(achievement: Achievement) {
+    const index = this.completed.indexOf(achievement);
+    if (index >= 0) {
+      this.completed.splice(index, 1);
+    }
+  }
 }
