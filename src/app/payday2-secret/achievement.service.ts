@@ -18,6 +18,14 @@ export class AchievementService {
     return achievements.find(a => a.title === title);
   }
 
+  private savePinned() {
+    localStorage.setItem('pinned', this.pinned.map(a => a.title).join('\n'));
+  }
+
+  private saveCompleted() {
+    localStorage.setItem('completed', this.completed.map(a => a.title).join('\n'));
+  }
+
   findMatching(searchText: string): Achievement[] {
     const normalized = normalize(searchText);
     return achievements.filter(achievement => {
@@ -27,7 +35,10 @@ export class AchievementService {
   }
 
   pin(achievement: Achievement) {
-    this.pinned.push(achievement);
+    if (this.pinned.indexOf(achievement) < 0) {
+      this.pinned.push(achievement);
+      this.savePinned();
+    }
     this.uncomplete(achievement);
   }
 
@@ -35,11 +46,15 @@ export class AchievementService {
     const index = this.pinned.indexOf(achievement);
     if (index >= 0) {
       this.pinned.splice(index, 1);
+      this.savePinned();
     }
   }
 
   complete(achievement: Achievement) {
-    this.completed.push(achievement);
+    if (this.completed.indexOf(achievement) < 0) {
+      this.completed.push(achievement);
+      this.saveCompleted();
+    }
     this.unpin(achievement);
   }
 
@@ -47,6 +62,7 @@ export class AchievementService {
     const index = this.completed.indexOf(achievement);
     if (index >= 0) {
       this.completed.splice(index, 1);
+      this.saveCompleted();
     }
   }
 }
