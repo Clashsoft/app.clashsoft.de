@@ -10,8 +10,8 @@ export class AchievementService {
 
   constructor() {
     this.threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
-    this.pinned = (localStorage.getItem('pinned') ?? '').split('\n').map(n => this.getAchievement(n));
-    this.completed = (localStorage.getItem('completed') ?? '').split('\n').map(n => this.getAchievement(n));
+    this.pinned = localStorage.getItem('pinned')?.split('\n').map(n => this.getAchievement(n)) ?? [];
+    this.completed = localStorage.getItem('completed')?.split('\n').map(n => this.getAchievement(n)) ?? [];
   }
 
   private getAchievement(title: string) {

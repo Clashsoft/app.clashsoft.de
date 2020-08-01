@@ -39,11 +39,27 @@ export class Payday2SecretComponent implements OnInit {
   copySaved(): void {
   }
 
-  pinned(achievement: Achievement) {
+  get pinned(): Achievement[] {
+    return this.achievementService.pinned;
+  }
+
+  get completed(): Achievement[] {
+    return this.achievementService.completed;
+  }
+
+  pin(achievement: Achievement) {
     this.achievementService.pin(achievement);
   }
 
-  completed(achievement: Achievement) {
+  unpin(achievement: Achievement) {
+    this.achievementService.unpin(achievement);
+  }
+
+  complete(achievement: Achievement) {
     this.achievementService.complete(achievement);
+  }
+
+  uncomplete(achievement: Achievement) {
+    this.achievementService.uncomplete(achievement);
   }
 }
