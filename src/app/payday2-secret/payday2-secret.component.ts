@@ -34,6 +34,9 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   clearSaved(): void {
+    if (confirm('Discard all saved achievements? This cannot be undone.')) {
+      this.achievementService.clearSaved();
+    }
   }
 
   copySaved(): void {

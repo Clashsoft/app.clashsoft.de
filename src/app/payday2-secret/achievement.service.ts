@@ -43,6 +43,13 @@ export class AchievementService {
     });
   }
 
+  clearSaved() {
+    this.pinned.length = 0;
+    this.savePinned();
+    this.completed.length = 0;
+    this.saveCompleted();
+  }
+
   pin(achievement: Achievement) {
     if (this.pinned.indexOf(achievement) < 0) {
       this.pinned.push(achievement);
