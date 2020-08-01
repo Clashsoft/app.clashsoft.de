@@ -10,6 +10,7 @@ dependencies:
   '@angular/router': 10.0.6_0d871ad1d32e4974cd4f0235a8f3ed5b
   '@ng-bootstrap/ng-bootstrap': 7.0.0_8e6dfcfccd6d1bb12981866ae3516900
   bootstrap: 4.5.0
+  ngx-clipboard: 14.0.0-beta01_c51e977c32e6cc0ed0c80c5bc73f9121
   rxjs: 6.5.5
   tslib: 2.0.0
   zone.js: 0.10.3
@@ -5904,6 +5905,31 @@ packages:
     dev: true
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
+  /ngx-clipboard/14.0.0-beta01_c51e977c32e6cc0ed0c80c5bc73f9121:
+    dependencies:
+      '@angular/common': 10.0.6_@angular+core@10.0.6+rxjs@6.5.5
+      '@angular/core': 10.0.6_rxjs@6.5.5+zone.js@0.10.3
+      ngx-window-token: 4.0.0-beta01_c51e977c32e6cc0ed0c80c5bc73f9121
+      tslib: 2.0.0
+    dev: false
+    peerDependencies:
+      '@angular/common': '>=10.0.0'
+      '@angular/core': '>=10.0.0'
+    resolution:
+      integrity: sha512-KMN1X4kTLYPCfJbr5sYJAWquwBYaqgM5F/217U4/SGhTF3K88PImiwEs/tETpgNPgPN0c1voyDyS6j6bC76Udg==
+  /ngx-window-token/4.0.0-beta01_c51e977c32e6cc0ed0c80c5bc73f9121:
+    dependencies:
+      '@angular/common': 10.0.6_@angular+core@10.0.6+rxjs@6.5.5
+      '@angular/core': 10.0.6_rxjs@6.5.5+zone.js@0.10.3
+      tslib: 2.0.0
+    dev: false
+    engines:
+      node: '>=10.13.x'
+    peerDependencies:
+      '@angular/common': '>=10.0.0'
+      '@angular/core': '>=10.0.0'
+    resolution:
+      integrity: sha512-B7Yg2y8xKGGPUPddRxl/mhEHyihzHsYaOsjHkKZRsiaaO+CUV7E/mckjUXTc5JLHm92A/lZV1lfqSUm4a2Wmkw==
   /nice-try/1.0.5:
     dev: true
     resolution:
@@ -9355,6 +9381,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.2
   karma-jasmine: ~3.3.0
   karma-jasmine-html-reporter: ^1.5.0
+  ngx-clipboard: 14.0.0-beta01
   protractor: ~7.0.0
   rxjs: ~6.5.5
   ts-node: ~8.3.0
