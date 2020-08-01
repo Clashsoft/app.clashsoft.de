@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Achievement} from "./achievement.interface";
+import {achievements} from "./achievements";
 
 @Component({
   selector: 'app-payday2-secret',
@@ -7,6 +9,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./payday2-secret.component.scss']
 })
 export class Payday2SecretComponent implements OnInit {
+  achievements: Achievement[] = achievements;
 
   constructor(
     private modalService: NgbModal,
@@ -33,5 +36,11 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   copySaved(): void {
+  }
+
+  pinned(achievement: Achievement) {
+  }
+
+  completed(achievement: Achievement) {
   }
 }
