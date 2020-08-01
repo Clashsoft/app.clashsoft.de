@@ -11,7 +11,8 @@ import {AchievementService} from "./achievement.service";
 })
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;
-  searchText: string;
+  searchText: string = '';
+  threeSymbolMode: boolean;
 
   constructor(
     private modalService: NgbModal,
@@ -20,6 +21,7 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.threeSymbolMode = this.achievementService.threeSymbolMode;
   }
 
   openModal(content): void {
@@ -27,13 +29,11 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   inputChanged(): void {
+    this.achievementService.threeSymbolMode = this.threeSymbolMode;
     this.achievements = this.achievementService.findMatching(this.searchText);
   }
 
   submitSearch(): void {
-  }
-
-  threeSymbolChanged(): void {
   }
 
   clearSaved(): void {
