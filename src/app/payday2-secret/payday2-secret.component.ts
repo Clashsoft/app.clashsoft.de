@@ -3,6 +3,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Achievement} from "./achievement.interface";
 import {achievements} from "./achievements";
 import {AchievementService} from "./achievement.service";
+import {ClipboardService} from "ngx-clipboard";
 
 @Component({
   selector: 'app-payday2-secret',
@@ -17,6 +18,7 @@ export class Payday2SecretComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private achievementService: AchievementService,
+    private clipboardService: ClipboardService,
   ) {
   }
 
@@ -40,6 +42,8 @@ export class Payday2SecretComponent implements OnInit {
   }
 
   copySaved(): void {
+    const text = [...this.achievementService.pinned, ...this.achievementService.completed].map(a => a.title).join('\n');
+    this.clipboardService.copy(text);
   }
 
   get pinned(): Achievement[] {

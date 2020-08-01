@@ -8,6 +8,7 @@ import { PasswordBoxComponent } from './password-box/password-box.component';
 import { MailtoComponent } from './mailto/mailto.component';
 import {FormsModule} from "@angular/forms";
 import { Payday2SecretComponent } from './payday2-secret/payday2-secret.component';
+import {ClipboardModule} from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Payday2SecretComponent } from './payday2-secret/payday2-secret.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
