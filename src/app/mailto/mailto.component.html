@@ -32,6 +32,9 @@
           </div>
         </div>
       </th>
+      <th>
+        <button type="button" class="btn btn-success" (click)="addColumn()" ngbTooltip="Add Variable/Column">+</button>
+      </th>
       <th>mailto-Link</th>
       <th></th>
     </tr>
@@ -44,6 +47,7 @@
         <input type="text" class="form-control"
                [(ngModel)]="row[j]" (change)="updateRow(i)" (paste)="paste($event, i, j)">
       </td>
+      <td></td>
       <td>
         <a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a>
       </td>
@@ -53,10 +57,14 @@
         </button>
       </td>
     </tr>
+    <tr>
+      <td colspan="6">
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="addRow()" ngbTooltip="Add Row">+</button>
+      </td>
+    </tr>
   </table>
-
-  <button type="button" class="btn btn-primary" (click)="addRow()">Add Row</button>
-  <button type="button" class="btn btn-primary" (click)="addColumn()">Add Variable</button>
 
   <!-- TODO dark switch -->
 </div>
