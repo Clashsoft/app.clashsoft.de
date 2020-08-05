@@ -87,6 +87,14 @@ export class MailtoComponent implements OnInit {
     }
   }
 
+  deleteColumn(index: number): void {
+    this.variableNames.splice(index, 1);
+    for (let row of this.variables) {
+      row.splice(index, 1);
+    }
+    this.update();
+  }
+
   index(index: number, value: any): number {
     return index;
   }
