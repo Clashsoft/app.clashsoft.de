@@ -9,6 +9,7 @@ import { MailtoComponent } from './mailto/mailto.component';
 import {FormsModule} from "@angular/forms";
 import { Payday2SecretComponent } from './payday2-secret/payday2-secret.component';
 import {ClipboardModule} from 'ngx-clipboard';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import {ClipboardModule} from 'ngx-clipboard';
     MailtoComponent,
     Payday2SecretComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ClipboardModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ClipboardModule,
+        NgbModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
