@@ -73,6 +73,13 @@ export class MailtoComponent implements OnInit {
     this.links.push('');
   }
 
+  deleteRow(index: number): void {
+    this.addresses.splice(index, 1);
+    this.variables.splice(index, 1);
+    this.links.splice(index, 1);
+    this.saveRows();
+  }
+
   addColumn(): void {
     this.variableNames.push(`${this.variableNames.length}`);
     for (let row of this.variables) {

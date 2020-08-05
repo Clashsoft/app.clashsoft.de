@@ -33,6 +33,7 @@
         </div>
       </th>
       <th>mailto-Link</th>
+      <th></th>
     </tr>
     <tr *ngFor="let row of variables; let i=index">
       <td>
@@ -45,6 +46,11 @@
       </td>
       <td>
         <a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" ngbTooltip="Delete Row" (click)="deleteRow(i)">
+          &times;
+        </button>
       </td>
     </tr>
   </table>
