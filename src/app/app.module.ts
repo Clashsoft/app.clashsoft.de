@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { Payday2SecretComponent } from './payday2-secret/payday2-secret.component';
 import {ClipboardModule} from 'ngx-clipboard';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
         FormsModule,
         ClipboardModule,
         NgbModule,
+        NgBootstrapDarkmodeModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

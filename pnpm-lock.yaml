@@ -2,7 +2,7 @@ dependencies:
   '@angular/animations': 10.0.10_@angular+core@10.0.10
   '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
   '@angular/compiler': 10.0.10
-  '@angular/core': 10.0.10_rxjs@6.6.2
+  '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
   '@angular/forms': 10.0.10_1ff6b1e8552dc20436921702012f4f62
   '@angular/localize': 10.0.10_eb3478f6d88af87d0e632977d455117c
   '@angular/platform-browser': 10.0.10_7886f5fe1998a2947a8f31e7c6f53652
@@ -10,7 +10,9 @@ dependencies:
   '@angular/router': 10.0.10_1ff6b1e8552dc20436921702012f4f62
   '@ng-bootstrap/ng-bootstrap': 7.0.0_94f173f5a9d02e2137cffe1b8840a938
   bootstrap: 4.5.0
+  bootstrap-darkmode: 0.6.0
   express: 4.17.1
+  ng-bootstrap-darkmode: 0.1.2_674aa938913a2671cc50b024c936fc8b
   ngx-clipboard: 14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033
   rxjs: 6.6.2
   tslib: 2.0.0
@@ -190,7 +192,7 @@ packages:
       integrity: sha512-V3T4cf+jVKiPYyBrSVHf3ZSnk4wIc1WEaaeFta56HccEGQCQpvAFKqDurmtMHer50Hhaxhn7IC3Oi5kPnvkNyQ==
   /@angular/animations/10.0.10_@angular+core@10.0.10:
     dependencies:
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       tslib: 2.0.0
     dev: false
     peerDependencies:
@@ -230,7 +232,7 @@ packages:
       integrity: sha512-gQbQA/CsCyMf9RKEv1hJBCdBebV2BHeT4lGi56Eii0IkvZD5WIH0dNfQzR+6ErqGDgE1EI+9YCuX3psMEvCRUA==
   /@angular/common/10.0.10_@angular+core@10.0.10+rxjs@6.6.2:
     dependencies:
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       rxjs: 6.6.2
       tslib: 2.0.0
     dev: false
@@ -279,10 +281,11 @@ packages:
       tslib: ^1.10.0
     resolution:
       integrity: sha512-ctjwuntPfZZT2mNj2NDIVu51t9cvbhl/16epc5xEwyzyDt76pX9UgwvY+MbXrf/C/FWwdtmNtfP698BKI+9leQ==
-  /@angular/core/10.0.10_rxjs@6.6.2:
+  /@angular/core/10.0.10_rxjs@6.6.2+zone.js@0.10.3:
     dependencies:
       rxjs: 6.6.2
       tslib: 2.0.0
+      zone.js: 0.10.3
     dev: false
     peerDependencies:
       rxjs: ^6.5.3
@@ -304,7 +307,7 @@ packages:
   /@angular/forms/10.0.10_1ff6b1e8552dc20436921702012f4f62:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       '@angular/platform-browser': 10.0.10_7886f5fe1998a2947a8f31e7c6f53652
       rxjs: 6.6.2
       tslib: 2.0.0
@@ -336,7 +339,7 @@ packages:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
       '@angular/compiler': 10.0.10
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       '@angular/platform-browser': 10.0.10_7886f5fe1998a2947a8f31e7c6f53652
       tslib: 2.0.0
     dev: false
@@ -351,7 +354,7 @@ packages:
     dependencies:
       '@angular/animations': 10.0.10_@angular+core@10.0.10
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       tslib: 2.0.0
     dev: false
     peerDependencies:
@@ -366,7 +369,7 @@ packages:
   /@angular/router/10.0.10_1ff6b1e8552dc20436921702012f4f62:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       '@angular/platform-browser': 10.0.10_7886f5fe1998a2947a8f31e7c6f53652
       rxjs: 6.6.2
       tslib: 2.0.0
@@ -1258,7 +1261,7 @@ packages:
   /@ng-bootstrap/ng-bootstrap/7.0.0_94f173f5a9d02e2137cffe1b8840a938:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       '@angular/forms': 10.0.10_1ff6b1e8552dc20436921702012f4f62
       '@angular/localize': 10.0.10_eb3478f6d88af87d0e632977d455117c
       rxjs: 6.6.2
@@ -2086,6 +2089,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+  /bootstrap-darkmode/0.6.0:
+    dev: false
+    resolution:
+      integrity: sha512-CTZeIsMnfpCJGHkV3wm++EmYxNZ6pdZXo5wkWTwDbIrbHLu+QIJaLRq2WwfVKTdvnRELEVFuM7oRQnrfd3W7Xw==
   /bootstrap/4.5.0:
     dev: false
     peerDependencies:
@@ -5895,10 +5902,25 @@ packages:
     dev: true
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
+  /ng-bootstrap-darkmode/0.1.2_674aa938913a2671cc50b024c936fc8b:
+    dependencies:
+      '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
+      '@angular/forms': 10.0.10_1ff6b1e8552dc20436921702012f4f62
+      bootstrap-darkmode: 0.6.0
+      tslib: 1.13.0
+    dev: false
+    peerDependencies:
+      '@angular/common': ^9.1.9
+      '@angular/core': ^9.1.9
+      '@angular/forms': ^9.1.9
+      bootstrap-darkmode: ^0.6.0
+    resolution:
+      integrity: sha512-zpaI9X+azg3de3ymE4qfFXKatRfktoTScJ/rP4WwhQF4WSGwWhu8KEy0md8jWRDIqCqCktqWwSHI0+bv7u/V3g==
   /ngx-clipboard/14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       ngx-window-token: 4.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033
       tslib: 2.0.0
     dev: false
@@ -5910,7 +5932,7 @@ packages:
   /ngx-window-token/4.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
-      '@angular/core': 10.0.10_rxjs@6.6.2
+      '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       tslib: 2.0.0
     dev: false
     engines:
@@ -9364,6 +9386,7 @@ specifiers:
   '@types/jasminewd2': ~2.0.3
   '@types/node': ^12.11.1
   bootstrap: ^4.5.0
+  bootstrap-darkmode: ^0.6.0
   codelyzer: ^6.0.0-next.1
   express: ^4.17.1
   jasmine-core: ~3.5.0
@@ -9373,6 +9396,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.2
   karma-jasmine: ~3.3.0
   karma-jasmine-html-reporter: ^1.5.0
+  ng-bootstrap-darkmode: ^0.1.2
   ngx-clipboard: 14.0.0-beta01
   protractor: ~7.0.0
   rxjs: ~6.6.2
