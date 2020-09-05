@@ -10,9 +10,9 @@ dependencies:
   '@angular/router': 10.0.10_1ff6b1e8552dc20436921702012f4f62
   '@ng-bootstrap/ng-bootstrap': 7.0.0_94f173f5a9d02e2137cffe1b8840a938
   bootstrap: 4.5.0
-  bootstrap-darkmode: 0.6.0
+  bootstrap-darkmode: 0.7.0
   express: 4.17.1
-  ng-bootstrap-darkmode: 0.1.2_674aa938913a2671cc50b024c936fc8b
+  ng-bootstrap-darkmode: 0.2.0_af08364fdbe072fc65cbdd7fd7030f22
   ngx-clipboard: 14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033
   rxjs: 6.6.2
   tslib: 2.0.0
@@ -2089,10 +2089,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=
-  /bootstrap-darkmode/0.6.0:
+  /bootstrap-darkmode/0.7.0:
     dev: false
     resolution:
-      integrity: sha512-CTZeIsMnfpCJGHkV3wm++EmYxNZ6pdZXo5wkWTwDbIrbHLu+QIJaLRq2WwfVKTdvnRELEVFuM7oRQnrfd3W7Xw==
+      integrity: sha512-T9rTUFGirkTeGelUDJvWSjvUu11gQ4BE3g8s1dtHxEatz3u2XN5q8Oe2mQ5oKGR8IIi7i28Xrh/DVpEouUqBBA==
   /bootstrap/4.5.0:
     dev: false
     peerDependencies:
@@ -5902,21 +5902,21 @@ packages:
     dev: true
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /ng-bootstrap-darkmode/0.1.2_674aa938913a2671cc50b024c936fc8b:
+  /ng-bootstrap-darkmode/0.2.0_af08364fdbe072fc65cbdd7fd7030f22:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
       '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
       '@angular/forms': 10.0.10_1ff6b1e8552dc20436921702012f4f62
-      bootstrap-darkmode: 0.6.0
+      bootstrap-darkmode: 0.7.0
       tslib: 1.13.0
     dev: false
     peerDependencies:
       '@angular/common': ^9.1.9
       '@angular/core': ^9.1.9
       '@angular/forms': ^9.1.9
-      bootstrap-darkmode: ^0.6.0
+      bootstrap-darkmode: ^0.7.0
     resolution:
-      integrity: sha512-zpaI9X+azg3de3ymE4qfFXKatRfktoTScJ/rP4WwhQF4WSGwWhu8KEy0md8jWRDIqCqCktqWwSHI0+bv7u/V3g==
+      integrity: sha512-D9Xq451ZpLp98lCcYEbVz2UiaFypwAUH8ecupF+JMr2CVwpm1syZH/7nPuvp71iEx51SjD22/hWVviNLYPCpYQ==
   /ngx-clipboard/14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
@@ -9386,7 +9386,7 @@ specifiers:
   '@types/jasminewd2': ~2.0.3
   '@types/node': ^12.11.1
   bootstrap: ^4.5.0
-  bootstrap-darkmode: ^0.6.0
+  bootstrap-darkmode: ^0.7.0
   codelyzer: ^6.0.0-next.1
   express: ^4.17.1
   jasmine-core: ~3.5.0
@@ -9396,7 +9396,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.2
   karma-jasmine: ~3.3.0
   karma-jasmine-html-reporter: ^1.5.0
-  ng-bootstrap-darkmode: ^0.1.2
+  ng-bootstrap-darkmode: ^0.2.0
   ngx-clipboard: 14.0.0-beta01
   protractor: ~7.0.0
   rxjs: ~6.6.2
