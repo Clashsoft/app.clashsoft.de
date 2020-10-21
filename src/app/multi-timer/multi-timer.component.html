@@ -3,12 +3,13 @@
   <div class="form">
     <div class="form-group">
       <label for="timerCount">Number of timers</label>
-      <input type="number" class="form-control" id="timerCount" min="0" step="1" [(ngModel)]="count" (change)="save()">
+      <input type="number" class="form-control" id="timerCount" min="0" step="1" max="99"
+             [(ngModel)]="count" (change)="save()">
     </div>
     <div class="form-group">
       <label for="timerDuration">Duration in seconds</label>
-      <input type="number" class="form-control" id="timerDuration" min="0" step="1" [(ngModel)]="duration"
-             (change)="save()">
+      <input type="number" class="form-control" id="timerDuration" min="0" step="1" max="99999"
+             [(ngModel)]="duration" (change)="save()">
     </div>
   </div>
   <div>
