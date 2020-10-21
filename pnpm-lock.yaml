@@ -12,7 +12,7 @@ dependencies:
   bootstrap: 4.5.0
   bootstrap-darkmode: 0.7.0
   express: 4.17.1
-  ng-bootstrap-darkmode: 0.2.0_af08364fdbe072fc65cbdd7fd7030f22
+  ng-bootstrap-darkmode: 0.4.0_af08364fdbe072fc65cbdd7fd7030f22
   ngx-clipboard: 14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033
   rxjs: 6.6.2
   tslib: 2.0.0
@@ -274,7 +274,9 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fO7kml0HUgnMa5eviKUk+j7NACASkoMAEgvbcVdKmGsSDu9YVkaqSdLXuj2vu9glSJWDRkZJKSrt9MzbmhyB5A==
-  /@angular/compiler/9.0.0:
+  /@angular/compiler/9.0.0_tslib@1.13.0:
+    dependencies:
+      tslib: 1.13.0
     dev: true
     peerDependencies:
       tslib: ^1.10.0
@@ -291,9 +293,10 @@ packages:
       zone.js: ~0.10.3
     resolution:
       integrity: sha512-PIQhLqjZayVXJoXs4WQu7orkePqFiux19y7bgBrsSAithe+g9BkrSIdX7+tkkX0zggUWKywY92YuMZCJ/S+uiw==
-  /@angular/core/9.0.0_rxjs@6.5.5+zone.js@0.10.3:
+  /@angular/core/9.0.0_b60c80369c96760de9b1fe4cefc8589f:
     dependencies:
       rxjs: 6.5.5
+      tslib: 1.13.0
       zone.js: 0.10.3
     dev: true
     peerDependencies:
@@ -2594,8 +2597,8 @@ packages:
       integrity: sha512-q5/jG+YQnSy4nRTV4F7lPepBJZ8qBNJJDBuJdoejDyLXgmL7IEo+Le2JDZudFTFt7mrCqIRaSjws4ygRCTCAXA==
   /codelyzer/6.0.0_tslint@6.1.2:
     dependencies:
-      '@angular/compiler': 9.0.0
-      '@angular/core': 9.0.0_rxjs@6.5.5+zone.js@0.10.3
+      '@angular/compiler': 9.0.0_tslib@1.13.0
+      '@angular/core': 9.0.0_b60c80369c96760de9b1fe4cefc8589f
       app-root-path: 3.0.0
       aria-query: 3.0.0
       axobject-query: 2.0.2
@@ -5973,7 +5976,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /ng-bootstrap-darkmode/0.2.0_af08364fdbe072fc65cbdd7fd7030f22:
+  /ng-bootstrap-darkmode/0.4.0_af08364fdbe072fc65cbdd7fd7030f22:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
       '@angular/core': 10.0.10_rxjs@6.6.2+zone.js@0.10.3
@@ -5987,7 +5990,7 @@ packages:
       '@angular/forms': ^9.1.9
       bootstrap-darkmode: ^0.7.0
     resolution:
-      integrity: sha512-D9Xq451ZpLp98lCcYEbVz2UiaFypwAUH8ecupF+JMr2CVwpm1syZH/7nPuvp71iEx51SjD22/hWVviNLYPCpYQ==
+      integrity: sha512-LoA3nzq0ZUZXszm5bFRm3NRiSepC9D8AyntGLWttWpUi56xn/tMIpVzHUeoSHFYkXUrFQpvUBJGBbGHm+hnAjQ==
   /ngx-clipboard/14.0.0-beta01_252942cb60162b7f8801b0e5c1a2c033:
     dependencies:
       '@angular/common': 10.0.10_@angular+core@10.0.10+rxjs@6.6.2
@@ -9490,7 +9493,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.2
   karma-jasmine: ~3.3.0
   karma-jasmine-html-reporter: ^1.5.0
-  ng-bootstrap-darkmode: ^0.2.0
+  ng-bootstrap-darkmode: ^0.4.0
   ngx-clipboard: 14.0.0-beta01
   protractor: ~7.0.0
   rxjs: ~6.6.2
