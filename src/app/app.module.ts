@@ -11,6 +11,9 @@ import { Payday2SecretComponent } from './payday2-secret/payday2-secret.componen
 import {ClipboardModule} from 'ngx-clipboard';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
+import {MultiTimerComponent} from './multi-timer/multi-timer.component';
+import { RangePipe } from './multi-timer/range.pipe';
+import {DurationPipe} from './multi-timer/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
     PasswordBoxComponent,
     MailtoComponent,
     Payday2SecretComponent,
+    MultiTimerComponent,
+    RangePipe,
+    DurationPipe,
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Multi-Timer</h1>
+  <div class="form">
+    <div class="form-group">
+      <label for="timerCount">Number of timers</label>
+      <input type="number" class="form-control" id="timerCount" min="0" step="1" [(ngModel)]="count" (change)="save()">
+    </div>
+    <div class="form-group">
+      <label for="timerDuration">Duration in seconds</label>
+      <input type="number" class="form-control" id="timerDuration" min="0" step="1" [(ngModel)]="duration"
+             (change)="save()">
+    </div>
+  </div>
+  <div>
+    <button type="button" class="btn btn-lg btn-primary" (click)="start()">
+      Start!
+    </button>
+  </div>
+  <div class="display-4 text-center">
+    {{(duration - total)|duration}} remaining!
+  </div>
+  <div class="mb-3">
+    <ngb-progressbar type="success" height="3em" [value]="total" [max]="duration"></ngb-progressbar>
+  </div>
+  <div class="list-group mb-3">
+    <a *ngFor="let i of count|range"
+      class="list-group-item list-group-item-action" [class.active]="active == i" (click)="active = i">
+      <h2>Timer #{{i + 1}}</h2>
+      {{(elapsed[i] || 0)|duration}} elapsed
+      <ngb-progressbar type="success" [value]="elapsed[i] || 0" [max]="duration"></ngb-progressbar>
+    </a>
+  </div>
+  <div class="text-center mb-3">
+    <ng-bootstrap-theme-switch></ng-bootstrap-theme-switch>
+  </div>
+</div>
