@@ -33,4 +33,4 @@ jobs:
       - name: Deploy
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: ng deploy --cname=app.clashsoft.de
+        run: ng deploy --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
