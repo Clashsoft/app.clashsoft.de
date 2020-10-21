@@ -12,8 +12,11 @@
     </div>
   </div>
   <div>
-    <button type="button" class="btn btn-lg btn-primary" (click)="start()">
-      Start!
+    <button type="button" class="btn btn-lg btn-primary" (click)="handle ? stop() : start()">
+      {{handle ? 'Stop' : 'Start!'}}
+    </button>
+    <button *ngIf="!handle && total !== 0" type="button" class="btn btn btn-danger ml-3" (click)="reset()">
+      Reset
     </button>
   </div>
   <div class="display-4 text-center">

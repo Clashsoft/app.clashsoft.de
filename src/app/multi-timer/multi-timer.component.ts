@@ -32,19 +32,18 @@ export class MultiTimerComponent implements OnInit {
   }
 
   start(): void {
-    this.stop();
-    this.reset();
     this.handle = setInterval(() => this.update(), 1000);
   }
 
-  private reset() {
+  reset() {
     this.total = 0;
     this.elapsed = [];
   }
 
-  private stop() {
+  stop() {
     if (this.handle !== undefined) {
       clearInterval(this.handle);
+      this.handle = undefined;
     }
   }
 
