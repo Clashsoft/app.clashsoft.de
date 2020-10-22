@@ -21,17 +21,17 @@
     </button>
   </div>
   <div class="display-4 text-center">
-    {{(duration - total)|duration}} remaining!
+    <span class="text-monospace">{{(duration*1000 - total)|duration}}</span> remaining!
   </div>
   <div class="mb-3">
-    <ngb-progressbar type="success" height="3em" [value]="total" [max]="duration"></ngb-progressbar>
+    <ngb-progressbar type="success" height="3em" [value]="total" [max]="duration*1000"></ngb-progressbar>
   </div>
   <div class="list-group mb-3">
     <a *ngFor="let i of count|range"
       class="list-group-item list-group-item-action" [class.active]="active == i" (click)="active = i">
       <h2>Timer #{{i + 1}}</h2>
-      {{(elapsed[i] || 0)|duration}} elapsed
-      <ngb-progressbar type="success" [value]="elapsed[i] || 0" [max]="duration"></ngb-progressbar>
+      <span class="text-monospace">{{(elapsed[i] || 0)|duration}}</span> elapsed
+      <ngb-progressbar type="success" [value]="elapsed[i] || 0" [max]="duration*1000"></ngb-progressbar>
     </a>
   </div>
   <div class="text-center mb-3">

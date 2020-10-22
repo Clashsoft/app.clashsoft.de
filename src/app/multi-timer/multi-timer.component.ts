@@ -15,6 +15,8 @@ export class MultiTimerComponent implements OnInit {
 
   handle?: number;
 
+  startTime: number;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,7 +34,8 @@ export class MultiTimerComponent implements OnInit {
   }
 
   start(): void {
-    this.handle = setInterval(() => this.update(), 1000);
+    this.startTime = +new Date();
+    this.handle = setInterval(() => this.update(), 0);
   }
 
   reset() {
@@ -48,17 +51,16 @@ export class MultiTimerComponent implements OnInit {
   }
 
   private update() {
-    if (this.total == this.duration) {
+    const date = +new Date();
+    let newTotal = date - this.startTime;
+    if (newTotal >= this.duration * 1000) {
+      newTotal = this.duration * 1000;
       this.stop();
-      return;
     }
 
-    this.total++;
+    const delta = newTotal - this.total;
+    this.total = newTotal;
 
-    if (!this.elapsed[this.active]) {
-      this.elapsed[this.active] = 1;
-    } else {
-      this.elapsed[this.active]++;
-    }
+    this.elapsed[this.active] = (this.elapsed[this.active] || 0) + delta;
   }
 }
