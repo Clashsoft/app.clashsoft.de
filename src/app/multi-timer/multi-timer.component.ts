@@ -39,6 +39,7 @@ export class MultiTimerComponent implements OnInit {
   }
 
   reset() {
+    this.active = 0;
     this.total = 0;
     this.elapsed = [];
   }
