@@ -4,12 +4,30 @@
     <div class="form-group">
       <label for="timerCount">Number of timers</label>
       <input type="number" class="form-control" id="timerCount" min="0" step="1" max="99"
-             [(ngModel)]="count" (change)="save()">
+             pattern="[0-9]{0,2}"
+             [(ngModel)]="count"
+             #timerCountModel="ngModel"
+             [class.is-invalid]="timerCountModel.invalid && (timerCountModel.touched || timerCountModel.dirty)"
+             (change)="save()"
+      >
+      <div class="invalid-feedback"
+           [class.d-block]="timerCountModel.invalid && (timerCountModel.touched || timerCountModel.dirty)">
+        Number of timers must be between 0 and 99.
+      </div>
     </div>
     <div class="form-group">
       <label for="timerDuration">Duration in seconds</label>
       <input type="number" class="form-control" id="timerDuration" min="0" step="1" max="99999"
-             [(ngModel)]="duration" (change)="save()">
+             pattern="[0-9]{0,5}"
+             [(ngModel)]="duration"
+             #timerDurationModel="ngModel"
+             [class.is-invalid]="timerDurationModel.invalid && (timerDurationModel.touched || timerDurationModel.dirty)"
+             (change)="save()"
+      >
+      <div class="invalid-feedback"
+           [class.d-block]="timerDurationModel.invalid && (timerDurationModel.touched || timerDurationModel.dirty)">
+        Duration must be between 0 and 99999.
+      </div>
     </div>
   </div>
   <div>
@@ -27,7 +45,7 @@
     <ngb-progressbar type="success" height="3em" [value]="total" [max]="duration*1000"></ngb-progressbar>
   </div>
   <div class="list-group mb-3">
-    <a *ngFor="let i of count|range"
+    <a *ngFor="let i of (count < 100 ? count : 100)|range"
       class="list-group-item list-group-item-action" [class.active]="active == i" (click)="active = i">
       <h2>Timer #{{i + 1}}</h2>
       <span class="text-monospace">{{(elapsed[i] || 0)|duration}}</span> elapsed

@@ -5,6 +5,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class RangePipe implements PipeTransform {
   transform(value: number): unknown {
-    return [...Array(value).keys()];
+    return value <= 0 ? [] : [...Array(value).keys()];
   }
 }
