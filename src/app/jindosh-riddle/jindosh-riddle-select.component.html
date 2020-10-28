@@ -1,5 +1,5 @@
 <select class="form-control form-control-sm d-inline w-auto {{placeholder}}-select"
-        [ngModel]="value"
+        [ngModel]="value || ''"
         (ngModelChange)="value=$event; valueChange.emit($event)"
 >
   <option value="" disabled selected hidden>{{placeholder}}</option>
