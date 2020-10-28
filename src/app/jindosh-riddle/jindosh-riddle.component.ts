@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+const properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
+
 @Component({
   selector: 'app-jindosh-riddle',
   templateUrl: './jindosh-riddle.component.html',
@@ -12,8 +14,6 @@ export class JindoshRiddleComponent implements OnInit {
   drinks: string[] = [];
   heirlooms: string[] = [];
 
-  private readonly properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
-
   constructor() {
   }
 
@@ -22,19 +22,23 @@ export class JindoshRiddleComponent implements OnInit {
 
 
   save(): void {
-    for (const property of this.properties) {
-      localStorage.setItem(`jindosh-riddle/${property}`, this[property].join(','));
+    const data = {};
+    for (const property of properties) {
+      data[property] = this[property];
     }
+
+    localStorage.setItem('jindoshRiddle', JSON.stringify(data));
   }
 
   load(): void {
-    for (const property of this.properties) {
-      this[property] = localStorage.getItem(`jindosh-riddle/${property}`)?.split(',') ?? [];
+    const data = JSON.parse(localStorage.getItem('jindoshRiddle') || '{}');
+    for (const property of properties) {
+      this[property] = data[property];
     }
   }
 
   reset(): void {
-    for (const property of this.properties) {
+    for (const property of properties) {
       this[property].length = 0;
     }
   }
