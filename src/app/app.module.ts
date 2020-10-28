@@ -15,6 +15,7 @@ import {MultiTimerComponent} from './multi-timer/multi-timer.component';
 import { RangePipe } from './multi-timer/range.pipe';
 import {DurationPipe} from './multi-timer/duration.pipe';
 import {AppCardComponent} from './app-card/app-card.component';
+import { JindoshRiddleComponent } from './jindosh-riddle/jindosh-riddle.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {AppCardComponent} from './app-card/app-card.component';
     RangePipe,
     DurationPipe,
     AppCardComponent,
+    JindoshRiddleComponent,
   ],
     imports: [
         BrowserModule,
