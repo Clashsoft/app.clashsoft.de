@@ -6,11 +6,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./jindosh-riddle.component.scss'],
 })
 export class JindoshRiddleComponent implements OnInit {
-  names: string[] = Array(5);
-  cities: string[] = Array(5);
-  colors: string[] = Array(5);
-  drinks: string[] = Array(5);
-  heirlooms: string[] = Array(5);
+  names: string[] = [];
+  cities: string[] = [];
+  colors: string[] = [];
+  drinks: string[] = [];
+  heirlooms: string[] = [];
+
+  private readonly properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
 
   constructor() {
   }
@@ -18,4 +20,22 @@ export class JindoshRiddleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  save(): void {
+    for (const property of this.properties) {
+      localStorage.setItem(`jindosh-riddle/${property}`, this[property].join(','));
+    }
+  }
+
+  load(): void {
+    for (const property of this.properties) {
+      this[property] = localStorage.getItem(`jindosh-riddle/${property}`)?.split(',') ?? [];
+    }
+  }
+
+  reset(): void {
+    for (const property of this.properties) {
+      this[property].length = 0;
+    }
+  }
 }
