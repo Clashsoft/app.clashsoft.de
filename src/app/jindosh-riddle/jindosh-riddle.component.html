@@ -1,32 +1,81 @@
 <div class="container text-center mt-3">
   <h1>Jindosh Riddle Solver</h1>
 
-  <div id="riddleText">
-    <p>
-      At the dinner party were Lady Winslow, Doctor Marcolla, Countess Contee, Madam Natsiou, and Baroness Finch.
-    </p>
-    <p>
-      The women sat in a row. They all wore different colors and <character></character> wore a jaunty <color></color> hat.
-      <character></character> was at the far left, next to the guest wearing a <color></color> jacket. The lady in <color></color> sat left of
-      someone in <color></color>. I remember that <color></color> outfit because the woman spilled her <drink></drink> all over it. The
-      traveler from <city></city> was dressed entirely in <color></color>. When one of the dinner guests bragged about her
-      <heirloom></heirloom>, the woman next to her said they were finer in <city></city>, where she lived.
-    </p>
-    <p>
-      So <character></character> showed off a prized <heirloom></heirloom>, at which the lady from <city></city> scoffed, saying it was no match
-      for her <heirloom></heirloom>. Someone else carried a valuable <heirloom></heirloom> and when she saw it, the visitor from <city></city>
-      next to her almost spilled her neighbor's <drink></drink>. <character></character> raised her <drink></drink> in toast. The lady from
-      <city></city>, full of <drink></drink>, jumped up onto the table falling onto the guest in the center seat, spilling the
-      poor woman's <drink></drink>. Then <character></character> captivated them all with a story about her wild youth in <city></city>.
-    </p>
-    <p>
-      In the morning there were four heirlooms under the table: <heirloom></heirloom>, <heirloom></heirloom>, <heirloom></heirloom>, and
-      <heirloom></heirloom>.
-    </p>
-    <p>
-      But who owned each?
-    </p>
-  </div>
+  <p>
+    At the dinner party were Lady Winslow, Doctor Marcolla, Countess Contee, Madam Natsiou, and Baroness Finch.
+  </p>
+  <p>
+    The women sat in a row. They all wore different colors and
+    <character [(value)]="names[0]"></character>
+    wore a jaunty
+    <color [(value)]="colors[0]"></color>
+    hat.
+    <character [(value)]="names[1]"></character>
+    was at the far left, next to the guest wearing a
+    <color></color>
+    jacket. The lady in
+    <color></color>
+    sat left of someone in
+    <color></color>
+    . I remember that
+    <color></color>
+    outfit because the woman spilled her
+    <drink></drink>
+    all over it. The traveler from
+    <city></city>
+    was dressed entirely in
+    <color></color>
+    . When one of the dinner guests bragged about her
+    <heirloom [(value)]="heirlooms[2]"></heirloom>
+    , the woman next to her said they were finer in
+    <city></city>
+    , where she lived.
+  </p>
+  <p>
+    So
+    <character [(value)]="names[3]"></character>
+    showed off a prized
+    <heirloom [(value)]="heirlooms[3]"></heirloom>
+    , at which the lady from
+    <city [(value)]="cities[0]"></city>
+    scoffed, saying it was no match for her
+    <heirloom [(value)]="heirlooms[0]"></heirloom>
+    . Someone else carried a valuable
+    <heirloom [(value)]="heirlooms[1]"></heirloom>
+    and when she saw it, the visitor from
+    <city></city>
+    next to her almost spilled her neighbor's
+    <drink></drink>
+    .
+    <character [(value)]="names[2]"></character>
+    raised her
+    <drink [(value)]="drinks[2]"></drink>
+    in toast. The lady from
+    <city></city>
+    , full of
+    <drink></drink>
+    , jumped up onto the table falling onto the guest in the center seat, spilling the poor woman's
+    <drink></drink>
+    . Then
+    <character [(value)]="names[4]"></character>
+    captivated them all with a story about her wild youth in
+    <city [(value)]="cities[4]"></city>
+    .
+  </p>
+  <p>
+    In the morning there were four heirlooms under the table:
+    <heirloom [(value)]="heirlooms[2]"></heirloom>
+    ,
+    <heirloom [(value)]="heirlooms[4]"></heirloom>
+    ,
+    <heirloom [(value)]="heirlooms[0]"></heirloom>
+    , and
+    <heirloom [(value)]="heirlooms[1]"></heirloom>
+    .
+  </p>
+  <p>
+    But who owned each?
+  </p>
 
   <table class="table" id="resultTable">
     <thead>
@@ -40,44 +89,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let i of [0,1,2,3,4]">
+      <th scope="row">{{names[i]}}</th>
+      <td>{{cities[i]}}</td>
+      <td>{{colors[i]}}</td>
+      <td>{{drinks[i]}}</td>
+      <td>{{heirlooms[i]}}</td>
       <td></td>
     </tr>
     </tbody>

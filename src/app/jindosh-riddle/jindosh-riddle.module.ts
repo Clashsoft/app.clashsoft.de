@@ -10,6 +10,7 @@ import {
   HeirloomComponent,
   JindoshRiddleSelectComponent,
 } from './jindosh-riddle-select.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {
   imports: [
     CommonModule,
     NgBootstrapDarkmodeModule,
+    FormsModule,
   ],
 })
 export class JindoshRiddleModule {

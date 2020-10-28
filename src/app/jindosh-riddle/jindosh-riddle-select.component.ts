@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import * as Constants from './jindosh-riddle.constants';
 
 @Component({
@@ -8,6 +8,9 @@ import * as Constants from './jindosh-riddle.constants';
 export class JindoshRiddleSelectComponent {
   @Input() placeholder: string;
   @Input() options: string[];
+
+  @Input() value: string;
+  @Output() valueChange = new EventEmitter<string>();
 }
 
 @Component({
