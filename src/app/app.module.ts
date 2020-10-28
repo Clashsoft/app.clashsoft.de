@@ -14,6 +14,7 @@ import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {MultiTimerComponent} from './multi-timer/multi-timer.component';
 import { RangePipe } from './multi-timer/range.pipe';
 import {DurationPipe} from './multi-timer/duration.pipe';
+import {AppCardComponent} from './app-card/app-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {DurationPipe} from './multi-timer/duration.pipe';
     MultiTimerComponent,
     RangePipe,
     DurationPipe,
+    AppCardComponent,
   ],
     imports: [
         BrowserModule,

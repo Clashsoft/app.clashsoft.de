@@ -4,42 +4,26 @@
   <h2>Games</h2>
 
   <div class="card-deck my-3">
-    <div class="card">
-      <div class="card-header">
+    <app-app-card id="payday2-secret" title="PayDay 2 Secret Helper" color="primary">
+      <ng-container header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Payday2-logo.png" class="card-img-top p-3"
              alt="PayDay 2 Logo">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          PayDay 2 Secret Helper
-        </h5>
-        <p class="card-text">
-          A web app that makes solving the PAYDAY 2 secret ending achievement riddles easier.
-        </p>
-      </div>
-      <div class="card-footer">
-        <a routerLink="payday2-secret" role="button" class="btn btn-primary btn-lg">Open</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Dishonored_2_logo.png"
-             class="card-img-top p-3"
+      </ng-container>
+      <ng-container description>
+        A web app that makes solving the PAYDAY 2 secret ending achievement riddles easier.
+      </ng-container>
+    </app-app-card>
+    <app-app-card id="jindosh-riddle" title="Jindosh Riddle Solver" wip="wip" color="warning">
+      <ng-container header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Dishonored_2_logo.png" class="card-img-top p-3"
              alt="Dishonored 2 Logo">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          Jindosh Riddle Solver <span class="badge badge-secondary">WIP</span>
-        </h5>
-        <p class="card-text">
-          A web app for solving the
-          <a href="https://dishonored.fandom.com/wiki/The_Jindosh_Riddle">Jindosh Riddle</a>
-          from Dishonored 2.
-        </p></div>
-      <div class="card-footer">
-        <a routerLink="jindosh-riddle" role="button" class="btn btn-warning btn-lg">Open</a>
-      </div>
-    </div>
+      </ng-container>
+      <ng-container description>
+        A web app for solving the
+        <a href="https://dishonored.fandom.com/wiki/The_Jindosh_Riddle">Jindosh Riddle</a>
+        from Dishonored 2.
+      </ng-container>
+    </app-app-card>
     <div class="card">
       <div class="card-header">
         <img
@@ -83,56 +67,32 @@
   <h2>Utilities</h2>
 
   <div class="card-deck my-3">
-    <div class="card">
-      <div class="card-header">
+    <app-app-card id="mailto" title="Mailto Link Generator" color="info">
+      <ng-container header>
         <code class="h1 text-primary">mailto:</code>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          Mailto Link Generator
-        </h5>
-        <p class="card-text">
-          A tool that generates <code>mailto:</code> links for multiple addresses with template-based subject
-          and body.
-        </p>
-      </div>
-      <div class="card-footer">
-        <a routerLink="mailto" role="button" class="btn btn-info btn-lg">Open</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
+      </ng-container>
+      <ng-container description>
+        A tool that generates <code>mailto:</code> links for multiple addresses with template-based subject
+        and body.
+      </ng-container>
+    </app-app-card>
+    <app-app-card id="password-box" title="Password Box" color="light">
+      <ng-container header>
         <code class="h1 text-secondary">********</code>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          Password Box
-        </h5>
-        <p class="card-text">
-          Literally just a password box.
-          Allows you to generate a password using your browser's "Suggest strong password" functionality.
-        </p>
-      </div>
-      <div class="card-footer">
-        <a routerLink="password-box" role="button" class="btn btn-light btn-lg">Open</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
+      </ng-container>
+      <ng-container description>
+        Literally just a password box.
+        Allows you to generate a password using your browser's "Suggest strong password" functionality.
+      </ng-container>
+    </app-app-card>
+    <app-app-card id="multi-timer" title="Multi-Timer" color="light">
+      <ng-container header>
         <code class="h1 text-secondary">**:**</code>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          Multi-Timer
-        </h5>
-        <p class="card-text">
-          Start a timer and split the duration across multiple tasks.
-        </p>
-      </div>
-      <div class="card-footer">
-        <a routerLink="multi-timer" role="button" class="btn btn-light btn-lg">Open</a>
-      </div>
-    </div>
+      </ng-container>
+      <ng-container description>
+        Start a timer and split the duration across multiple tasks.
+      </ng-container>
+    </app-app-card>
   </div>
 
   <ngbd-theme-switch></ngbd-theme-switch>
