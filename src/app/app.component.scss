@@ -4,6 +4,12 @@
   bottom: 1em;
 }
 
+.theme-switch {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
+
 .report:hover::after {
   content: "Report a Problem";
 }
