@@ -46,7 +46,7 @@
   </div>
   <div class="list-group mb-3">
     <a *ngFor="let i of (count < 100 ? count : 100)|range"
-      class="list-group-item list-group-item-action" [class.active]="active == i" (click)="active = i">
+      class="list-group-item list-group-item-action" [class.active]="active == i" (click)="select(i)">
       <h2>Timer #{{i + 1}}</h2>
       <span class="text-monospace">{{(elapsed[i] || 0)|duration}}</span> elapsed
       <ngb-progressbar type="success" [value]="elapsed[i] || 0" [max]="duration*1000"></ngb-progressbar>

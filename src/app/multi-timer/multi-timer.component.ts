@@ -51,6 +51,10 @@ export class MultiTimerComponent implements OnInit {
     }
   }
 
+  select(timer: number) {
+    this.active = timer;
+  }
+
   private update() {
     const date = +new Date();
     let newTotal = date - this.startTime;
