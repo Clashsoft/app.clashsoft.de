@@ -31,6 +31,7 @@ jobs:
       - name: Install
         run: pnpm install --shamefully-hoist
       - name: Deploy
+        if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: ng deploy --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
