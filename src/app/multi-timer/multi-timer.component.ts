@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Event {
+  start: number;
+  end?: number;
+  timer: number;
+}
+
 @Component({
   selector: 'app-multi-timer',
   templateUrl: './multi-timer.component.html',
@@ -13,9 +19,12 @@ export class MultiTimerComponent implements OnInit {
   elapsed: number[] = [];
   active: number = 0;
 
+  currentDate: number = 0;
+  events: Event[] = [];
+
   handle?: number;
 
-  startTime: number;
+  startTime?: number;
 
   constructor() { }
 
@@ -35,13 +44,16 @@ export class MultiTimerComponent implements OnInit {
 
   start(): void {
     this.startTime = +new Date();
+    this.events.push({timer: this.active, start: this.startTime});
     this.handle = setInterval(() => this.update(), 0);
   }
 
   reset() {
+    this.startTime = undefined;
     this.active = 0;
     this.total = 0;
     this.elapsed = [];
+    this.events.length = 0;
   }
 
   stop() {
@@ -53,11 +65,21 @@ export class MultiTimerComponent implements OnInit {
 
   select(timer: number) {
     this.active = timer;
+
+    if (this.startTime === undefined || !this.handle || this.total == this.duration * 1000) {
+      return;
+    }
+
+    const start = +new Date();
+    if (this.events.length > 0) {
+      this.events[this.events.length - 1].end = start;
+    }
+    this.events.push({timer, start});
   }
 
   private update() {
-    const date = +new Date();
-    let newTotal = date - this.startTime;
+    this.currentDate = +new Date();
+    let newTotal = this.currentDate - this.startTime;
     if (newTotal >= this.duration * 1000) {
       newTotal = this.duration * 1000;
       this.stop();
