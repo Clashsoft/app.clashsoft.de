@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy
+    name: Angular CI
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,8 +30,10 @@ jobs:
         run: ng config -g cli.packageManager pnpm
       - name: Install
         run: pnpm install --shamefully-hoist
+      - name: Build
+        run: ng build --prod
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: ng deploy --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
+        run: ng deploy --no-build --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
