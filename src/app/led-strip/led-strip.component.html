@@ -14,8 +14,9 @@
       <label for="colorInput">Color</label>
       <input type="color" class="form-control" id="colorInput" [(ngModel)]="color">
     </div>
-    <button type="button" class="btn btn-primary" (click)="submit()">
-      Submit
+    <button type="button" class="btn btn-primary" [disabled]="submitting" (click)="submit()">
+      <span *ngIf="submitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      {{submitting ? 'Playing...' : 'Play'}}
     </button>
   </div>
 </div>

@@ -20,6 +20,8 @@ export class LedStripComponent implements OnInit {
   color = '#000000';
   effect = 'set';
 
+  submitting = false;
+
   constructor(
     private http: HttpClient,
   ) {
@@ -39,6 +41,11 @@ export class LedStripComponent implements OnInit {
   submit() {
     const color = this.getColor();
     const body = {effect: this.effect, ...color};
-    this.http.post(environment.apiUrl + '/effect', body).subscribe();
+    this.submitting = true;
+    this.http.post(environment.apiUrl + '/effect', body).subscribe(() => {
+      this.submitting = false;
+    }, () => {
+      this.submitting = false;
+    });
   }
 }
