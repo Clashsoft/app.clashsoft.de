@@ -8,6 +8,15 @@ import {environment} from '../../environments/environment';
   styleUrls: ['./led-strip.component.scss'],
 })
 export class LedStripComponent implements OnInit {
+  effects = {
+    set: {name: 'Set'},
+    wipe: {name: 'Wipe'},
+    theaterChase: {name: 'Theater Chase'},
+    rainbow: {name: 'Rainbow'},
+    rainbowCycle: {name: 'Rainbow Cycle'},
+    theaterChaseRainbow: {name: 'Theater Chase Rainbow'},
+  };
+
   color = '#000000';
   effect = 'set';
 
@@ -24,7 +33,7 @@ export class LedStripComponent implements OnInit {
       r: parseInt(this.color.substring(1, 3), 16),
       g: parseInt(this.color.substring(3, 5), 16),
       b: parseInt(this.color.substring(5, 7), 16),
-    }
+    };
   }
 
   submit() {
