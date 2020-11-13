@@ -17,6 +17,7 @@ export class LedStripComponent implements OnInit {
     rainbow: {name: 'Rainbow'},
     rainbowCycle: {name: 'Rainbow Cycle'},
     theaterChaseRainbow: {name: 'Theater Chase Rainbow'},
+    snake: {name: 'Snake'},
   };
 
   presets = [
