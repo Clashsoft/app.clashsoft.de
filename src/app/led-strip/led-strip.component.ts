@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
+import * as convert from 'color-convert';
+
 @Component({
   selector: 'app-led-strip',
   templateUrl: './led-strip.component.html',
@@ -17,6 +19,11 @@ export class LedStripComponent implements OnInit {
     theaterChaseRainbow: {name: 'Theater Chase Rainbow'},
   };
 
+  presets = [
+    '#000000',
+    '#ffffff',
+  ]
+
   color = '#000000';
   effect = 'set';
 
@@ -25,6 +32,9 @@ export class LedStripComponent implements OnInit {
   constructor(
     private http: HttpClient,
   ) {
+    for (let i = 0; i < 360; i += 30) {
+      this.presets.push('#' + convert.hsv.hex(i, 100, 100));
+    }
   }
 
   ngOnInit(): void {

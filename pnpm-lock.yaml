@@ -11,6 +11,7 @@ dependencies:
   '@ng-bootstrap/ng-bootstrap': 8.0.0_5b232ccb1759f19d597f6aa0fa7df453
   bootstrap: 4.5.0
   bootstrap-darkmode: 0.7.0
+  color-convert: 2.0.1
   express: 4.17.1
   ng-bootstrap-darkmode: 0.4.0_a4f568364c4db437157d6cdbd48cfe12
   ngx-clipboard: 14.0.0-beta01_ec3ffdb9a4d3531ead04576c1a33125e
@@ -9783,6 +9784,7 @@ specifiers:
   bootstrap: ^4.5.0
   bootstrap-darkmode: ^0.7.0
   codelyzer: ^6.0.0
+  color-convert: ^2.0.1
   express: ^4.17.1
   jasmine-core: ~3.6.0
   jasmine-spec-reporter: ~5.0.0
