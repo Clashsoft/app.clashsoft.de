@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+
 import {environment} from '../../environments/environment';
 
 import * as convert from 'color-convert';
@@ -30,8 +32,11 @@ export class LedStripComponent implements OnInit {
 
   submitting = false;
 
+  key?: string;
+
   constructor(
     private http: HttpClient,
+    private route: ActivatedRoute,
   ) {
     for (let i = 0; i < 360; i += 30) {
       this.presets.push('#' + convert.hsv.hex(i, 100, 100));
@@ -39,6 +44,7 @@ export class LedStripComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => this.key = params.key);
   }
 
   private getColor(): { r: number, g: number, b: number; } {
@@ -53,7 +59,11 @@ export class LedStripComponent implements OnInit {
     const color = this.getColor();
     const body = {effect: this.effect, ...color};
     this.submitting = true;
-    this.http.post(environment.apiUrl + '/effect', body).subscribe(() => {
+    this.http.post(environment.apiUrl + '/effect', body, {
+      headers: {
+        'X-LED-Key': this.key,
+      },
+    }).subscribe(() => {
       this.submitting = false;
     }, () => {
       this.submitting = false;
