@@ -8,6 +8,7 @@ dependencies:
   '@angular/platform-browser': 11.0.0_a78744c44c11e63c040b2a4f3719025e
   '@angular/platform-browser-dynamic': 11.0.0_dae8268a46b8c59d0802edd3817ec4ef
   '@angular/router': 11.0.0_3d057ad4c131b6740cb10a342c39f451
+  '@angular/service-worker': 11.0.0_ec3ffdb9a4d3531ead04576c1a33125e
   '@ng-bootstrap/ng-bootstrap': 8.0.0_5b232ccb1759f19d597f6aa0fa7df453
   bootstrap: 4.5.0
   bootstrap-darkmode: 0.7.0
@@ -405,6 +406,18 @@ packages:
       rxjs: ^6.5.3
     resolution:
       integrity: sha512-10ZeobfK3HqVeWS6zjdKU16ccxFtdCHkxT11bnFg3Jwq9vKt+LI5KitAkCI5rYTY3DRfVzasRkqBzZfZMkbftw==
+  /@angular/service-worker/11.0.0_ec3ffdb9a4d3531ead04576c1a33125e:
+    dependencies:
+      '@angular/common': 11.0.0_@angular+core@11.0.0+rxjs@6.6.3
+      '@angular/core': 11.0.0_rxjs@6.6.3+zone.js@0.10.3
+      tslib: 2.0.3
+    dev: false
+    hasBin: true
+    peerDependencies:
+      '@angular/common': 11.0.0
+      '@angular/core': 11.0.0
+    resolution:
+      integrity: sha512-elGlO2CxYZs0/p9I/gj4c7IPh+P4bpvMiF1BVMXU1Mj09Obvn0hHk9thhekdfKcYOQbvdZhn0wmrbYyxDifAqw==
   /@babel/code-frame/7.10.4:
     dependencies:
       '@babel/highlight': 7.10.4
@@ -9776,6 +9789,7 @@ specifiers:
   '@angular/platform-browser': ~11.0.0
   '@angular/platform-browser-dynamic': ~11.0.0
   '@angular/router': ~11.0.0
+  '@angular/service-worker': ~11.0.0
   '@ng-bootstrap/ng-bootstrap': ^8.0.0
   '@types/jasmine': ~3.6.0
   '@types/jasminewd2': ~2.0.3

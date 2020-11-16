@@ -19,6 +19,8 @@ import {DurationPipe} from './multi-timer/duration.pipe';
 import {AppCardComponent} from './app-card/app-card.component';
 import {JindoshRiddleModule} from './jindosh-riddle/jindosh-riddle.module';
 import {LedStripComponent} from './led-strip/led-strip.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {LedStripComponent} from './led-strip/led-strip.component';
     NgbModule,
     NgBootstrapDarkmodeModule,
     JindoshRiddleModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
