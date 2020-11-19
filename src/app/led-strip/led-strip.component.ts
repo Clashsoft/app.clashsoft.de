@@ -29,6 +29,7 @@ export class LedStripComponent implements OnInit {
 
   color = '#000000';
   effect = 'set';
+  message = '';
 
   submitting = false;
 
@@ -57,7 +58,7 @@ export class LedStripComponent implements OnInit {
 
   submit() {
     const color = this.getColor();
-    const body = {effect: this.effect, ...color};
+    const body = {effect: this.effect, message: this.message, ...color};
     this.submitting = true;
     this.http.post(environment.apiUrl + '/effect', body, {
       headers: {

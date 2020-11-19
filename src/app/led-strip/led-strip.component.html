@@ -22,6 +22,10 @@
         </button>
       </div>
     </div>
+    <div class="form-group">
+      <label for="messageInput">Message</label>
+      <input type="text" class="form-control" id="messageInput" [(ngModel)]="message">
+    </div>
     <button type="button" class="btn btn-primary" [disabled]="submitting" (click)="submit()">
       <span *ngIf="submitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       {{submitting ? 'Playing...' : 'Play'}}
