@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 
 import * as convert from 'color-convert';
+import {SwPush} from '@angular/service-worker';
 
 @Component({
   selector: 'app-led-strip',
@@ -38,6 +39,7 @@ export class LedStripComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
+    private swPush: SwPush,
   ) {
     for (let i = 0; i < 360; i += 30) {
       this.presets.push('#' + convert.hsv.hex(i, 100, 100));
@@ -46,6 +48,23 @@ export class LedStripComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => this.key = params.key);
+
+    if (this.swPush.isEnabled) {
+      this.swPush.requestSubscription({
+        serverPublicKey: environment.vapidPublicKey,
+      }).then(sub => {
+        this.http.post(environment.apiUrl + '/subscriptions',
+          {
+            subscriptionInfo: sub,
+          },
+          {
+            headers: {
+              'X-LED-Key': this.key,
+            },
+          },
+        ).subscribe();
+      });
+    }
   }
 
   private getColor(): { r: number, g: number, b: number; } {
