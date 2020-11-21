@@ -93,5 +93,13 @@
         Start a timer and split the duration across multiple tasks.
       </ng-container>
     </app-app-card>
+    <app-app-card id="led-strip" title="LED Strip" color="light">
+      <ng-container header>
+        <code *ngFor="let color of ['primary', 'success', 'warning', 'error']" class="h1 text-{{color}}">* </code>
+      </ng-container>
+      <ng-container description>
+        Control the LED strip under my desk.
+      </ng-container>
+    </app-app-card>
   </div>
 </div>
