@@ -71,7 +71,7 @@ export class LedStripComponent implements OnInit {
 
   submit() {
     const color = this.getColor();
-    const effect: Effect = {effect: this.effect.name, message: this.message, ...color};
+    const effect: Effect = {effect: this.effect.id, message: this.message, ...color};
     this.submitting = true;
     this.ledStripService.playEffect(effect, this.key).subscribe(() => {
       this.submitting = false;
