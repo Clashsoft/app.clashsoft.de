@@ -6,9 +6,12 @@
   <div class="form">
     <div class="form-group">
       <label for="effectSelect">Effect</label>
-      <select class="custom-select" id="effectSelect" [(ngModel)]="effect">
-        <option *ngFor="let effect of effects | keyvalue" [value]="effect.key">{{effect.value.name}}</option>
+      <select class="custom-select" id="effectSelect" aria-describedby="emailDescription" [(ngModel)]="effect">
+        <option *ngFor="let effect of effects" [ngValue]="effect">{{effect.name}}</option>
       </select>
+      <div id="emailDescription" class="form-text text-muted">
+        {{effect ? effect.description : 'No effect selected.'}}
+      </div>
     </div>
     <div class="form-group">
       <label for="colorInput">Color</label>

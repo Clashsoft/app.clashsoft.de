@@ -7,6 +7,7 @@ import * as convert from 'color-convert';
 import {environment} from '../../environments/environment';
 import {Effect} from './effect';
 import {LedStripService} from './led-strip.service';
+import {EffectType} from './effect-type';
 
 @Component({
   selector: 'app-led-strip',
@@ -14,15 +15,7 @@ import {LedStripService} from './led-strip.service';
   styleUrls: ['./led-strip.component.scss'],
 })
 export class LedStripComponent implements OnInit {
-  effects = {
-    set: {name: 'Set'},
-    wipe: {name: 'Wipe'},
-    theaterChase: {name: 'Theater Chase'},
-    rainbow: {name: 'Rainbow'},
-    rainbowCycle: {name: 'Rainbow Cycle'},
-    theaterChaseRainbow: {name: 'Theater Chase Rainbow'},
-    snake: {name: 'Snake'},
-  };
+  effects: EffectType[] = [];
 
   presets = [
     '#000000',
@@ -30,7 +23,7 @@ export class LedStripComponent implements OnInit {
   ]
 
   color = '#000000';
-  effect = 'set';
+  effect?: EffectType;
   message = '';
 
   submitting = false;
@@ -49,6 +42,11 @@ export class LedStripComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => this.key = params.key);
+
+    this.ledStripService.getEffects().subscribe(effects => {
+      this.effects = effects;
+      this.effect = effects[0];
+    });
 
     if (this.swPush.isEnabled && !localStorage.getItem('led-strip/subscriptionId')) {
       this.swPush.requestSubscription({
@@ -73,7 +71,7 @@ export class LedStripComponent implements OnInit {
 
   submit() {
     const color = this.getColor();
-    const effect: Effect = {effect: this.effect, message: this.message, ...color};
+    const effect: Effect = {effect: this.effect.name, message: this.message, ...color};
     this.submitting = true;
     this.ledStripService.playEffect(effect, this.key).subscribe(() => {
       this.submitting = false;
