@@ -49,11 +49,11 @@ export class LedStripComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => this.key = params.key);
 
-    if (this.swPush.isEnabled) {
+    if (this.swPush.isEnabled && !localStorage.getItem('led-strip/subscriptionId')) {
       this.swPush.requestSubscription({
         serverPublicKey: environment.vapidPublicKey,
       }).then(sub => {
-        this.http.post(environment.apiUrl + '/subscriptions',
+        this.http.post<{id?: any}>(environment.apiUrl + '/subscriptions',
           {
             subscriptionInfo: sub,
           },
@@ -62,7 +62,11 @@ export class LedStripComponent implements OnInit {
               'X-LED-Key': this.key,
             },
           },
-        ).subscribe();
+        ).subscribe(response => {
+          if (response.id) {
+            localStorage.setItem('led-strip/subscriptionId', '' + response.id);
+          }
+        });
       });
     }
   }
