@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
-
-import {environment} from '../../environments/environment';
+import {SwPush} from '@angular/service-worker';
 
 import * as convert from 'color-convert';
-import {SwPush} from '@angular/service-worker';
+
+import {environment} from '../../environments/environment';
+import {Effect} from './effect';
+import {LedStripService} from './led-strip.service';
 
 @Component({
   selector: 'app-led-strip',
@@ -37,7 +38,7 @@ export class LedStripComponent implements OnInit {
   key?: string;
 
   constructor(
-    private http: HttpClient,
+    private ledStripService: LedStripService,
     private route: ActivatedRoute,
     private swPush: SwPush,
   ) {
@@ -53,16 +54,7 @@ export class LedStripComponent implements OnInit {
       this.swPush.requestSubscription({
         serverPublicKey: environment.vapidPublicKey,
       }).then(sub => {
-        this.http.post<{id?: any}>(environment.apiUrl + '/subscriptions',
-          {
-            subscriptionInfo: sub,
-          },
-          {
-            headers: {
-              'X-LED-Key': this.key,
-            },
-          },
-        ).subscribe(response => {
+        this.ledStripService.createSubscription(sub, this.key).subscribe(response => {
           if (response.id) {
             localStorage.setItem('led-strip/subscriptionId', '' + response.id);
           }
@@ -81,13 +73,9 @@ export class LedStripComponent implements OnInit {
 
   submit() {
     const color = this.getColor();
-    const body = {effect: this.effect, message: this.message, ...color};
+    const effect: Effect = {effect: this.effect, message: this.message, ...color};
     this.submitting = true;
-    this.http.post(environment.apiUrl + '/effect', body, {
-      headers: {
-        'X-LED-Key': this.key,
-      },
-    }).subscribe(() => {
+    this.ledStripService.playEffect(effect, this.key).subscribe(() => {
       this.submitting = false;
     }, () => {
       this.submitting = false;
