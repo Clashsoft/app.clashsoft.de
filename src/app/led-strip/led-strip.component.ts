@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SwPush} from '@angular/service-worker';
 
@@ -8,13 +8,16 @@ import {environment} from '../../environments/environment';
 import {Effect} from './effect';
 import {LedStripService} from './led-strip.service';
 import {EffectType} from './effect-type';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-led-strip',
   templateUrl: './led-strip.component.html',
   styleUrls: ['./led-strip.component.scss'],
 })
-export class LedStripComponent implements OnInit {
+export class LedStripComponent implements OnInit, AfterViewInit {
+  @ViewChild('keyModal') keyModal;
+
   effects: EffectType[] = [];
 
   presets = [
@@ -34,6 +37,7 @@ export class LedStripComponent implements OnInit {
     private ledStripService: LedStripService,
     private route: ActivatedRoute,
     private swPush: SwPush,
+    private modalService: NgbModal,
   ) {
     for (let i = 0; i < 360; i += 30) {
       this.presets.push('#' + convert.hsv.hex(i, 100, 100));
@@ -41,7 +45,9 @@ export class LedStripComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => this.key = params.key);
+    this.route.queryParams.subscribe(params => {
+      this.key = params.key || localStorage.getItem('led-strip/key');
+    });
 
     this.ledStripService.getEffects().subscribe(effects => {
       this.effects = effects;
@@ -58,6 +64,12 @@ export class LedStripComponent implements OnInit {
           }
         });
       });
+    }
+  }
+
+  ngAfterViewInit() {
+    if (!this.key) {
+      this.modalService.open(this.keyModal, {ariaLabelledBy: 'key-modal-title'});
     }
   }
 
@@ -78,5 +90,9 @@ export class LedStripComponent implements OnInit {
     }, () => {
       this.submitting = false;
     });
+  }
+
+  saveKey() {
+    localStorage.setItem('led-strip/key', this.key);
   }
 }
