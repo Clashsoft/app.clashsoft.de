@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SwPush} from '@angular/service-worker';
 
@@ -11,14 +11,14 @@ import {EffectType} from './effect-type';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PlayEvent} from './play-event';
 import {map, switchMap, tap} from 'rxjs/operators';
-import {forkJoin} from 'rxjs';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-led-strip',
   templateUrl: './led-strip.component.html',
   styleUrls: ['./led-strip.component.scss'],
 })
-export class LedStripComponent implements OnInit, AfterViewInit {
+export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('keyModal') keyModal;
 
   effects: EffectType[] = [];
@@ -37,6 +37,7 @@ export class LedStripComponent implements OnInit, AfterViewInit {
   key?: string;
 
   events: PlayEvent[] = [];
+  eventSubscription?: Subscription;
 
   constructor(
     private ledStripService: LedStripService,
@@ -73,6 +74,17 @@ export class LedStripComponent implements OnInit, AfterViewInit {
           }
         });
       });
+      this.eventSubscription = this.swPush.messages.subscribe(message => {
+        const event: PlayEvent | undefined = message['event'];
+        if (!event) {
+          return;
+        }
+
+        this.events.unshift(event);
+        if (this.events.length > 10) {
+          this.events.length = 10;
+        }
+      })
     }
   }
 
@@ -80,6 +92,10 @@ export class LedStripComponent implements OnInit, AfterViewInit {
     if (!this.key) {
       this.modalService.open(this.keyModal, {ariaLabelledBy: 'key-modal-title'});
     }
+  }
+
+  ngOnDestroy() {
+    this.eventSubscription?.unsubscribe();
   }
 
   private getColor(): { r: number, g: number, b: number; } {
