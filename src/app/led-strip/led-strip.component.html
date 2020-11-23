@@ -34,6 +34,16 @@
       {{submitting ? 'Playing...' : 'Play'}}
     </button>
   </div>
+  <ng-container *ngIf="events.length > 0">
+    <hr/>
+    <h2>Latest Events</h2>
+    <ul class="list-group">
+      <li *ngFor="let event of events" class="list-group-item">
+        <span class="text-muted float-right">{{event.timestamp|date:'short'}}</span>
+        {{event.user}}: {{event.effect.message}}
+      </li>
+    </ul>
+  </ng-container>
 </div>
 
 <ng-template #keyModal let-modal>

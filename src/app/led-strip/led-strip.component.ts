@@ -9,6 +9,9 @@ import {Effect} from './effect';
 import {LedStripService} from './led-strip.service';
 import {EffectType} from './effect-type';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {PlayEvent} from './play-event';
+import {map, switchMap, tap} from 'rxjs/operators';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-led-strip',
@@ -33,6 +36,8 @@ export class LedStripComponent implements OnInit, AfterViewInit {
 
   key?: string;
 
+  events: PlayEvent[] = [];
+
   constructor(
     private ledStripService: LedStripService,
     private route: ActivatedRoute,
@@ -45,8 +50,12 @@ export class LedStripComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.key = params.key || localStorage.getItem('led-strip/key');
+    this.route.queryParams.pipe(
+      map(params => params.key || localStorage.getItem('led-strip/key')),
+      tap(key => this.key = key),
+      switchMap(key => this.ledStripService.getLatestEvents(key)),
+    ).subscribe(events => {
+      this.events = events.reverse();
     });
 
     this.ledStripService.getEffects().subscribe(effects => {
