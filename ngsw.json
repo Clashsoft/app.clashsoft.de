@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1606175433824,
+  "timestamp": 1606409204993,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.2b776245b664d3dc8e14.js",
+        "/main.455b2f9cfdd44296c8f4.js",
         "/manifest.webmanifest",
         "/polyfills.f3c6616c792c3ede649c.js",
         "/runtime.359d5ee4682f20e936e9.js",
@@ -62,8 +62,8 @@
     "/assets/payday2-secret/pin.svg": "64c1240389a285b73dc64ea839d26d2b9bd32d42",
     "/assets/payday2-secret/x.svg": "6b29566f7c6d0d0842168bb7b39f2c750ac17eb1",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "ca2f67ec1a9c1bf8c385a8b1ac333d459a39662a",
-    "/main.2b776245b664d3dc8e14.js": "594c78ab1717d8efc9aceb5d4bbc7ed59f25b54d",
+    "/index.html": "712e17a54fa645e0785366032a86ec2f26f3ca69",
+    "/main.455b2f9cfdd44296c8f4.js": "f81aa6bb0d1b366d27a7ef6a3a227267e2e921cc",
     "/manifest.webmanifest": "5c966ce52729e2f07ac67e1b640c8f79ca87944f",
     "/polyfills.f3c6616c792c3ede649c.js": "eb46466f53e7dbde5225e8f9372267854fcacfd5",
     "/runtime.359d5ee4682f20e936e9.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
