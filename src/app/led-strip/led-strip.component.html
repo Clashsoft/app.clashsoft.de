@@ -3,7 +3,7 @@
   <p>
     Use the effect and color selection below to control my LED strip.
   </p>
-  <div class="form">
+  <div class="form mb-3">
     <div class="form-group">
       <label for="effectSelect">Effect</label>
       <select class="custom-select" id="effectSelect" aria-describedby="emailDescription" [(ngModel)]="effect">
@@ -33,6 +33,9 @@
       <span *ngIf="submitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       {{submitting ? 'Playing...' : 'Play'}}
     </button>
+  </div>
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
   </div>
   <ng-container *ngIf="events.length > 0">
     <hr/>

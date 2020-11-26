@@ -33,6 +33,7 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   message = '';
 
   submitting = false;
+  error?: string;
 
   key?: string;
 
@@ -62,6 +63,8 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
     this.ledStripService.getEffects().subscribe(effects => {
       this.effects = effects;
       this.effect = effects[0];
+    }, error => {
+      this.error = 'Failed to load effects: ' + error.message;
     });
 
     if (this.swPush.isEnabled && !localStorage.getItem('led-strip/subscriptionId')) {
@@ -112,8 +115,10 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
     this.submitting = true;
     this.ledStripService.playEffect(effect, this.key).subscribe(() => {
       this.submitting = false;
-    }, () => {
+      this.error = undefined;
+    }, err => {
       this.submitting = false;
+      this.error = 'Failed to play animation: ' + err.message;
     });
   }
 
