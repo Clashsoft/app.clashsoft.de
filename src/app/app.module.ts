@@ -18,7 +18,7 @@ import {RangePipe} from './multi-timer/range.pipe';
 import {DurationPipe} from './multi-timer/duration.pipe';
 import {AppCardComponent} from './app-card/app-card.component';
 import {JindoshRiddleModule} from './jindosh-riddle/jindosh-riddle.module';
-import {LedStripComponent} from './led-strip/led-strip.component';
+import {LedStripComponent} from './led-strip/led-strip/led-strip.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 

@@ -4,12 +4,12 @@ import {SwPush} from '@angular/service-worker';
 
 import * as convert from 'color-convert';
 
-import {environment} from '../../environments/environment';
-import {Effect} from './effect';
-import {LedStripService} from './led-strip.service';
-import {EffectType} from './effect-type';
+import {environment} from '../../../environments/environment';
+import {Effect} from '../model/effect';
+import {LedStripService} from '../led-strip.service';
+import {EffectType} from '../model/effect-type';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {PlayEvent} from './play-event';
+import {PlayEvent} from '../model/play-event';
 import {map, switchMap, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 

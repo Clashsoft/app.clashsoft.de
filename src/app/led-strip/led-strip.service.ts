@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Effect} from './effect';
+import {Effect} from './model/effect';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {EffectType} from './effect-type';
+import {EffectType} from './model/effect-type';
 import {map} from 'rxjs/operators';
-import {PlayEvent} from './play-event';
+import {PlayEvent} from './model/play-event';
 
 @Injectable({providedIn: 'root'})
 export class LedStripService {
