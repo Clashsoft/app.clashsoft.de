@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {JindoshRiddleComponent} from './jindosh-riddle.component';
+import {JindoshRiddleComponent} from './jindosh-riddle/jindosh-riddle.component';
 import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {
   CharacterComponent,
@@ -9,7 +9,7 @@ import {
   DrinkComponent,
   HeirloomComponent,
   JindoshRiddleSelectComponent,
-} from './jindosh-riddle-select.component';
+} from './jindosh-riddle-select/jindosh-riddle-select.component';
 import {FormsModule} from '@angular/forms';
 
 

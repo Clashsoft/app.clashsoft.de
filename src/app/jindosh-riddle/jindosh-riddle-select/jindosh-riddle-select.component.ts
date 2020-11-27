@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import * as Constants from './jindosh-riddle.constants';
+import * as Constants from '../jindosh-riddle.constants';
 
 @Component({
   selector: 'app-jindosh-riddle-select',
