@@ -11,6 +11,7 @@ import {
   JindoshRiddleSelectComponent,
 } from './jindosh-riddle-select/jindosh-riddle-select.component';
 import {FormsModule} from '@angular/forms';
+import {JindoshRiddleRoutingModule} from './jindosh-riddle-routing.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {FormsModule} from '@angular/forms';
     CommonModule,
     NgBootstrapDarkmodeModule,
     FormsModule,
+    JindoshRiddleRoutingModule,
   ],
 })
 export class JindoshRiddleModule {
