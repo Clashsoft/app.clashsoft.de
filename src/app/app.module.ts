@@ -11,7 +11,6 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {PasswordBoxComponent} from './password-box/password-box.component';
 import {MailtoComponent} from './mailto/mailto.component';
-import {Payday2SecretComponent} from './payday2-secret/payday2-secret/payday2-secret.component';
 import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {AppCardComponent} from './app-card/app-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -23,7 +22,6 @@ import { environment } from '../environments/environment';
     HomeComponent,
     PasswordBoxComponent,
     MailtoComponent,
-    Payday2SecretComponent,
     AppCardComponent,
   ],
   imports: [
