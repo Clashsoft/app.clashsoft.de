@@ -9,7 +9,6 @@ import {ClipboardModule} from 'ngx-clipboard';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import {MailtoComponent} from './mailto/mailto.component';
 import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {AppCardComponent} from './app-card/app-card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,7 +18,6 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     HomeComponent,
-    MailtoComponent,
     AppCardComponent,
   ],
   imports: [

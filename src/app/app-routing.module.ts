@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
-import {MailtoComponent} from "./mailto/mailto.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'mailto', component: MailtoComponent},
+  {path: 'mailto', loadChildren: () => import('./mailto/mailto.module').then(it => it.MailtoModule)},
   {path: 'payday2-secret', loadChildren: () => import('./payday2-secret/payday2-secret.module').then(it => it.Payday2SecretModule)},
   {path: 'jindosh-riddle', loadChildren: () => import('./jindosh-riddle/jindosh-riddle.module').then(it => it.JindoshRiddleModule)},
   {path: 'multi-timer', loadChildren: () => import('./multi-timer/multi-timer.module').then(it => it.MultiTimerModule)},
