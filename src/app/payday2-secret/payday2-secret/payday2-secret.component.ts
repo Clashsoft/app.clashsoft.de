@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {Achievement} from "./achievement.interface";
-import {achievements} from "./achievements";
-import {AchievementService} from "./achievement.service";
+import {Achievement} from "../model/achievement";
+import {achievements} from "../model/achievements";
+import {AchievementService} from "../achievement.service";
 import {ClipboardService} from "ngx-clipboard";
 
 @Component({

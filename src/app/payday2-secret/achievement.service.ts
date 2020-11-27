@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Achievement} from "./achievement.interface";
-import {achievements, normalize} from "./achievements";
+import {Achievement} from "./model/achievement";
+import {achievements, normalize} from "./model/achievements";
 
 @Injectable({providedIn: 'root'})
 export class AchievementService {

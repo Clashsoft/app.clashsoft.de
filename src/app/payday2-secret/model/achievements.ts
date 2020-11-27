@@ -1,4 +1,4 @@
-import {Achievement} from "./achievement.interface";
+import {Achievement} from "./achievement";
 
 const achievementData = [
   [
