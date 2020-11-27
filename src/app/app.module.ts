@@ -17,7 +17,6 @@ import {MultiTimerComponent} from './multi-timer/multi-timer/multi-timer.compone
 import {RangePipe} from './multi-timer/pipes/range.pipe';
 import {DurationPipe} from './multi-timer/pipes/duration.pipe';
 import {AppCardComponent} from './app-card/app-card.component';
-import {LedStripComponent} from './led-strip/led-strip/led-strip.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -32,7 +31,6 @@ import { environment } from '../environments/environment';
     RangePipe,
     DurationPipe,
     AppCardComponent,
-    LedStripComponent,
   ],
   imports: [
     BrowserModule,

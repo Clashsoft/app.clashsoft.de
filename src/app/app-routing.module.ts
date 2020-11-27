@@ -5,7 +5,6 @@ import {PasswordBoxComponent} from "./password-box/password-box.component";
 import {MailtoComponent} from "./mailto/mailto.component";
 import {Payday2SecretComponent} from "./payday2-secret/payday2-secret/payday2-secret.component";
 import {MultiTimerComponent} from './multi-timer/multi-timer/multi-timer.component';
-import {LedStripComponent} from './led-strip/led-strip/led-strip.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,7 +13,7 @@ const routes: Routes = [
   {path: 'payday2-secret', component: Payday2SecretComponent},
   {path: 'jindosh-riddle', loadChildren: () => import('./jindosh-riddle/jindosh-riddle.module').then(it => it.JindoshRiddleModule)},
   {path: 'multi-timer', component: MultiTimerComponent},
-  {path: 'led-strip', component: LedStripComponent},
+  {path: 'led-strip', loadChildren: () => import('./led-strip/led-strip.module').then(it => it.LedStripModule)},
 ];
 
 @NgModule({
