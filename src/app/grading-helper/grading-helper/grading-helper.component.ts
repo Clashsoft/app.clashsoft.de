@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GradingTab} from '../model/grading-tab';
+import {TemplateService} from '../template.service';
 
 @Component({
   selector: 'app-grading-helper',
@@ -9,11 +10,15 @@ import {GradingTab} from '../model/grading-tab';
 export class GradingHelperComponent implements OnInit {
   active = 'template';
   tabs: GradingTab[] = [];
+  template: string;
 
-  constructor() {
+  constructor(
+    private templateService: TemplateService,
+  ) {
   }
 
   ngOnInit(): void {
+    this.template = this.templateService.savedTemplate;
   }
 
   close(event: MouseEvent, toRemove: GradingTab) {
@@ -28,5 +33,9 @@ export class GradingHelperComponent implements OnInit {
       title: `Student ${this.tabs.length + 1}`,
     });
     event.preventDefault();
+  }
+
+  saveTemplate(): void {
+    this.templateService.savedTemplate = this.template;
   }
 }

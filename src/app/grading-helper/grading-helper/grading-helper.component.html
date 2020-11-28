@@ -6,7 +6,7 @@
         Template
       </a>
       <ng-template ngbNavContent>
-        Template
+        <textarea class="form-control text-monospace" rows="30" [(ngModel)]="template" (change)="saveTemplate()"></textarea>
       </ng-template>
     </li>
     <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id">

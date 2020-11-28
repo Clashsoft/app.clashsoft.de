@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,6 +11,7 @@ import { GradingHelperComponent } from './grading-helper/grading-helper.componen
   declarations: [GradingHelperComponent],
   imports: [
     CommonModule,
+    FormsModule,
     NgbNavModule,
     GradingHelperRoutingModule,
   ],
