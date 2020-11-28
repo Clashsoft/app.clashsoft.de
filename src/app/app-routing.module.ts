@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'jindosh-riddle', loadChildren: () => import('./jindosh-riddle/jindosh-riddle.module').then(it => it.JindoshRiddleModule)},
   {path: 'multi-timer', loadChildren: () => import('./multi-timer/multi-timer.module').then(it => it.MultiTimerModule)},
   {path: 'led-strip', loadChildren: () => import('./led-strip/led-strip.module').then(it => it.LedStripModule)},
+  {path: 'grading-helper', loadChildren: () => import('./grading-helper/grading-helper.module').then(it => it.GradingHelperModule)},
 ];
 
 @NgModule({
