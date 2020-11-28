@@ -1,1 +1,27 @@
-<p>grading-helper works!</p>
+<div class="container">
+  <h1 class="text-center">Grading Helper</h1>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li ngbNavItem="template">
+      <a ngbNavLink>
+        Template
+      </a>
+      <ng-template ngbNavContent>
+        Template
+      </ng-template>
+    </li>
+    <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id">
+      <a ngbNavLink>
+        {{ tab.title }}
+        <span class="close position-relative pl-2 font-weight-light" (click)="close($event, tab)">×</span>
+      </a>
+      <ng-template ngbNavContent>
+        <p>Tab {{ tab.title }} content</p>
+      </ng-template>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href (click)="add($event)">...</a>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
