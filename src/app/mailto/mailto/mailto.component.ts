@@ -3,11 +3,11 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-mailto',
   templateUrl: './mailto.component.html',
-  styleUrls: ['./mailto.component.scss']
+  styleUrls: ['./mailto.component.scss'],
 })
 export class MailtoComponent implements OnInit {
-  subject: string = '';
-  body: string = '';
+  subject = '';
+  body = '';
 
   addresses: string[] = [];
   variableNames: string[] = ['1'];
@@ -34,23 +34,23 @@ export class MailtoComponent implements OnInit {
 
     const links: string[] = [];
     for (let i = 0; i < this.addresses.length; i++) {
-      let link = this.getLink(i);
+      const link = this.getLink(i);
       links.push(link);
     }
     this.links = links;
   }
 
-  updateRow(index: number) {
+  updateRow(index: number): void {
     this.saveRows();
     this.links[index] = this.getLink(index);
   }
 
-  private saveRows() {
+  private saveRows(): void {
     localStorage.setItem('addresses', this.addresses.join('\n'));
     localStorage.setItem('variables', this.variables.map(r => r.join('\t')).join('\n'));
   }
 
-  private getLink(rowIndex: number) {
+  private getLink(rowIndex: number): string {
     const recipient = this.addresses[rowIndex];
     const variables = this.variables[rowIndex];
 
@@ -82,14 +82,14 @@ export class MailtoComponent implements OnInit {
 
   addColumn(): void {
     this.variableNames.push(`${this.variableNames.length}`);
-    for (let row of this.variables) {
+    for (const row of this.variables) {
       row.push('');
     }
   }
 
   deleteColumn(index: number): void {
     this.variableNames.splice(index, 1);
-    for (let row of this.variables) {
+    for (const row of this.variables) {
       row.splice(index, 1);
     }
     this.update();
@@ -99,12 +99,12 @@ export class MailtoComponent implements OnInit {
     return index;
   }
 
-  paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number) {
+  paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number): void {
     const text = event.clipboardData.getData('text');
 
     const matrix = text.split('\n').map(s => s.split('\t'));
 
-    if (matrix.length == 1 && matrix[0].length == 1) {
+    if (matrix.length === 1 && matrix[0].length === 1) {
       return;
     }
 
@@ -122,7 +122,7 @@ export class MailtoComponent implements OnInit {
           this.addColumn();
         }
 
-        if (colIndex == -1) {
+        if (colIndex === -1) {
           this.addresses[rowIndex] = matrix[i][j];
         } else {
           this.variables[rowIndex][colIndex] = matrix[i][j];

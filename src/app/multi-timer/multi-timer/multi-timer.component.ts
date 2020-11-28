@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 interface Event {
   start: number;
@@ -9,24 +9,25 @@ interface Event {
 @Component({
   selector: 'app-multi-timer',
   templateUrl: './multi-timer.component.html',
-  styleUrls: ['./multi-timer.component.scss']
+  styleUrls: ['./multi-timer.component.scss'],
 })
 export class MultiTimerComponent implements OnInit {
   count: number;
   duration: number;
 
-  total: number = 0;
+  total = 0;
   elapsed: number[] = [];
-  active: number = 0;
+  active = 0;
 
-  currentDate: number = 0;
+  currentDate = 0;
   events: Event[] = [];
 
   handle?: number;
 
   startTime?: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('multiTimer') || '{}');
@@ -48,7 +49,7 @@ export class MultiTimerComponent implements OnInit {
     this.handle = setInterval(() => this.update(), 0);
   }
 
-  reset() {
+  reset(): void {
     this.startTime = undefined;
     this.active = 0;
     this.total = 0;
@@ -56,17 +57,17 @@ export class MultiTimerComponent implements OnInit {
     this.events.length = 0;
   }
 
-  stop() {
+  stop(): void {
     if (this.handle !== undefined) {
       clearInterval(this.handle);
       this.handle = undefined;
     }
   }
 
-  select(timer: number) {
+  select(timer: number): void {
     this.active = timer;
 
-    if (this.startTime === undefined || !this.handle || this.total == this.duration * 1000) {
+    if (this.startTime === undefined || !this.handle || this.total === this.duration * 1000) {
       return;
     }
 
@@ -77,7 +78,7 @@ export class MultiTimerComponent implements OnInit {
     this.events.push({timer, start});
   }
 
-  private update() {
+  private update(): void {
     this.currentDate = +new Date();
     let newTotal = this.currentDate - this.startTime;
     if (newTotal >= this.duration * 1000) {

@@ -1,4 +1,4 @@
-import {Achievement} from "./achievement";
+import {Achievement} from './achievement';
 
 const achievementData = [
   [
@@ -364,6 +364,6 @@ export const achievements: Achievement[] = achievementData.map((v, i) => {
   };
 });
 
-export function normalize(text) {
+export function normalize(text: string): string {
   return text.replace(/[^a-zA-Z0-9]+/g, '').toUpperCase();
 }

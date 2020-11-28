@@ -26,7 +26,7 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   presets = [
     '#000000',
     '#ffffff',
-  ]
+  ];
 
   color = '#000000';
   effect?: EffectType;
@@ -77,27 +77,26 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         });
       });
-      this.eventSubscription = this.swPush.messages.subscribe(message => {
-        const event: PlayEvent | undefined = message['event'];
-        if (!event) {
+      this.eventSubscription = this.swPush.messages.subscribe((message: {event?: PlayEvent}) => {
+        if (!message.event) {
           return;
         }
 
-        this.events.unshift(event);
+        this.events.unshift(message.event);
         if (this.events.length > 10) {
           this.events.length = 10;
         }
-      })
+      });
     }
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (!this.key) {
       this.modalService.open(this.keyModal, {ariaLabelledBy: 'key-modal-title'});
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.eventSubscription?.unsubscribe();
   }
 
@@ -109,7 +108,7 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
     };
   }
 
-  submit() {
+  submit(): void {
     const color = this.getColor();
     const effect: Effect = {effect: this.effect.id, message: this.message, ...color};
     this.submitting = true;
@@ -122,7 +121,7 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  saveKey() {
+  saveKey(): void {
     localStorage.setItem('led-strip/key', this.key);
   }
 }

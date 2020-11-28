@@ -1,18 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {Achievement} from "../model/achievement";
-import {achievements} from "../model/achievements";
-import {AchievementService} from "../achievement.service";
-import {ClipboardService} from "ngx-clipboard";
+
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ClipboardService} from 'ngx-clipboard';
+
+import {Achievement} from '../model/achievement';
+import {achievements} from '../model/achievements';
+import {AchievementService} from '../achievement.service';
 
 @Component({
   selector: 'app-payday2-secret',
   templateUrl: './payday2-secret.component.html',
-  styleUrls: ['./payday2-secret.component.scss']
+  styleUrls: ['./payday2-secret.component.scss'],
 })
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;
-  searchText: string = '';
+  searchText = '';
   threeSymbolMode: boolean;
 
   constructor(
@@ -54,19 +56,19 @@ export class Payday2SecretComponent implements OnInit {
     return this.achievementService.completed;
   }
 
-  pin(achievement: Achievement) {
+  pin(achievement: Achievement): void {
     this.achievementService.pin(achievement);
   }
 
-  unpin(achievement: Achievement) {
+  unpin(achievement: Achievement): void {
     this.achievementService.unpin(achievement);
   }
 
-  complete(achievement: Achievement) {
+  complete(achievement: Achievement): void {
     this.achievementService.complete(achievement);
   }
 
-  uncomplete(achievement: Achievement) {
+  uncomplete(achievement: Achievement): void {
     this.achievementService.uncomplete(achievement);
   }
 }

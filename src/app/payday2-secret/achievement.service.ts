@@ -1,56 +1,57 @@
-import {Injectable} from "@angular/core";
-import {Achievement} from "./model/achievement";
-import {achievements, normalize} from "./model/achievements";
+import {Injectable} from '@angular/core';
+
+import {Achievement} from './model/achievement';
+import {achievements, normalize} from './model/achievements';
 
 @Injectable({providedIn: 'root'})
 export class AchievementService {
   pinned: Achievement[];
   completed: Achievement[];
-  private _threeSymbolMode: boolean;
+  #threeSymbolMode: boolean;
 
   constructor() {
-    this._threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
+    this.#threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
     this.pinned = (localStorage.getItem('pinned') || '').split('\n').map(n => this.getAchievement(n)).filter(a => a);
     this.completed = (localStorage.getItem('completed') || '').split('\n').map(n => this.getAchievement(n)).filter(a => a);
   }
 
   get threeSymbolMode(): boolean {
-    return this._threeSymbolMode;
+    return this.#threeSymbolMode;
   }
 
   set threeSymbolMode(value: boolean) {
-    this._threeSymbolMode = value;
+    this.#threeSymbolMode = value;
     localStorage.setItem('threeSymbolMode', `${value}`);
   }
 
-  private getAchievement(title: string) {
+  private getAchievement(title: string): Achievement | undefined {
     return achievements.find(a => a.title === title);
   }
 
-  private savePinned() {
+  private savePinned(): void {
     localStorage.setItem('pinned', this.pinned.map(a => a.title).join('\n'));
   }
 
-  private saveCompleted() {
+  private saveCompleted(): void {
     localStorage.setItem('completed', this.completed.map(a => a.title).join('\n'));
   }
 
   findMatching(searchText: string): Achievement[] {
     const normalized = normalize(searchText);
     return achievements.filter(achievement => {
-      const anorm = this._threeSymbolMode ? achievement.threeSymbols : achievement.normalized;
+      const anorm = this.#threeSymbolMode ? achievement.threeSymbols : achievement.normalized;
       return anorm.startsWith(normalized);
     });
   }
 
-  clearSaved() {
+  clearSaved(): void {
     this.pinned.length = 0;
     this.savePinned();
     this.completed.length = 0;
     this.saveCompleted();
   }
 
-  pin(achievement: Achievement) {
+  pin(achievement: Achievement): void {
     if (this.pinned.indexOf(achievement) < 0) {
       this.pinned.push(achievement);
       this.savePinned();
@@ -58,7 +59,7 @@ export class AchievementService {
     this.uncomplete(achievement);
   }
 
-  unpin(achievement: Achievement) {
+  unpin(achievement: Achievement): void {
     const index = this.pinned.indexOf(achievement);
     if (index >= 0) {
       this.pinned.splice(index, 1);
@@ -66,7 +67,7 @@ export class AchievementService {
     }
   }
 
-  complete(achievement: Achievement) {
+  complete(achievement: Achievement): void {
     if (this.completed.indexOf(achievement) < 0) {
       this.completed.push(achievement);
       this.saveCompleted();
@@ -74,7 +75,7 @@ export class AchievementService {
     this.unpin(achievement);
   }
 
-  uncomplete(achievement: Achievement) {
+  uncomplete(achievement: Achievement): void {
     const index = this.completed.indexOf(achievement);
     if (index >= 0) {
       this.completed.splice(index, 1);
