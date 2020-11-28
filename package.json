@@ -26,7 +26,6 @@
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "bootstrap": "^4.5.0",
     "bootstrap-darkmode": "^0.7.0",
-    "color-convert": "^2.0.1",
     "express": "^4.17.1",
     "ng-bootstrap-darkmode": "^0.4.0",
     "ngx-clipboard": "14.0.0-beta01",

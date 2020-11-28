@@ -2,8 +2,6 @@ import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/c
 import {ActivatedRoute} from '@angular/router';
 import {SwPush} from '@angular/service-worker';
 
-import * as convert from 'color-convert';
-
 import {environment} from '../../../environments/environment';
 import {Effect} from '../model/effect';
 import {LedStripService} from '../led-strip.service';
@@ -26,6 +24,18 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   presets = [
     '#000000',
     '#ffffff',
+    '#ff0000',
+    '#ff8000',
+    '#ffff00',
+    '#80ff00',
+    '#00ff00',
+    '#00ff80',
+    '#00ffff',
+    '#0080ff',
+    '#0000ff',
+    '#8000ff',
+    '#ff00ff',
+    '#ff0080',
   ];
 
   color = '#000000';
@@ -46,9 +56,6 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
     private swPush: SwPush,
     private modalService: NgbModal,
   ) {
-    for (let i = 0; i < 360; i += 30) {
-      this.presets.push('#' + convert.hsv.hex(i, 100, 100));
-    }
   }
 
   ngOnInit(): void {
