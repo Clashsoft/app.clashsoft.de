@@ -1,18 +1,21 @@
+<ng-template #header>
+  {{section.title}} ({{section.points}}P/{{section.maxPoints}}P)
+</ng-template>
 <ng-container [ngSwitch]="depth">
-  <h1 *ngSwitchCase="1">{{section.title}}</h1>
-  <h2 *ngSwitchCase="2">{{section.title}}</h2>
-  <h3 *ngSwitchCase="3">{{section.title}}</h3>
-  <h4 *ngSwitchCase="4">{{section.title}}</h4>
-  <h5 *ngSwitchCase="5">{{section.title}}</h5>
-  <h6 *ngSwitchCase="6">{{section.title}}</h6>
+  <h1 *ngSwitchCase="1" [ngTemplateOutlet]="header"></h1>
+  <h2 *ngSwitchCase="2" [ngTemplateOutlet]="header"></h2>
+  <h3 *ngSwitchCase="3" [ngTemplateOutlet]="header"></h3>
+  <h4 *ngSwitchCase="4" [ngTemplateOutlet]="header"></h4>
+  <h5 *ngSwitchCase="5" [ngTemplateOutlet]="header"></h5>
+  <h6 *ngSwitchCase="6" [ngTemplateOutlet]="header"></h6>
 </ng-container>
 <ul>
   <li *ngFor="let item of section.items; let index=index">
-    <div class="custom-control custom-checkbox" (auxclick)="item.checked = undefined">
+    <div class="custom-control custom-checkbox" (auxclick)="setChecked(item, undefined)">
       <input type="checkbox" class="custom-control-input"
              [id]="idPrefix + index"
              [indeterminate]="item.checked === undefined"
-             [(ngModel)]="item.checked"
+             [ngModel]="item.checked" (ngModelChange)="setChecked(item, $event)"
       >
       <label class="custom-control-label" [for]="idPrefix + index">
         {{item.description}} (-{{item.points}}P)

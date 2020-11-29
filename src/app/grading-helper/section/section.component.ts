@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {Section} from '../model/section';
+import {Item} from '../model/item';
 
 @Component({
   selector: 'app-section',
@@ -21,5 +22,14 @@ export class SectionComponent implements OnInit {
     if (!this.depth) {
       this.depth = 0;
     }
+  }
+
+  setChecked(item: Item, checked: boolean | undefined) {
+    if (item.checked && !checked) {
+      this.section.points += item.points;
+    } else if (!item.checked && checked) {
+      this.section.points -= item.points;
+    }
+    item.checked = checked;
   }
 }

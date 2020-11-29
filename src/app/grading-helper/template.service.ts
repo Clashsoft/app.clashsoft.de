@@ -22,6 +22,7 @@ export class TemplateService {
     const result: Section = {
       title: '',
       points: 0,
+      maxPoints: 0,
       items: [],
       children: [],
     };
@@ -31,9 +32,11 @@ export class TemplateService {
       const sectionHeader = /^(#+)(.*)\(xP\/(\d+)P\)$/.exec(line);
       if (sectionHeader) {
         const level = sectionHeader[1].length;
+        const maxPoints = +sectionHeader[3];
         const section: Section = {
           title: sectionHeader[2],
-          points: +sectionHeader[3],
+          points: maxPoints,
+          maxPoints,
           children: [],
           items: [],
         };
