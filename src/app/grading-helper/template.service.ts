@@ -29,7 +29,7 @@ export class TemplateService {
     const parents = [result];
 
     for (const line of template.split('\n')) {
-      const sectionHeader = /^(#+)(.*)\(xP\/(\d+)P\)$/.exec(line);
+      const sectionHeader = /^(#+)(.*)\(.*P\/(\d+)P\)$/.exec(line);
       if (sectionHeader) {
         const level = sectionHeader[1].length;
         const maxPoints = +sectionHeader[3];
@@ -87,5 +87,48 @@ export class TemplateService {
       result += this.render(child, depth + 1);
     }
     return result;
+  }
+
+  merge(from: Section, into: Section) {
+    into.points = from.points;
+    into.maxPoints = from.maxPoints;
+
+    for (const oldItem of into.items) {
+      oldItem.checked = false;
+    }
+    for (const item of from.items) {
+      const other = into.items.find(otherItem => otherItem.description === item.description);
+      if (other) {
+        other.points = item.points;
+        other.checked = true;
+      } else {
+        item.checked = true;
+        into.items.push(item);
+      }
+      into.points += item.points;
+    }
+
+    for (const child of from.children) {
+      const other = into.children.find(otherChild => otherChild.title === child.title);
+      if (other) {
+        this.merge(child, other);
+        into.points += other.points - other.maxPoints;
+      } else {
+        into.children.push(child);
+        into.points += this.initNewSection(child);
+      }
+    }
+  }
+
+  private initNewSection(section: Section): number {
+    let delta = 0;
+    for (const item of section.items) {
+      item.checked = true;
+      delta += item.points;
+    }
+    for (const child of section.children) {
+      delta += this.initNewSection(child);
+    }
+    return delta;
   }
 }

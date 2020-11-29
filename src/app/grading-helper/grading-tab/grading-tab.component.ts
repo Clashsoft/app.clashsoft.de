@@ -37,6 +37,13 @@ export class GradingTabComponent implements OnInit {
     this.rendered = this.templateService.render(this.tab.section);
   }
 
+  parse(): void {
+    const section = this.templateService.parse(this.rendered);
+    this.templateService.merge(section, this.tab.section);
+    this.render();
+    this.save();
+  }
+
   copySuccess() {
     this.copyText = 'Copied!';
     setTimeout(() => this.copyText = 'Copy', 1000);
