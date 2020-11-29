@@ -24,12 +24,16 @@ export class GradingTabComponent implements OnInit {
     this.render();
   }
 
-  save() {
-    this.gradingHelperService.saveTab(this.tab);
+  itemsChanged(): void {
     this.render();
+    this.save();
   }
 
-  private render() {
+  private save(): void {
+    this.gradingHelperService.saveTab(this.tab);
+  }
+
+  private render(): void {
     this.rendered = this.templateService.render(this.tab.section);
   }
 
