@@ -23,4 +23,4 @@
     </div>
   </li>
 </ul>
-<app-section *ngFor="let child of section.children" [section]="child" [depth]="depth + 1"></app-section>
+<app-section *ngFor="let child of section.children" [section]="child" [depth]="depth + 1" (pointsChanged)="childPointsChanged($event)"></app-section>

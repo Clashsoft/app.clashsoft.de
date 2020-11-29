@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {Section} from '../model/section';
 import {Item} from '../model/item';
@@ -11,6 +11,7 @@ import {Item} from '../model/item';
 export class SectionComponent implements OnInit {
   @Input() section: Section;
   @Input() depth?: number;
+  @Output() pointsChanged = new EventEmitter<number>();
 
   idPrefix: string;
 
@@ -25,11 +26,22 @@ export class SectionComponent implements OnInit {
   }
 
   setChecked(item: Item, checked: boolean | undefined) {
+    let delta: number;
     if (item.checked && !checked) {
-      this.section.points += item.points;
+      delta = +item.points;
     } else if (!item.checked && checked) {
-      this.section.points -= item.points;
+      delta = -item.points;
+    } else {
+      delta = 0;
+    }
+    if (delta !== 0) {
+      this.section.points += delta;
+      this.pointsChanged.emit(delta);
     }
     item.checked = checked;
+  }
+
+  childPointsChanged(delta: number) {
+    this.section.points += delta;
   }
 }
