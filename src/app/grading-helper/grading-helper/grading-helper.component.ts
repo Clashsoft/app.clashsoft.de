@@ -29,6 +29,7 @@ export class GradingHelperComponent implements OnInit {
 
   close(event: MouseEvent, toRemove: GradingTab) {
     this.tabs = this.tabs.filter(tab => tab !== toRemove);
+    this.gradingHelperService.deleteTab(toRemove.id);
     event.preventDefault();
     event.stopImmediatePropagation();
   }

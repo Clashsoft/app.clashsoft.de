@@ -28,4 +28,8 @@ export class GradingHelperService {
     }
     return result;
   }
+
+  deleteTab(id: string): void {
+    localStorage.removeItem(this.prefix + id);
+  }
 }
