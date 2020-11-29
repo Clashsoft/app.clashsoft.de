@@ -47,7 +47,7 @@ export class TemplateService {
         parents[level] = section;
       }
 
-      const listItem = /^[+-](.*)\(-(\d+)P\)$/.exec(line);
+      const listItem = /^[+-](.*)\(([+-]?\d+)P\)$/.exec(line);
       if (listItem) {
         const item: Item = {
           description: listItem[1],
@@ -80,7 +80,7 @@ export class TemplateService {
     }
     for (const item of section.items) {
       if (item.checked) {
-        result += `- ${item.description} (-${item.points})\n`;
+        result += `- ${item.description} (${item.points}P)\n`;
       }
     }
     for (const child of section.children) {

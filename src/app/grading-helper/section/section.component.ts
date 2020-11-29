@@ -28,9 +28,9 @@ export class SectionComponent implements OnInit {
   setChecked(item: Item, checked: boolean | undefined) {
     let delta: number;
     if (item.checked && !checked) {
-      delta = +item.points;
-    } else if (!item.checked && checked) {
       delta = -item.points;
+    } else if (!item.checked && checked) {
+      delta = +item.points;
     } else {
       delta = 0;
     }
