@@ -34,8 +34,8 @@ export class SectionComponent implements OnInit {
     } else {
       delta = 0;
     }
-    this.applyDelta(delta);
     item.checked = checked;
+    this.applyDelta(delta);
   }
 
   applyDelta(delta: number) {
