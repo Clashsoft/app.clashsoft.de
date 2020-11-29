@@ -11,7 +11,10 @@ export class SectionComponent implements OnInit {
   @Input() section: Section;
   @Input() depth?: number;
 
+  idPrefix: string;
+
   constructor() {
+    this.idPrefix = `item-${Math.random().toString(36)}-`;
   }
 
   ngOnInit(): void {
