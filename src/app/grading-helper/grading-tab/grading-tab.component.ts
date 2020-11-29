@@ -21,10 +21,15 @@ export class GradingTabComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.render();
   }
 
   save() {
     this.gradingHelperService.saveTab(this.tab);
+    this.render();
+  }
+
+  private render() {
     this.rendered = this.templateService.render(this.tab.section);
   }
 
