@@ -1,0 +1,14 @@
+<ng-container [ngSwitch]="depth">
+  <h1 *ngSwitchCase="1">{{section.title}}</h1>
+  <h2 *ngSwitchCase="2">{{section.title}}</h2>
+  <h3 *ngSwitchCase="3">{{section.title}}</h3>
+  <h4 *ngSwitchCase="4">{{section.title}}</h4>
+  <h5 *ngSwitchCase="5">{{section.title}}</h5>
+  <h6 *ngSwitchCase="6">{{section.title}}</h6>
+</ng-container>
+<ul>
+  <li *ngFor="let item of section.items">
+    {{item.description}} (-{{item.points}}P)
+  </li>
+</ul>
+<app-section *ngFor="let child of section.children" [section]="child" [depth]="depth + 1"></app-section>

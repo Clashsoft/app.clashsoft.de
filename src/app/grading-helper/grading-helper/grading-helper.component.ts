@@ -21,6 +21,7 @@ export class GradingHelperComponent implements OnInit {
 
   ngOnInit(): void {
     this.template = this.templateService.savedTemplate;
+    this.section = this.templateService.parse(this.template);
   }
 
   close(event: MouseEvent, toRemove: GradingTab) {
@@ -40,6 +41,5 @@ export class GradingHelperComponent implements OnInit {
   saveTemplate(): void {
     this.templateService.savedTemplate = this.template;
     this.section = this.templateService.parse(this.template);
-    console.log(this.section);
   }
 }
