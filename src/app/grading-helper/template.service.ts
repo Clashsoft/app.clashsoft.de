@@ -72,4 +72,20 @@ export class TemplateService {
       })),
     };
   }
+
+  render(section: Section, depth = 0): string {
+    let result = '';
+    if (section.title && depth) {
+      result = `${'#'.repeat(depth)} ${section.title} (${section.points}P/${section.maxPoints}P)\n`;
+    }
+    for (const item of section.items) {
+      if (item.checked) {
+        result += `- ${item.description} (-${item.points})\n`;
+      }
+    }
+    for (const child of section.children) {
+      result += this.render(child, depth + 1);
+    }
+    return result;
+  }
 }
