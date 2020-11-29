@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {GradingTab} from '../model/grading-tab';
+import {GradingHelperService} from '../grading-helper.service';
 
 @Component({
   selector: 'app-grading-tab',
@@ -9,10 +10,15 @@ import {GradingTab} from '../model/grading-tab';
 export class GradingTabComponent implements OnInit {
   @Input() tab: GradingTab;
 
-  constructor() {
+  constructor(
+    private gradingHelperService: GradingHelperService,
+  ) {
   }
 
   ngOnInit(): void {
   }
 
+  save() {
+    this.gradingHelperService.saveTab(this.tab);
+  }
 }
