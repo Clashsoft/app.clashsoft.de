@@ -2,12 +2,12 @@
   {{section.title}} ({{section.points}}P/{{section.maxPoints}}P)
 </ng-template>
 <ng-container [ngSwitch]="depth">
-  <h1 *ngSwitchCase="1" [ngTemplateOutlet]="header"></h1>
-  <h2 *ngSwitchCase="2" [ngTemplateOutlet]="header"></h2>
-  <h3 *ngSwitchCase="3" [ngTemplateOutlet]="header"></h3>
-  <h4 *ngSwitchCase="4" [ngTemplateOutlet]="header"></h4>
-  <h5 *ngSwitchCase="5" [ngTemplateOutlet]="header"></h5>
-  <h6 *ngSwitchCase="6" [ngTemplateOutlet]="header"></h6>
+  <h1 *ngSwitchCase="1"><ng-container [ngTemplateOutlet]="header"></ng-container></h1>
+  <h2 *ngSwitchCase="2"><ng-container [ngTemplateOutlet]="header"></ng-container></h2>
+  <h3 *ngSwitchCase="3"><ng-container [ngTemplateOutlet]="header"></ng-container></h3>
+  <h4 *ngSwitchCase="4"><ng-container [ngTemplateOutlet]="header"></ng-container></h4>
+  <h5 *ngSwitchCase="5"><ng-container [ngTemplateOutlet]="header"></ng-container></h5>
+  <h6 *ngSwitchCase="6"><ng-container [ngTemplateOutlet]="header"></ng-container></h6>
 </ng-container>
 <ul>
   <li *ngFor="let item of section.items; let index=index">
