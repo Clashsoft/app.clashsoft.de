@@ -34,14 +34,14 @@ export class SectionComponent implements OnInit {
     } else {
       delta = 0;
     }
+    this.applyDelta(delta);
+    item.checked = checked;
+  }
+
+  applyDelta(delta: number) {
     if (delta !== 0) {
       this.section.points += delta;
       this.pointsChanged.emit(delta);
     }
-    item.checked = checked;
-  }
-
-  childPointsChanged(delta: number) {
-    this.section.points += delta;
   }
 }
