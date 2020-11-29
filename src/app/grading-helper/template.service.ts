@@ -34,7 +34,7 @@ export class TemplateService {
         const level = sectionHeader[1].length;
         const maxPoints = +sectionHeader[3];
         const section: Section = {
-          title: sectionHeader[2],
+          title: sectionHeader[2].trim(),
           points: maxPoints,
           maxPoints,
           children: [],
@@ -50,7 +50,7 @@ export class TemplateService {
       const listItem = /^[+-](.*)\(([+-]?\d+)P\)$/.exec(line);
       if (listItem) {
         const item: Item = {
-          description: listItem[1],
+          description: listItem[1].trim(),
           points: +listItem[2],
         }
         parents[parents.length - 1].items.push(item);
