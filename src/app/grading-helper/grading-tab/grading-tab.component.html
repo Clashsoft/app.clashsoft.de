@@ -1,2 +1,8 @@
 <app-section [section]="tab.section" (pointsChanged)="save()"></app-section>
-<textarea class="form-control" rows="20" [ngModel]="rendered"></textarea>
+<div class="position-relative">
+  <textarea class="form-control" rows="20" [ngModel]="rendered"></textarea>
+  <button type="button" class="btn btn-primary copy-button"
+          ngxClipboard *ngxClipboardIfSupported [cbContent]="rendered" (cbOnSuccess)="copySuccess()">
+    {{copyText}}
+  </button>
+</div>

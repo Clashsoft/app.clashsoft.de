@@ -12,6 +12,8 @@ export class GradingTabComponent implements OnInit {
   @Input() tab: GradingTab;
   rendered: string;
 
+  copyText = 'Copy';
+
   constructor(
     private templateService: TemplateService,
     private gradingHelperService: GradingHelperService,
@@ -24,5 +26,10 @@ export class GradingTabComponent implements OnInit {
   save() {
     this.gradingHelperService.saveTab(this.tab);
     this.rendered = this.templateService.render(this.tab.section);
+  }
+
+  copySuccess() {
+    this.copyText = 'Copied!';
+    setTimeout(() => this.copyText = 'Copy', 1000);
   }
 }

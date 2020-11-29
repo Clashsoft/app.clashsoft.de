@@ -8,6 +8,7 @@ import {GradingHelperRoutingModule} from './grading-helper-routing.module';
 import {GradingHelperComponent} from './grading-helper/grading-helper.component';
 import {SectionComponent} from './section/section.component';
 import {GradingTabComponent} from './grading-tab/grading-tab.component';
+import {ClipboardModule} from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {GradingTabComponent} from './grading-tab/grading-tab.component';
     FormsModule,
     NgbNavModule,
     GradingHelperRoutingModule,
+    ClipboardModule,
   ],
 })
 export class GradingHelperModule {
