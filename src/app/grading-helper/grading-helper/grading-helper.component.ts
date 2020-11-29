@@ -34,6 +34,7 @@ export class GradingHelperComponent implements OnInit {
     this.tabs.push({
       id: Math.random().toString(36),
       title: `Student ${this.tabs.length + 1}`,
+      section: this.templateService.copy(this.section),
     });
     event.preventDefault();
   }

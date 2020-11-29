@@ -58,4 +58,18 @@ export class TemplateService {
     }
     return result;
   }
+
+  copy(section: Section): Section {
+    return {
+      title: section.title,
+      points: section.points,
+      maxPoints: section.maxPoints,
+      children: section.children.map(child => this.copy(child)),
+      items: section.items.map(item => ({
+        description: item.description,
+        points: item.points,
+        checked: item.checked,
+      })),
+    };
+  }
 }
