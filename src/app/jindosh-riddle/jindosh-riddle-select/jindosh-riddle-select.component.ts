@@ -14,7 +14,7 @@ export class JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'character',
+  selector: 'app-character',
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class CharacterComponent extends JindoshRiddleSelectComponent {
@@ -23,7 +23,7 @@ export class CharacterComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'city',
+  selector: 'app-city',
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class CityComponent extends JindoshRiddleSelectComponent {
@@ -32,7 +32,7 @@ export class CityComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'color',
+  selector: 'app-color',
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class ColorComponent extends JindoshRiddleSelectComponent {
@@ -41,7 +41,7 @@ export class ColorComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'drink',
+  selector: 'app-drink',
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class DrinkComponent extends JindoshRiddleSelectComponent {
@@ -50,7 +50,7 @@ export class DrinkComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'heirloom',
+  selector: 'app-heirloom',
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class HeirloomComponent extends JindoshRiddleSelectComponent {

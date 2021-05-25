@@ -46,14 +46,14 @@
   </div>
   <div class="list-group mb-3">
     <a *ngFor="let i of (count < 100 ? count : 100)|range"
-      class="list-group-item list-group-item-action" [class.active]="active == i" (click)="select(i)">
+      class="list-group-item list-group-item-action" [class.active]="active === i" (click)="select(i)">
       <h2>Timer #{{i + 1}}</h2>
       <span class="text-monospace">{{(elapsed[i] || 0)|duration}}</span> total
       <div class="progress">
         <div *ngFor="let event of events"
              role="progressbar"
              class="progress-bar"
-             [class.bg-secondary]="event.timer != i"
+             [class.bg-secondary]="event.timer !== i"
              [style.width.%]="((event.end || currentDate) - event.start)/(duration*1000)*100"
         >
           {{((event.end || currentDate) - event.start) | duration}}

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 const properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
 
@@ -7,19 +7,12 @@ const properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
   templateUrl: './jindosh-riddle.component.html',
   styleUrls: ['./jindosh-riddle.component.scss'],
 })
-export class JindoshRiddleComponent implements OnInit {
+export class JindoshRiddleComponent {
   names: string[] = [];
   cities: string[] = [];
   colors: string[] = [];
   drinks: string[] = [];
   heirlooms: string[] = [];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 
   save(): void {
     const data = {};
