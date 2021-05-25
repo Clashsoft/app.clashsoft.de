@@ -11,5 +11,5 @@ export class AppCardComponent {
   @Input() wip?: boolean;
   @Input() color: string;
 
-  @HostBinding('class') hostClass = 'card';
+  @HostBinding('class') hostClass = 'card h-100';
 }
