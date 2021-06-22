@@ -3,30 +3,30 @@
   <p>
     Use the effect and color selection below to control my LED strip.
   </p>
-  <div class="form mb-3">
-    <div class="form-group">
-      <label for="effectSelect">Effect</label>
-      <select class="custom-select" id="effectSelect" aria-describedby="emailDescription" [(ngModel)]="effect">
+  <div class="mb-3">
+    <div class="mb-3">
+      <label class="form-label" for="effectSelect">Effect</label>
+      <select class="form-select" id="effectSelect" aria-describedby="emailDescription" [(ngModel)]="effect">
         <option *ngFor="let effect of effects" [ngValue]="effect">{{effect.name}}</option>
       </select>
       <div id="emailDescription" class="form-text text-muted">
         {{effect ? effect.description : 'No effect selected.'}}
       </div>
     </div>
-    <div class="form-group">
-      <label for="colorInput">Color</label>
+    <div class="mb-3">
+      <label class="form-label" for="colorInput">Color</label>
       <input type="color" class="form-control" id="colorInput" [(ngModel)]="color">
     </div>
-    <div class="form-group">
-      <label for="presets">Presets</label>
+    <div class="mb-3">
+      <label class="form-label" for="presets">Presets</label>
       <div class="btn-group d-block" role="group" id="presets">
         <button *ngFor="let preset of presets" class="btn" [style.background]="preset" (click)="color = preset">
           &nbsp;
         </button>
       </div>
     </div>
-    <div class="form-group">
-      <label for="messageInput">Message</label>
+    <div class="mb-3">
+      <label class="form-label" for="messageInput">Message</label>
       <input type="text" class="form-control" id="messageInput" [(ngModel)]="message">
     </div>
     <button type="button" class="btn btn-primary" [disabled]="submitting" (click)="submit()">
@@ -52,14 +52,12 @@
 <ng-template #keyModal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="key-modal-title">Enter Access Key</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.close()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
   </div>
   <div class="modal-body">
-    <div class="form">
-      <div class="form-group">
-        <label for="keyInput">Key</label>
+    <div>
+      <div class="mb-3">
+        <label class="form-label" for="keyInput">Key</label>
         <input type="text" id="keyInput" class="form-control text-monospace"
                placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" [(ngModel)]="key">
       </div>
