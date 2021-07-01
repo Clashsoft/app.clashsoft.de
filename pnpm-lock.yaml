@@ -19,7 +19,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ~12.1.1
   '@angular/router': ~12.1.1
   '@angular/service-worker': ~12.1.1
-  '@ng-bootstrap/ng-bootstrap': ^9.1.1
+  '@ng-bootstrap/ng-bootstrap': ^10.0.0
   '@types/jasmine': ~3.7.7
   '@types/jasminewd2': ~2.0.9
   '@types/node': ^15.12.5
@@ -56,7 +56,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 12.1.1_7bad67d3a4b10fea90d72aecabe50463
   '@angular/router': 12.1.1_fb50eb56acf8802a2289994b7bb7c08e
   '@angular/service-worker': 12.1.1_09ab570107e4e7adac1eb322d034195d
-  '@ng-bootstrap/ng-bootstrap': 9.1.3_a64d59d80f2a7e14d10508f8648be347
+  '@ng-bootstrap/ng-bootstrap': 10.0.0_a64d59d80f2a7e14d10508f8648be347
   bootstrap: 4.6.0
   bootstrap-darkmode: 0.7.0
   ng-bootstrap-darkmode: 0.4.0_a19f64a7bbd548909f993786a78673ed
@@ -1722,13 +1722,13 @@ packages:
       - supports-color
     dev: true
 
-  /@ng-bootstrap/ng-bootstrap/9.1.3_a64d59d80f2a7e14d10508f8648be347:
-    resolution: {integrity: sha512-Sl4lis1F5uSPrd4WsLEMX8b3fqzeHr4rgTFhocpx/IedZPaPdGec4a91TjdqcM/fNwzoXj1AdGrcMLpFFOxmvw==}
+  /@ng-bootstrap/ng-bootstrap/10.0.0_a64d59d80f2a7e14d10508f8648be347:
+    resolution: {integrity: sha512-Sz+QaxjuyJYJ+zyUbf0TevgcgVesCPQiiFiggEzxKjzY5R+Hvq3YgryLdXf2r/ryePL+C3FXCcmmKpTM5bfczQ==}
     peerDependencies:
-      '@angular/common': ^11.0.0
-      '@angular/core': ^11.0.0
-      '@angular/forms': ^11.0.0
-      '@angular/localize': ^11.0.0
+      '@angular/common': ^12.0.0
+      '@angular/core': ^12.0.0
+      '@angular/forms': ^12.0.0
+      '@angular/localize': ^12.0.0
       rxjs: ^6.5.5
     dependencies:
       '@angular/common': 12.1.1_@angular+core@12.1.1+rxjs@6.6.7
