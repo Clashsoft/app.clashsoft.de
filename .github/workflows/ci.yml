@@ -36,4 +36,4 @@ jobs:
         if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: pnpx angular-cli-ghpages --dir=dist/clashsoft-apps --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
+        run: ng deploy --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
