@@ -36,7 +36,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.3
   karma-jasmine: ~4.0.1
   karma-jasmine-html-reporter: ^1.6.0
-  ng-bootstrap-darkmode: ^0.4.0
+  ng-bootstrap-darkmode: ^0.5.0
   ngx-clipboard: ^14.0.1
   protractor: ~7.0.0
   rxjs: ~6.6.7
@@ -59,7 +59,7 @@ dependencies:
   '@ng-bootstrap/ng-bootstrap': 10.0.0_a64d59d80f2a7e14d10508f8648be347
   bootstrap: 4.6.0
   bootstrap-darkmode: 0.7.0
-  ng-bootstrap-darkmode: 0.4.0_a19f64a7bbd548909f993786a78673ed
+  ng-bootstrap-darkmode: 0.5.0_a19f64a7bbd548909f993786a78673ed
   ngx-clipboard: 14.0.1_09ab570107e4e7adac1eb322d034195d
   rxjs: 6.6.7
   tslib: 2.3.0
@@ -6189,19 +6189,19 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
-  /ng-bootstrap-darkmode/0.4.0_a19f64a7bbd548909f993786a78673ed:
-    resolution: {integrity: sha512-LoA3nzq0ZUZXszm5bFRm3NRiSepC9D8AyntGLWttWpUi56xn/tMIpVzHUeoSHFYkXUrFQpvUBJGBbGHm+hnAjQ==}
+  /ng-bootstrap-darkmode/0.5.0_a19f64a7bbd548909f993786a78673ed:
+    resolution: {integrity: sha512-HmdPg5rYAIDZvKFtMrMnXXeazfhm3D3weM8jrqdEQFy7R7gDrEXCKfQolq604xBNOgESb1xxIayRoD8+1IGHHA==}
     peerDependencies:
-      '@angular/common': ^9.1.9
-      '@angular/core': ^9.1.9
-      '@angular/forms': ^9.1.9
+      '@angular/common': ^12.1.1
+      '@angular/core': ^12.1.1
+      '@angular/forms': ^12.1.1
       bootstrap-darkmode: ^0.7.0
     dependencies:
       '@angular/common': 12.1.1_@angular+core@12.1.1+rxjs@6.6.7
       '@angular/core': 12.1.1_rxjs@6.6.7+zone.js@0.11.4
       '@angular/forms': 12.1.1_fb50eb56acf8802a2289994b7bb7c08e
       bootstrap-darkmode: 0.7.0
-      tslib: 1.14.1
+      tslib: 2.3.0
     dev: false
 
   /ngx-clipboard/14.0.1_09ab570107e4e7adac1eb322d034195d:
