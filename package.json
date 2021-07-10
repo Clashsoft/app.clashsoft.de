@@ -25,7 +25,7 @@
     "@angular/service-worker": "~12.1.1",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^4.6.0",
-    "bootstrap-darkmode": "^0.7.0",
+    "bootstrap-darkmode": "~0.8.0",
     "ng-bootstrap-darkmode": "^0.5.0",
     "ngx-clipboard": "^14.0.1",
     "rxjs": "~6.6.7",
