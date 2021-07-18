@@ -7,6 +7,12 @@ MIT
 @angular/forms
 MIT
 
+@angular/localize
+MIT
+
+@angular/platform-browser
+MIT
+
 @angular/router
 MIT
 
@@ -72,6 +78,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ngx-clipboard
+MIT
+
+ngx-window-token
 MIT
 
 rxjs
