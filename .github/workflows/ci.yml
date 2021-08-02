@@ -28,6 +28,10 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm build
+      - name: Build again
+        if: github.ref == 'refs/heads/master'
+        run: pnpm build
+        # Building again fixes a weird issue with missing code from the main.js bundle
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         env:
