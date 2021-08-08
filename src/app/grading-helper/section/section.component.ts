@@ -10,7 +10,7 @@ import {Item} from '../model/item';
 })
 export class SectionComponent implements OnInit {
   @Input() section!: Section;
-  @Input() depth?: number;
+  @Input() depth!: number;
   @Output() pointsChanged = new EventEmitter<number>();
 
   idPrefix: string;
