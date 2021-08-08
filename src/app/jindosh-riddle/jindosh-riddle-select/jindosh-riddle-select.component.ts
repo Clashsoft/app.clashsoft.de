@@ -6,10 +6,10 @@ import * as Constants from '../jindosh-riddle.constants';
   templateUrl: 'jindosh-riddle-select.component.html',
 })
 export class JindoshRiddleSelectComponent {
-  @Input() placeholder: string;
-  @Input() options: string[];
+  @Input() placeholder!: string;
+  @Input() options!: string[];
 
-  @Input() value: string;
+  @Input() value!: string;
   @Output() valueChange = new EventEmitter<string>();
 }
 

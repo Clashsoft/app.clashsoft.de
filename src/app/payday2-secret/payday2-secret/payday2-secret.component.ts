@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardService} from 'ngx-clipboard';
@@ -15,7 +15,7 @@ import {AchievementService} from '../achievement.service';
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;
   searchText = '';
-  threeSymbolMode: boolean;
+  threeSymbolMode!: boolean;
 
   constructor(
     private modalService: NgbModal,
@@ -28,7 +28,7 @@ export class Payday2SecretComponent implements OnInit {
     this.threeSymbolMode = this.achievementService.threeSymbolMode;
   }
 
-  openModal(content): void {
+  openModal(content: TemplateRef<any>): void {
     this.modalService.open(content, {size: 'lg'});
   }
 

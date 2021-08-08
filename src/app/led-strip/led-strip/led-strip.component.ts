@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SwPush} from '@angular/service-worker';
 
@@ -17,7 +17,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./led-strip.component.scss'],
 })
 export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('keyModal') keyModal;
+  @ViewChild('keyModal') keyModal!: TemplateRef<any>;
 
   effects: EffectType[] = [];
 
@@ -116,6 +116,10 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   submit(): void {
+    if (!this.effect) {
+      return;
+    }
+
     const color = this.getColor();
     const effect: Effect = {effect: this.effect.id, message: this.message, ...color};
     this.submitting = true;
@@ -129,6 +133,9 @@ export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   saveKey(): void {
+    if (!this.key) {
+      return;
+    }
     localStorage.setItem('led-strip/key', this.key);
   }
 }

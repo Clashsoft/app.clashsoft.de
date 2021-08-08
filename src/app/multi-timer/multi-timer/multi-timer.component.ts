@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {interval, Subscription} from 'rxjs';
 
 interface Event {
   start: number;
@@ -12,8 +13,8 @@ interface Event {
   styleUrls: ['./multi-timer.component.scss'],
 })
 export class MultiTimerComponent implements OnInit {
-  count: number;
-  duration: number;
+  count!: number;
+  duration!: number;
 
   total = 0;
   elapsed: number[] = [];
@@ -22,9 +23,9 @@ export class MultiTimerComponent implements OnInit {
   currentDate = 0;
   events: Event[] = [];
 
-  handle?: number;
+  timerSub?: Subscription;
 
-  startTime?: number;
+  startTime = 0;
 
   constructor() {
   }
@@ -46,11 +47,11 @@ export class MultiTimerComponent implements OnInit {
   start(): void {
     this.startTime = +new Date();
     this.events.push({timer: this.active, start: this.startTime});
-    this.handle = setInterval(() => this.update(), 0);
+    this.timerSub = interval().subscribe(() => this.update());
   }
 
   reset(): void {
-    this.startTime = undefined;
+    this.startTime = 0;
     this.active = 0;
     this.total = 0;
     this.elapsed = [];
@@ -58,16 +59,14 @@ export class MultiTimerComponent implements OnInit {
   }
 
   stop(): void {
-    if (this.handle !== undefined) {
-      clearInterval(this.handle);
-      this.handle = undefined;
-    }
+    this.timerSub?.unsubscribe();
+    delete this.timerSub;
   }
 
   select(timer: number): void {
     this.active = timer;
 
-    if (this.startTime === undefined || !this.handle || this.total === this.duration * 1000) {
+    if (!this.startTime || !this.timerSub || this.total === this.duration * 1000) {
       return;
     }
 

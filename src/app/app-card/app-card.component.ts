@@ -6,10 +6,10 @@ import {Component, HostBinding, Input} from '@angular/core';
   styleUrls: ['./app-card.component.scss'],
 })
 export class AppCardComponent {
-  @Input() id: string;
-  @Input() title: string;
+  @Input() id!: string;
+  @Input() title!: string;
   @Input() wip?: boolean;
-  @Input() color: string;
+  @Input() color!: string;
 
   @HostBinding('class') hostClass = 'card';
 }

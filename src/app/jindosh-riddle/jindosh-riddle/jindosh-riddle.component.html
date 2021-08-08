@@ -6,11 +6,11 @@
   </p>
   <p>
     The women sat in a row. They all wore different colors and
-    <app-character [(value)]="names[0]"></app-character>
+    <app-character [(value)]="data.names[0]"></app-character>
     wore a jaunty
-    <app-color [(value)]="colors[0]"></app-color>
+    <app-color [(value)]="data.colors[0]"></app-color>
     hat.
-    <app-character [(value)]="names[1]"></app-character>
+    <app-character [(value)]="data.names[1]"></app-character>
     was at the far left, next to the guest wearing a
     <app-color></app-color>
     jacket. The lady in
@@ -26,30 +26,30 @@
     was dressed entirely in
     <app-color></app-color>
     . When one of the dinner guests bragged about her
-    <app-heirloom [(value)]="heirlooms[2]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[2]"></app-heirloom>
     , the woman next to her said they were finer in
     <app-city></app-city>
     , where she lived.
   </p>
   <p>
     So
-    <app-character [(value)]="names[3]"></app-character>
+    <app-character [(value)]="data.names[3]"></app-character>
     showed off a prized
-    <app-heirloom [(value)]="heirlooms[3]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[3]"></app-heirloom>
     , at which the lady from
-    <app-city [(value)]="cities[0]"></app-city>
+    <app-city [(value)]="data.cities[0]"></app-city>
     scoffed, saying it was no match for her
-    <app-heirloom [(value)]="heirlooms[0]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[0]"></app-heirloom>
     . Someone else carried a valuable
-    <app-heirloom [(value)]="heirlooms[1]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[1]"></app-heirloom>
     and when she saw it, the visitor from
     <app-city></app-city>
     next to her almost spilled her neighbor's
     <app-drink></app-drink>
     .
-    <app-character [(value)]="names[2]"></app-character>
+    <app-character [(value)]="data.names[2]"></app-character>
     raised her
-    <app-drink [(value)]="drinks[2]"></app-drink>
+    <app-drink [(value)]="data.drinks[2]"></app-drink>
     in toast. The lady from
     <app-city></app-city>
     , full of
@@ -57,20 +57,20 @@
     , jumped up onto the table falling onto the guest in the center seat, spilling the poor woman's
     <app-drink></app-drink>
     . Then
-    <app-character [(value)]="names[4]"></app-character>
+    <app-character [(value)]="data.names[4]"></app-character>
     captivated them all with a story about her wild youth in
-    <app-city [(value)]="cities[4]"></app-city>
+    <app-city [(value)]="data.cities[4]"></app-city>
     .
   </p>
   <p>
     In the morning there were four heirlooms under the table:
-    <app-heirloom [(value)]="heirlooms[2]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[2]"></app-heirloom>
     ,
-    <app-heirloom [(value)]="heirlooms[4]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[4]"></app-heirloom>
     ,
-    <app-heirloom [(value)]="heirlooms[0]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[0]"></app-heirloom>
     , and
-    <app-heirloom [(value)]="heirlooms[1]"></app-heirloom>
+    <app-heirloom [(value)]="data.heirlooms[1]"></app-heirloom>
     .
   </p>
   <p>
@@ -90,11 +90,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let i of [0,1,2,3,4]">
-      <th scope="row">{{names[i]}}</th>
-      <td>{{cities[i]}}</td>
-      <td>{{colors[i]}}</td>
-      <td>{{drinks[i]}}</td>
-      <td>{{heirlooms[i]}}</td>
+      <th scope="row">{{data.names[i]}}</th>
+      <td>{{data.cities[i]}}</td>
+      <td>{{data.colors[i]}}</td>
+      <td>{{data.drinks[i]}}</td>
+      <td>{{data.heirlooms[i]}}</td>
       <td></td>
     </tr>
     </tbody>

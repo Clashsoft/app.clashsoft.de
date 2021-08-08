@@ -9,8 +9,8 @@ import {TemplateService} from '../template.service';
   styleUrls: ['./grading-tab.component.scss'],
 })
 export class GradingTabComponent implements OnInit {
-  @Input() tab: GradingTab;
-  rendered: string;
+  @Input() tab!: GradingTab;
+  rendered!: string;
 
   copyText = 'Copy';
 

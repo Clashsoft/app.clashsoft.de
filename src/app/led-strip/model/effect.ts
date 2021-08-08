@@ -1,4 +1,4 @@
-export class Effect {
+export interface Effect {
   effect: string;
   message?: string;
   r: number;

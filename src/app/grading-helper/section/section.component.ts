@@ -9,7 +9,7 @@ import {Item} from '../model/item';
   styleUrls: ['./section.component.scss'],
 })
 export class SectionComponent implements OnInit {
-  @Input() section: Section;
+  @Input() section!: Section;
   @Input() depth?: number;
   @Output() pointsChanged = new EventEmitter<number>();
 
