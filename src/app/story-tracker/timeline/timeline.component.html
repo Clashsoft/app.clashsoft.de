@@ -1,4 +1,24 @@
 <div class="container">
   <h1>Timeline</h1>
-
+  <div class="card" *ngFor="let event of timeline">
+    <div class="card-header">
+      {{ event.timestamp | date:'medium' }}
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <ng-container *ngFor="let item of event.description">
+          <span
+            *ngIf="isReference(item); else text"
+            class="alert p-0"
+            [class.alert-primary]="item.type === 'character'"
+            [class.alert-success]="item.type === 'location'"
+            [class.alert-warning]="item.type === 'item'"
+          >{{ item.name }}</span>
+          <ng-template #text>
+            {{ item }}
+          </ng-template>
+        </ng-container>
+      </p>
+    </div>
+  </div>
 </div>
