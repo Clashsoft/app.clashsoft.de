@@ -24,8 +24,11 @@
   <div class="card">
     <div class="card-header">
       <div class="form-inline">
-        <input type="date" class="form-control">
-        <input type="time" class="form-control">
+        <input type="date" class="form-control" [(ngModel)]="date">
+        <input type="time" class="form-control" [(ngModel)]="time">
+        <button type="button" class="btn btn-primary" (click)="addEvent()">
+          Add Event
+        </button>
       </div>
     </div>
     <div class="card-body">

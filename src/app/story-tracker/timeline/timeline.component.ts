@@ -35,6 +35,8 @@ export class TimelineComponent implements OnInit {
     },
   ];
 
+  date = new Date().toISOString().substring(0, 10);
+  time = "12:00";
   description = '';
 
   ngOnInit(): void {
@@ -56,7 +58,7 @@ export class TimelineComponent implements OnInit {
         item: 'warning',
         location: 'success',
       }[reference.type];
-      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-id="${reference.id}">${name || fullName}</span>`;
+      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${reference.type}" data-id="${reference.id}">${name || fullName}</span>`;
     });
 
     if (newText === this.description) {
@@ -75,6 +77,29 @@ export class TimelineComponent implements OnInit {
         selection.removeAllRanges();
         selection.addRange(range);
       }
+    });
+  }
+
+  addEvent() {
+    const description: (string | Reference)[] = [];
+    const editor = document.getElementById('description-editor');
+    editor!.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        description.push(node.textContent!);
+      } else if (node.nodeType === Node.ELEMENT_NODE && node instanceof HTMLElement) {
+        const {reference, id} = node.dataset;
+        const name = node.textContent;
+        description.push({
+          type: reference as any,
+          id: id!,
+          name: name!,
+        });
+      }
+    });
+    const timestamp = new Date(this.date + ' ' + this.time);
+    this.timeline.push({
+      timestamp,
+      description,
     });
   }
 }
