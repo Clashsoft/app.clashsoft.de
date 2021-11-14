@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Timeline</h1>
-  <div class="card" *ngFor="let event of timeline">
+  <div class="card mb-3" *ngFor="let event of timeline">
     <div class="card-header">
       {{ event.timestamp | date:'medium' }}
     </div>
@@ -19,6 +19,23 @@
           </ng-template>
         </ng-container>
       </p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="form-inline">
+        <input type="date" class="form-control">
+        <input type="time" class="form-control">
+      </div>
+    </div>
+    <div class="card-body">
+      <div
+        id="description-editor"
+        [contenteditable]="true"
+        propValueAccessor="innerHTML"
+        [(ngModel)]="description"
+        (ngModelChange)="updateTags()"
+      ></div>
     </div>
   </div>
 </div>

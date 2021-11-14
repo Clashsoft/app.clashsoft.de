@@ -35,10 +35,46 @@ export class TimelineComponent implements OnInit {
     },
   ];
 
+  description = '';
+
   ngOnInit(): void {
   }
 
   isReference(item: string | Reference): item is Reference {
     return typeof item !== 'string';
+  }
+
+  updateTags() {
+    const newText = this.description.replace(/\[\[(.*?)(?:\|(.*?))?]]/g, (text, fullName, name) => {
+      const reference = references.find(r => r.name === fullName);
+      if (!reference) {
+        return text;
+      }
+
+      const cssClass = {
+        character: 'primary',
+        item: 'warning',
+        location: 'success',
+      }[reference.type];
+      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-id="${reference.id}">${name || fullName}</span>`;
+    });
+
+    if (newText === this.description) {
+      return;
+    }
+
+    this.description = newText;
+
+    setTimeout(() => {
+      const selection = window.getSelection();
+      const editor = document.getElementById('description-editor');
+      if (selection && editor) {
+        const range = document.createRange();
+        range.selectNodeContents(editor);
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    });
   }
 }

@@ -1,17 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { StoryTrackerRoutingModule } from './story-tracker-routing.module';
-import { TimelineComponent } from './timeline/timeline.component';
+import {StoryTrackerRoutingModule} from './story-tracker-routing.module';
+import {TimelineComponent} from './timeline/timeline.component';
+import {ContenteditableModule} from '@ng-stack/contenteditable';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    TimelineComponent
+    TimelineComponent,
   ],
   imports: [
     CommonModule,
-    StoryTrackerRoutingModule
-  ]
+    StoryTrackerRoutingModule,
+    FormsModule,
+    ContenteditableModule,
+  ],
 })
-export class StoryTrackerModule { }
+export class StoryTrackerModule {
+}

@@ -20,6 +20,7 @@ specifiers:
   '@angular/router': ~12.2.13
   '@angular/service-worker': ~12.2.13
   '@ng-bootstrap/ng-bootstrap': ^10.0.0
+  '@ng-stack/contenteditable': ^1.1.1
   '@types/jasmine': ~3.7.8
   '@types/jasminewd2': ~2.0.10
   '@types/node': ^16.11.7
@@ -57,6 +58,7 @@ dependencies:
   '@angular/router': 12.2.13_77f9be83c64208f20f952d6482f49f76
   '@angular/service-worker': 12.2.13_8e20f6afdaf26af34c281cd08cfa748e
   '@ng-bootstrap/ng-bootstrap': 10.0.0_ecd0f05ca02f5467409967e9cd7900e0
+  '@ng-stack/contenteditable': 1.1.1_@angular+core@12.2.13
   bootstrap: 4.6.1
   bootstrap-darkmode: 0.9.1_bootstrap@4.6.1
   ng-bootstrap-darkmode: 0.5.0_61713e2f8056e41a36c1eb51034e5854
@@ -1844,6 +1846,15 @@ packages:
       '@angular/forms': 12.2.13_77f9be83c64208f20f952d6482f49f76
       '@angular/localize': 12.2.13_38529aa197b428da215cb1ee28d9631d
       rxjs: 6.6.7
+      tslib: 2.3.1
+    dev: false
+
+  /@ng-stack/contenteditable/1.1.1_@angular+core@12.2.13:
+    resolution: {integrity: sha512-BIbrHOnO+EUpVd7R3EZQjDDZpM0L0T1CKTei40jpKHWr+7m8Sf4g5mRd9GTJcWx2OOCwC8w2H3cbeufUdhCOhg==}
+    peerDependencies:
+      '@angular/core': '>=4.0.0'
+    dependencies:
+      '@angular/core': 12.2.13_rxjs@6.6.7+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
