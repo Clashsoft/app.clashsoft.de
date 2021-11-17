@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Event, Reference} from '../model/event';
 import {ActivatedRoute} from '@angular/router';
 import {EventService} from '../event.service';
-import {switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, distinctUntilKeyChanged, map, switchMap} from 'rxjs/operators';
+import {BehaviorSubject, combineLatest, Observable, OperatorFunction} from 'rxjs';
 
 const testus: Reference = {type: 'character', id: '0', name: 'Testus'};
 const sword: Reference = {type: 'item', id: '1', name: 'Sword of Swiftness'};
@@ -34,6 +35,16 @@ export class TimelineComponent implements OnInit {
   time = "12:00";
   description = '';
 
+  searchReference$ = new BehaviorSubject<Reference | undefined>(undefined);
+
+  search: OperatorFunction<string, Reference[]> = (text$: Observable<string>) => text$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    map(term => term.length < 2 ? [] : references.filter(v => v.name.toLowerCase().includes(term.toLowerCase())).slice(0, 10)),
+  );
+
+  render = (ref: Reference) => ref.name;
+
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute,
@@ -41,8 +52,12 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.pipe(
-      switchMap(({story}) => this.eventService.getAll(story)),
+    combineLatest([
+      this.route.params,
+      this.searchReference$,
+    ]).pipe(
+      distinctUntilKeyChanged(1),
+      switchMap(([{story}, ref]) => this.eventService.getAll(story, ref?.id)),
     ).subscribe(events => {
       this.timeline = events;
     });

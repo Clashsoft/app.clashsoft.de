@@ -1,5 +1,23 @@
 <div class="container">
   <h1>Timeline</h1>
+  <div class="form-inline mb-3">
+    <div class="form-group">
+      <label for="searchInput" class="mr-2">
+        Filter by Reference:
+      </label>
+      <input
+        type="search"
+        class="form-control"
+        id="searchInput"
+        [ngbTypeahead]="search"
+        [inputFormatter]="render"
+        [resultFormatter]="render"
+        [editable]="false"
+        [ngModel]="searchReference$ | async"
+        (ngModelChange)="searchReference$.next($event)"
+      >
+    </div>
+  </div>
   <div class="card mb-3" *ngFor="let event of timeline">
     <div class="card-header">
       {{ event.timestamp | date:'medium' }}
