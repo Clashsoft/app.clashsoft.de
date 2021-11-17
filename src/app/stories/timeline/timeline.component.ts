@@ -105,6 +105,11 @@ export class TimelineComponent implements OnInit {
         description.push(node.textContent!);
       } else if (node.nodeType === Node.ELEMENT_NODE && node instanceof HTMLElement) {
         const {reference, id} = node.dataset;
+        if (!reference || !id) {
+          description.push(node.innerText);
+          return;
+        }
+
         const name = node.textContent;
         description.push({
           type: reference as any,
