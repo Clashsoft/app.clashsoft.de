@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {StoryTrackerRoutingModule} from './story-tracker-routing.module';
+import {StoriesRoutingModule} from './stories-routing.module';
 import {TimelineComponent} from './timeline/timeline.component';
 import {ContenteditableModule} from '@ng-stack/contenteditable';
 import {FormsModule} from '@angular/forms';
@@ -13,10 +13,10 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    StoryTrackerRoutingModule,
+    StoriesRoutingModule,
     FormsModule,
     ContenteditableModule,
   ],
 })
-export class StoryTrackerModule {
+export class StoriesModule {
 }
