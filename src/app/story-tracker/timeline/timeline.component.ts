@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Event, Reference} from '../model/event';
+import {ActivatedRoute} from '@angular/router';
+import {EventService} from '../event.service';
+import {switchMap} from 'rxjs/operators';
 
 const testus: Reference = {type: 'character', id: '0', name: 'Testus'};
 const sword: Reference = {type: 'item', id: '1', name: 'Sword of Swiftness'};
@@ -25,27 +28,24 @@ export class TimelineComponent implements OnInit {
     location: 'success',
   };
 
-  timeline: Event[] = [
-    {
-      timestamp: new Date(),
-      description: [
-        testus,
-        'gives the',
-        sword,
-        'to',
-        testina,
-        'at',
-        library,
-        '.',
-      ],
-    },
-  ];
+  timeline: Event[] = [];
 
   date = new Date().toISOString().substring(0, 10);
   time = "12:00";
   description = '';
 
+  constructor(
+    private eventService: EventService,
+    private route: ActivatedRoute,
+  ) {
+  }
+
   ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap(({story}) => this.eventService.getAll(story)),
+    ).subscribe(events => {
+      this.timeline = events;
+    });
   }
 
   isReference(item: string | Reference): item is Reference {
@@ -99,9 +99,16 @@ export class TimelineComponent implements OnInit {
       }
     });
     const timestamp = new Date(this.date + ' ' + this.time);
-    this.timeline.push({
+    this.eventService.create(this.route.snapshot.params.story, {
       timestamp,
       description,
+    }).subscribe(event => {
+      const index = this.timeline.findIndex(e => e.timestamp > event.timestamp);
+      if (index < 0) {
+        this.timeline.push(event);
+      } else {
+        this.timeline.splice(index, 0, event);
+      }
     });
   }
 }

@@ -1,0 +1,25 @@
+import {Injectable} from '@angular/core';
+import {CreateEventDto, Event} from './model/event';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class EventService {
+  constructor(
+    private http: HttpClient,
+  ) {
+  }
+
+  getAll(story: string, reference?: string): Observable<Event[]> {
+    return this.http.get<Event[]>(`${environment.storyApiUrl}/stories/${story}/events`, {
+      params: reference ? {reference} : {},
+    });
+  }
+
+  create(story: string, dto: CreateEventDto): Observable<Event> {
+    return this.http.post<Event>(`${environment.storyApiUrl}/stories/${story}/events`, dto);
+  }
+}

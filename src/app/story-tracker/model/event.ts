@@ -5,6 +5,9 @@ export interface Reference {
 }
 
 export interface Event {
+  _id: string;
   timestamp: Date;
   description: (string | Reference)[];
 }
+
+export type CreateEventDto = Omit<Event, '_id'>;
