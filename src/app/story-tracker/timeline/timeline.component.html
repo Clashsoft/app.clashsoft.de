@@ -7,13 +7,7 @@
     <div class="card-body">
       <p class="card-text">
         <ng-container *ngFor="let item of event.description">
-          <span
-            *ngIf="isReference(item); else text"
-            class="alert p-0"
-            [class.alert-primary]="item.type === 'character'"
-            [class.alert-success]="item.type === 'location'"
-            [class.alert-warning]="item.type === 'item'"
-          >{{ item.name }}</span>
+          <span *ngIf="isReference(item); else text" class="alert alert-{{colors[item.type]}} p-0">{{ item.name }}</span>
           <ng-template #text>
             {{ item }}
           </ng-template>

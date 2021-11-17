@@ -19,6 +19,12 @@ const references = [
   styleUrls: ['./timeline.component.scss'],
 })
 export class TimelineComponent implements OnInit {
+  readonly colors: Record<string, string> = {
+    character: 'primary',
+    item: 'warning',
+    location: 'success',
+  };
+
   timeline: Event[] = [
     {
       timestamp: new Date(),
@@ -53,11 +59,7 @@ export class TimelineComponent implements OnInit {
         return text;
       }
 
-      const cssClass = {
-        character: 'primary',
-        item: 'warning',
-        location: 'success',
-      }[reference.type];
+      const cssClass = this.colors[reference.type];
       return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${reference.type}" data-id="${reference.id}">${name || fullName}</span>`;
     });
 
