@@ -4,7 +4,8 @@ import {TimelineComponent} from './timeline/timeline.component';
 import {StoryListComponent} from './story-list/story-list.component';
 
 const routes: Routes = [
-  {path: 'timeline', component: TimelineComponent},
+  {path: ':story/timeline', component: TimelineComponent},
+  {path: ':story', redirectTo: ':story/timeline'},
   {path: '', component: StoryListComponent},
 ];
 
