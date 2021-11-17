@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Story} from '../model/story';
+import {StoryService} from '../story.service';
 
 @Component({
   selector: 'app-story-list',
@@ -7,18 +8,17 @@ import {Story} from '../model/story';
   styleUrls: ['./story-list.component.scss'],
 })
 export class StoryListComponent implements OnInit {
-  stories: Story[] = [
-    {
-      _id: '0',
-      title: 'The Grand Plan',
-      description: 'The heroes go to a hidden village in the Peruan mountains, where they face a dangerous',
-    },
-  ];
+  stories: Story[] = [];
 
-  constructor() {
+  constructor(
+    private storyService: StoryService,
+  ) {
   }
 
   ngOnInit(): void {
+    this.storyService.getAll().subscribe(stories => {
+      this.stories = stories;
+    });
   }
 
 }
