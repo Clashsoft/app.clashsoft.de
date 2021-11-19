@@ -5,8 +5,10 @@ import {StoryListComponent} from './story-list/story-list.component';
 import {EditStoryComponent} from './edit-story/edit-story.component';
 import {StoryComponent} from './story/story.component';
 import {EntryListComponent} from './entry-list/entry-list.component';
+import {EditEntryComponent} from './edit-entry/edit-entry.component';
 
 const routes: Routes = [
+  {path: ':story/entries/:entry', component: EditEntryComponent},
   {
     path: ':story',
     component: StoryComponent,

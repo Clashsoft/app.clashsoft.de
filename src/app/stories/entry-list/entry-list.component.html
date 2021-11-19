@@ -1,6 +1,9 @@
 <div class="container">
   <div class="list-group">
-    <a *ngFor="let entry of entries" class="list-group-item list-group-item-action">
+    <a *ngFor="let entry of entries"
+       class="list-group-item list-group-item-action"
+       [routerLink]="[entry._id]"
+    >
       <h4>
         {{ entry.name }}
         <small class="text-muted">
