@@ -3,10 +3,17 @@ import {RouterModule, Routes} from '@angular/router';
 import {TimelineComponent} from './timeline/timeline.component';
 import {StoryListComponent} from './story-list/story-list.component';
 import {EditStoryComponent} from './edit-story/edit-story.component';
+import {StoryComponent} from './story/story.component';
 
 const routes: Routes = [
-  {path: ':story/timeline', component: TimelineComponent},
-  {path: ':story/edit', component: EditStoryComponent},
+  {
+    path: ':story',
+    component: StoryComponent,
+    children: [
+      {path: 'timeline', component: TimelineComponent, data: {title: 'Timeline'}},
+      {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
+    ],
+  },
   {path: 'new', component: EditStoryComponent},
   {path: ':story', redirectTo: ':story/timeline'},
   {path: '', component: StoryListComponent},

@@ -5,9 +5,10 @@ import {StoriesRoutingModule} from './stories-routing.module';
 import {TimelineComponent} from './timeline/timeline.component';
 import {ContenteditableModule} from '@ng-stack/contenteditable';
 import {FormsModule} from '@angular/forms';
-import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbNavModule, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import { StoryListComponent } from './story-list/story-list.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
+import { StoryComponent } from './story/story.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { EditStoryComponent } from './edit-story/edit-story.component';
     TimelineComponent,
     StoryListComponent,
     EditStoryComponent,
+    StoryComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { EditStoryComponent } from './edit-story/edit-story.component';
     FormsModule,
     ContenteditableModule,
     NgbTypeaheadModule,
+    NgbNavModule,
   ],
 })
 export class StoriesModule {
