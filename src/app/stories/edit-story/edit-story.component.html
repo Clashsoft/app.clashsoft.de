@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>
+    {{ $any(story)['_id'] ? 'Edit' : 'New' }}
+    Story
+  </h1>
+  <div class="form">
+    <div class="form-group">
+      <label for="titleInput">Title</label>
+      <input type="text" class="form-control" id="titleInput" [(ngModel)]="story.title">
+    </div>
+    <div class="form-group">
+      <label for="descriptionInput">Description</label>
+      <textarea class="form-control" id="descriptionInput" [(ngModel)]="story.description"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="save()">
+      Save
+    </button>
+  </div>
+</div>

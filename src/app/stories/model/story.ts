@@ -3,3 +3,7 @@ export interface Story {
   title: string;
   description: string;
 }
+
+export type CreateStoryDto = Omit<Story, '_id'>;
+
+export type UpdateStoryDto = Partial<CreateStoryDto>;

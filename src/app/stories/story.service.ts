@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {forkJoin, Observable} from 'rxjs';
-import {Story} from './model/story';
-import {map} from 'rxjs/operators';
+import {CreateStoryDto, Story, UpdateStoryDto} from './model/story';
+import {map, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
@@ -29,5 +29,15 @@ export class StoryService {
 
   get(id: string): Observable<Story> {
     return this.http.get<Story>(`${environment.storyApiUrl}/stories/${id}`);
+  }
+
+  create(dto: CreateStoryDto): Observable<Story> {
+    return this.http.post<Story>(`${environment.storyApiUrl}/stories`, dto).pipe(
+      tap(story => localStorage.setItem(`stories/${story._id}`, new Date().toISOString())),
+    );
+  }
+
+  update(story: string, dto: UpdateStoryDto): Observable<Story> {
+    return this.http.patch<Story>(`${environment.storyApiUrl}/stories/${story}`, dto);
   }
 }
