@@ -8,6 +8,7 @@ import {EntryListComponent} from './entry-list/entry-list.component';
 import {EditEntryComponent} from './edit-entry/edit-entry.component';
 
 const routes: Routes = [
+  {path: ':story/entries/new', component: EditEntryComponent},
   {path: ':story/entries/:entry', component: EditEntryComponent},
   {
     path: ':story',
