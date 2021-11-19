@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="d-flex align-items-center">
+    <a routerLink="..">
+      &leftarrow;
+    </a>
+    <span>
+      {{entry?.name}}
+      <small class="text-muted">
+        {{entry?.type}}
+      </small>
+    </span>
+    <a class="btn btn-primary ml-auto" routerLink="edit">
+      Edit
+    </a>
+  </h1>
+  <p class="text-muted">
+    {{entry?.description}}
+  </p>
+  <table class="table table-sm table-borderless">
+    <tr *ngFor="let property of entry?.properties | keyvalue">
+      <td>{{property.key}}</td>
+      <td>{{property.value}}</td>
+    </tr>
+  </table>
+</div>
