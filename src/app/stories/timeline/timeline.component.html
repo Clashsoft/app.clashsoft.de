@@ -25,7 +25,11 @@
     <div class="card-body">
       <p class="card-text">
         <ng-container *ngFor="let item of event.description">
-          <span *ngIf="isReference(item); else text" class="alert alert-{{colors[item.type]}} p-0">{{ item.name }}</span>
+          <a
+            *ngIf="isReference(item); else text"
+            class="alert alert-{{colors[item.type]}} p-0"
+            [routerLink]="['../entries', item.id]"
+          >{{ item.name }}</a>
           <ng-template #text>
             {{ item }}
           </ng-template>
