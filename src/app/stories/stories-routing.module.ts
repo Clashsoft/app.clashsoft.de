@@ -4,6 +4,7 @@ import {TimelineComponent} from './timeline/timeline.component';
 import {StoryListComponent} from './story-list/story-list.component';
 import {EditStoryComponent} from './edit-story/edit-story.component';
 import {StoryComponent} from './story/story.component';
+import {EntryListComponent} from './entry-list/entry-list.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       {path: 'timeline', component: TimelineComponent, data: {title: 'Timeline'}},
       {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
+      {path: 'entries', component: EntryListComponent, data: {title: 'Entries'}},
     ],
   },
   {path: 'new', component: EditStoryComponent},
