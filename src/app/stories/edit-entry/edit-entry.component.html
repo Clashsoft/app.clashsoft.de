@@ -7,9 +7,7 @@
     <div class="form-group">
       <label for="typeInput">Type</label>
       <select class="form-control" id="typeInput" [(ngModel)]="entry.type">
-        <option ngValue="Character">Character</option>
-        <option ngValue="Location">Location</option>
-        <option ngValue="Item">Item</option>
+        <option *ngFor="let type of types" [ngValue]="type">{{ type }}</option>
       </select>
     </div>
     <div class="form-group">

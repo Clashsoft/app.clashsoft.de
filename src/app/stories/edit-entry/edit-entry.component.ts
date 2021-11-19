@@ -4,6 +4,7 @@ import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {CreateEntryDto, Entry} from '../model/entry';
 import {EntryService} from '../entry.service';
+import {TYPES} from '../model/constants';
 
 @Component({
   selector: 'app-edit-entry',
@@ -11,6 +12,8 @@ import {EntryService} from '../entry.service';
   styleUrls: ['./edit-entry.component.scss'],
 })
 export class EditEntryComponent implements OnInit {
+  readonly types = TYPES;
+
   entry: Entry | CreateEntryDto = {
     type: '',
     name: '',

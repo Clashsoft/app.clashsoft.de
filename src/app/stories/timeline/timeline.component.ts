@@ -6,6 +6,7 @@ import {debounceTime, distinctUntilChanged, distinctUntilKeyChanged, map, switch
 import {BehaviorSubject, combineLatest, Observable, OperatorFunction} from 'rxjs';
 import {Entry} from '../model/entry';
 import {EntryService} from '../entry.service';
+import {COLORS} from '../model/constants';
 
 @Component({
   selector: 'app-timeline',
@@ -13,11 +14,7 @@ import {EntryService} from '../entry.service';
   styleUrls: ['./timeline.component.scss'],
 })
 export class TimelineComponent implements OnInit {
-  readonly colors: Record<string, string> = {
-    Character: 'primary',
-    Item: 'warning',
-    Location: 'success',
-  };
+  readonly colors = COLORS;
 
   timeline: Event[] = [];
   entries: Entry[] = [];
