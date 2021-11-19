@@ -13,8 +13,8 @@
         [inputFormatter]="render"
         [resultFormatter]="render"
         [editable]="false"
-        [ngModel]="searchReference$ | async"
-        (ngModelChange)="searchReference$.next($event)"
+        [ngModel]="searchEntry$ | async"
+        (ngModelChange)="searchEntry$.next($event)"
       >
     </div>
   </div>

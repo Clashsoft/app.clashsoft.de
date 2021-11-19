@@ -4,18 +4,8 @@ import {ActivatedRoute} from '@angular/router';
 import {EventService} from '../event.service';
 import {debounceTime, distinctUntilChanged, distinctUntilKeyChanged, map, switchMap} from 'rxjs/operators';
 import {BehaviorSubject, combineLatest, Observable, OperatorFunction} from 'rxjs';
-
-const testus: Reference = {type: 'character', id: '0', name: 'Testus'};
-const sword: Reference = {type: 'item', id: '1', name: 'Sword of Swiftness'};
-const testina: Reference = {type: 'character', id: '2', name: 'Testina'};
-const library: Reference = {type: 'location', id: '3', name: 'The Library'};
-
-const references = [
-  testus,
-  sword,
-  testina,
-  library,
-];
+import {Entry} from '../model/entry';
+import {EntryService} from '../entry.service';
 
 @Component({
   selector: 'app-timeline',
@@ -30,34 +20,48 @@ export class TimelineComponent implements OnInit {
   };
 
   timeline: Event[] = [];
+  entries: Entry[] = [];
 
   date = new Date().toISOString().substring(0, 10);
-  time = "12:00";
+  time = '12:00';
   description = '';
 
-  searchReference$ = new BehaviorSubject<Reference | undefined>(undefined);
+  searchEntry$ = new BehaviorSubject<Entry | undefined>(undefined);
 
-  search: OperatorFunction<string, Reference[]> = (text$: Observable<string>) => text$.pipe(
+  search: OperatorFunction<string, Entry[]> = (text$: Observable<string>) => text$.pipe(
     debounceTime(200),
     distinctUntilChanged(),
-    map(term => term.length < 2 ? [] : references.filter(v => v.name.toLowerCase().includes(term.toLowerCase())).slice(0, 10)),
+    map(term => {
+      if (term.length < 2) {
+        return [];
+      }
+      const lowerTerm = term.toLowerCase();
+      return this.entries.filter(e => e.name.toLowerCase().includes(lowerTerm));
+    }),
   );
 
-  render = (ref: Reference) => ref.name;
+  render = (ref: Entry) => ref.name;
 
   constructor(
     private eventService: EventService,
+    private entryService: EntryService,
     private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap(({story}) => this.entryService.getAll(story)),
+    ).subscribe(entries => {
+      this.entries = entries;
+    });
+
     combineLatest([
       this.route.params,
-      this.searchReference$,
+      this.searchEntry$,
     ]).pipe(
       distinctUntilKeyChanged(1),
-      switchMap(([{story}, ref]) => this.eventService.getAll(story, ref?.id)),
+      switchMap(([{story}, ref]) => this.eventService.getAll(story, ref?._id)),
     ).subscribe(events => {
       this.timeline = events;
     });
@@ -69,13 +73,13 @@ export class TimelineComponent implements OnInit {
 
   updateTags() {
     const newText = this.description.replace(/\[\[(.*?)(?:\|(.*?))?]]/g, (text, fullName, name) => {
-      const reference = references.find(r => r.name === fullName);
-      if (!reference) {
+      const entry = this.entries.find(e => e.name === fullName);
+      if (!entry) {
         return text;
       }
 
-      const cssClass = this.colors[reference.type];
-      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${reference.type}" data-id="${reference.id}">${name || fullName}</span>`;
+      const cssClass = this.colors[entry.type];
+      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${entry.type}" data-id="${entry._id}">${name || fullName}</span>`;
     });
 
     if (newText === this.description) {
