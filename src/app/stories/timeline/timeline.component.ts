@@ -14,9 +14,9 @@ import {EntryService} from '../entry.service';
 })
 export class TimelineComponent implements OnInit {
   readonly colors: Record<string, string> = {
-    character: 'primary',
-    item: 'warning',
-    location: 'success',
+    Character: 'primary',
+    Item: 'warning',
+    Location: 'success',
   };
 
   timeline: Event[] = [];
@@ -78,7 +78,7 @@ export class TimelineComponent implements OnInit {
         return text;
       }
 
-      const cssClass = this.colors[entry.type];
+      const cssClass = this.colors[entry.type] || 'secondary';
       return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${entry.type}" data-id="${entry._id}">${name || fullName}</span>`;
     });
 

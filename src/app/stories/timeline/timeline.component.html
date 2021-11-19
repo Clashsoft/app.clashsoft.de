@@ -27,7 +27,7 @@
         <ng-container *ngFor="let item of event.description">
           <a
             *ngIf="isReference(item); else text"
-            class="alert alert-{{colors[item.type]}} p-0"
+            class="alert alert-{{colors[item.type] || 'secondary'}} p-0"
             [routerLink]="['../entries', item.id]"
           >{{ item.name }}</a>
           <ng-template #text>
