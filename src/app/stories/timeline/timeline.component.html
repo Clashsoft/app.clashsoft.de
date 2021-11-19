@@ -29,6 +29,8 @@
             *ngIf="isReference(item); else text"
             class="alert alert-{{colors[item.type] || 'secondary'}} p-0"
             [routerLink]="['../entries', item.id]"
+            [attr.data-reference]="item.type"
+            [attr.data-id]="item.id"
           >{{ item.name }}</a>
           <ng-template #text>
             {{ item }}
