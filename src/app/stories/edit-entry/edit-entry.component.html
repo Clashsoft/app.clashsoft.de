@@ -15,6 +15,10 @@
       <input type="text" class="form-control" id="titleInput" [(ngModel)]="entry.name">
     </div>
     <div class="form-group">
+      <label for="imageUrlInput">Image URL</label>
+      <input type="url" class="form-control" id="imageUrlInput" [(ngModel)]="entry.imageUrl">
+    </div>
+    <div class="form-group">
       <label for="descriptionInput">Description</label>
       <textarea class="form-control" id="descriptionInput" [(ngModel)]="entry.description"></textarea>
     </div>

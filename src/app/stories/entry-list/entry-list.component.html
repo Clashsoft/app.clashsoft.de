@@ -7,6 +7,7 @@
        class="list-group-item list-group-item-action"
        [routerLink]="[entry._id]"
     >
+      <img *ngIf="entry.imageUrl" [src]="entry.imageUrl" [alt]="entry.name" class="float-left entry-icon mr-3">
       <h4>
         {{ entry.name }}
         <small class="text-muted">

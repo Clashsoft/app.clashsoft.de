@@ -13,6 +13,7 @@
       Edit
     </a>
   </h1>
+  <img class="entry-image float-left mb-3 mr-3" *ngIf="entry?.imageUrl" [src]="entry!.imageUrl" [alt]="entry!.name">
   <p class="text-muted">
     {{entry?.description}}
   </p>
