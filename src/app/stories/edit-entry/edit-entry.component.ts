@@ -31,7 +31,7 @@ export class EditEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.pipe(
-      switchMap(({story, entry}) => story ? this.entryService.get(story, entry) : of({
+      switchMap(({story, entry}) => entry ? this.entryService.get(story, entry) : of({
         type: '',
         name: '',
         description: '',
