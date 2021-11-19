@@ -17,6 +17,7 @@ export class EditEntryComponent implements OnInit {
     description: '',
     properties: {},
   };
+  properties: [string, string][] = [];
 
   constructor(
     private entryService: EntryService,
@@ -35,11 +36,18 @@ export class EditEntryComponent implements OnInit {
       })),
     ).subscribe(entry => {
       this.entry = entry;
+      this.properties = Object.entries(entry.properties);
     });
   }
 
   save() {
     const {story} = this.route.snapshot.params;
+    this.entry.properties = {};
+    for (const [key, value] of this.properties) {
+      if (key) {
+        this.entry.properties[key] = value;
+      }
+    }
     const op = '_id' in this.entry
       ? this.entryService.update(story, this.entry._id, this.entry)
       : this.entryService.create(story, this.entry)
@@ -47,5 +55,9 @@ export class EditEntryComponent implements OnInit {
     op.subscribe(entry => {
       this.router.navigate(['/stories', story, 'entries']);
     });
+  }
+
+  addProperty() {
+    this.properties.push(['', '']);
   }
 }

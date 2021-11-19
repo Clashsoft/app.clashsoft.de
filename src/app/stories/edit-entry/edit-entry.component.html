@@ -20,6 +20,36 @@
       <label for="descriptionInput">Description</label>
       <textarea class="form-control" id="descriptionInput" [(ngModel)]="entry.description"></textarea>
     </div>
+    <div class="form-group">
+      <label for="propertiesTable">Properties</label>
+      <table class="table table-sm" id="propertiesTable">
+        <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let property of properties">
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="property[0]">
+          </td>
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="property[1]">
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td>
+            <button type="button" class="btn btn-success ml-auto" (click)="addProperty()">
+              Add Row
+            </button>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
     <button type="button" class="btn btn-primary" (click)="save()">
       Save
     </button>
