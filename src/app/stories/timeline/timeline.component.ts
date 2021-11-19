@@ -38,6 +38,7 @@ export class TimelineComponent implements OnInit {
   );
 
   render = (ref: Entry) => ref.name;
+  eventId = (index: number, event: Event) => event._id;
 
   constructor(
     private eventService: EventService,

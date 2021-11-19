@@ -18,7 +18,7 @@
       >
     </div>
   </div>
-  <div class="card mb-3" *ngFor="let event of timeline">
+  <div class="card mb-3" *ngFor="let event of timeline; trackBy eventId">
     <div class="card-header">
       {{ event.timestamp | date:'medium' }}
     </div>
