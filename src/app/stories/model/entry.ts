@@ -1,5 +1,6 @@
 export interface Entry {
   _id: string;
+  type: string;
   name: string;
   description: string;
   properties: Record<string, any>;

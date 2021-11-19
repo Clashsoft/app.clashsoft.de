@@ -3,6 +3,9 @@
     <a *ngFor="let entry of entries" class="list-group-item list-group-item-action">
       <h4>
         {{ entry.name }}
+        <small class="text-muted">
+          {{ entry.type }}
+        </small>
       </h4>
       <p class="text-muted text-truncate">
         {{ entry.description }}
