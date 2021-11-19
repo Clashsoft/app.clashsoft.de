@@ -6,6 +6,7 @@ import {EditStoryComponent} from './edit-story/edit-story.component';
 
 const routes: Routes = [
   {path: ':story/timeline', component: TimelineComponent},
+  {path: ':story/edit', component: EditStoryComponent},
   {path: 'new', component: EditStoryComponent},
   {path: ':story', redirectTo: ':story/timeline'},
   {path: '', component: StoryListComponent},
