@@ -1,19 +1,19 @@
 <div class="card">
   <div class="card-header">
     <div class="form-inline">
-      <input type="date" class="form-control" [(ngModel)]="date">
-      <input type="time" class="form-control" [(ngModel)]="time">
-      <button *ngIf="event" type="button" class="btn btn-secondary" (click)="done.emit()">
+      <input type="date" class="form-control form-control-sm" [(ngModel)]="date">
+      <input type="time" class="form-control form-control-sm" [(ngModel)]="time">
+      <button *ngIf="event" type="button" class="btn btn-sm btn-secondary" (click)="done.emit()">
         Cancel
       </button>
-      <button type="button" class="btn btn-primary" (click)="save()">
+      <button type="button" class="btn btn-sm btn-primary" (click)="save()">
         Save
       </button>
     </div>
   </div>
   <div class="card-body">
     <div
-      class="form-control h-auto d-inline-block"
+      class="form-control h-auto d-inline-block m-n2"
       id="description-editor"
       [contenteditable]="true"
       propValueAccessor="innerHTML"
