@@ -19,6 +19,8 @@ export class TimelineComponent implements OnInit {
   timeline: Event[] = [];
   entries: Entry[] = [];
 
+  editing?: string;
+
   searchEntry$ = new BehaviorSubject<Entry | undefined>(undefined);
 
   search: OperatorFunction<string, Entry[]> = (text$: Observable<string>) => text$.pipe(
