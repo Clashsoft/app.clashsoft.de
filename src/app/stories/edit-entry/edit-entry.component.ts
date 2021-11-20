@@ -55,8 +55,8 @@ export class EditEntryComponent implements OnInit {
       ? this.entryService.update(story, this.entry._id, this.entry)
       : this.entryService.create(story, this.entry)
     ;
-    op.subscribe(entry => {
-      this.router.navigate(['/stories', story, 'entries']);
+    op.subscribe(() => {
+      this.router.navigate(['..'], {relativeTo: this.route});
     });
   }
 
