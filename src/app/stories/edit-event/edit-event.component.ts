@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Event, Reference} from '../model/event';
 import {Entry} from '../model/entry';
 import {COLORS} from '../model/constants';
@@ -14,6 +14,7 @@ export class EditEventComponent implements OnInit {
   @Input() event?: Event;
   @Input() timeline?: Event[];
   @Input() entries!: Entry[];
+  @Output() done = new EventEmitter<void>();
 
   readonly colors = COLORS;
 
@@ -88,6 +89,7 @@ export class EditEventComponent implements OnInit {
       }).subscribe(() => {
         this.event!.description = description;
         this.event!.timestamp = timestamp;
+        this.done.emit();
       });
       return;
     }
@@ -97,6 +99,7 @@ export class EditEventComponent implements OnInit {
       description,
     }).subscribe(event => {
       if (!this.timeline) {
+        this.done.emit();
         return;
       }
 
@@ -106,6 +109,8 @@ export class EditEventComponent implements OnInit {
       } else {
         this.timeline.splice(index, 0, event);
       }
+
+      this.done.emit();
     });
   }
 

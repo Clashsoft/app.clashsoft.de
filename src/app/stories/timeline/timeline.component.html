@@ -44,7 +44,7 @@
       </div>
     </div>
     <ng-template #edit>
-      <app-edit-event  [timeline]="timeline" [entries]="entries" [event]="event"></app-edit-event>
+      <app-edit-event  [timeline]="timeline" [entries]="entries" [event]="event" (done)="editing = undefined"></app-edit-event>
     </ng-template>
   </ng-container>
   <app-edit-event [entries]="entries" [timeline]="timeline"></app-edit-event>

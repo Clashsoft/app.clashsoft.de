@@ -3,6 +3,9 @@
     <div class="form-inline">
       <input type="date" class="form-control" [(ngModel)]="date">
       <input type="time" class="form-control" [(ngModel)]="time">
+      <button *ngIf="event" type="button" class="btn btn-secondary" (click)="done.emit()">
+        Cancel
+      </button>
       <button type="button" class="btn btn-primary" (click)="save()">
         Save
       </button>
