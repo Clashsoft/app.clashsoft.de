@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: ':story/entries/new', component: EditEntryComponent},
   {path: ':story/entries/:entry', component: EntryComponent},
   {path: ':story/entries/:entry/edit', component: EditEntryComponent},
+  {path: 'new', component: EditStoryComponent},
   {
     path: ':story',
     component: StoryComponent,
@@ -19,10 +20,9 @@ const routes: Routes = [
       {path: 'timeline', component: TimelineComponent, data: {title: 'Timeline'}},
       {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
       {path: 'entries', component: EntryListComponent, data: {title: 'Entries'}},
+      {path: '', redirectTo: 'timeline'},
     ],
   },
-  {path: 'new', component: EditStoryComponent},
-  {path: ':story', redirectTo: ':story/timeline'},
   {path: '', component: StoryListComponent},
 ];
 
