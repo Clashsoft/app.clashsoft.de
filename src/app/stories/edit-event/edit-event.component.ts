@@ -33,9 +33,9 @@ export class EditEventComponent implements OnInit {
       return;
     }
 
-    const timestamp = typeof this.event.timestamp === 'string' ? this.event.timestamp : this.event.timestamp.toISOString();
-    this.date = timestamp.substring(0, 10);
-    this.time = timestamp.substring(11, 23);
+    const timestamp = typeof this.event.timestamp === 'string' ? new Date(this.event.timestamp) : this.event.timestamp;
+    this.date = `${timestamp.getFullYear()}-${(timestamp.getMonth() + 1).toString().padStart(2, '0')}-${timestamp.getDate().toString().padStart(2, '0')}`;
+    this.time = `${timestamp.getHours().toString().padStart(2, '0')}:${timestamp.getMinutes().toString().padStart(2, '0')}:${timestamp.getSeconds().toString().padStart(2, '0')}`;
     this.description = this.event.description.map(r => {
       if (typeof r === 'string') {
         return r;
