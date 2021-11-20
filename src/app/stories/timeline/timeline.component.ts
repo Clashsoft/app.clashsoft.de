@@ -19,10 +19,6 @@ export class TimelineComponent implements OnInit {
   timeline: Event[] = [];
   entries: Entry[] = [];
 
-  date = new Date().toISOString().substring(0, 10);
-  time = '12:00';
-  description = '';
-
   searchEntry$ = new BehaviorSubject<Entry | undefined>(undefined);
 
   search: OperatorFunction<string, Entry[]> = (text$: Observable<string>) => text$.pipe(
@@ -67,70 +63,5 @@ export class TimelineComponent implements OnInit {
 
   isReference(item: string | Reference): item is Reference {
     return typeof item !== 'string';
-  }
-
-  updateTags() {
-    const newText = this.description.replace(/\[\[(.*?)(?:\|(.*?))?]]/g, (text, fullName, name) => {
-      const entry = this.entries.find(e => e.name === fullName);
-      if (!entry) {
-        return text;
-      }
-
-      const cssClass = this.colors[entry.type] || 'secondary';
-      return `<span contenteditable="false" class="alert alert-${cssClass} p-0" data-reference="${entry.type}" data-id="${entry._id}">${name || fullName}</span>`;
-    });
-
-    if (newText === this.description) {
-      return;
-    }
-
-    this.description = newText;
-
-    setTimeout(() => {
-      const selection = window.getSelection();
-      const editor = document.getElementById('description-editor');
-      if (selection && editor) {
-        const range = document.createRange();
-        range.selectNodeContents(editor);
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
-      }
-    });
-  }
-
-  addEvent() {
-    const description: (string | Reference)[] = [];
-    const editor = document.getElementById('description-editor');
-    editor!.childNodes.forEach(node => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        description.push(node.textContent!);
-      } else if (node.nodeType === Node.ELEMENT_NODE && node instanceof HTMLElement) {
-        const {reference, id} = node.dataset;
-        if (!reference || !id) {
-          description.push(node.innerText);
-          return;
-        }
-
-        const name = node.textContent;
-        description.push({
-          type: reference as any,
-          id: id!,
-          name: name!,
-        });
-      }
-    });
-    const timestamp = new Date(this.date + ' ' + this.time);
-    this.eventService.create(this.route.snapshot.params.story, {
-      timestamp,
-      description,
-    }).subscribe(event => {
-      const index = this.timeline.findIndex(e => e.timestamp > event.timestamp);
-      if (index < 0) {
-        this.timeline.push(event);
-      } else {
-        this.timeline.splice(index, 0, event);
-      }
-    });
   }
 }

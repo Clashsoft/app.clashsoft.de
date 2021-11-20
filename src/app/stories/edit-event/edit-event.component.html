@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+    <div class="form-inline">
+      <input type="date" class="form-control" [(ngModel)]="date">
+      <input type="time" class="form-control" [(ngModel)]="time">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div
+      class="form-control h-auto d-inline-block"
+      id="description-editor"
+      [contenteditable]="true"
+      propValueAccessor="innerHTML"
+      [(ngModel)]="description"
+      (ngModelChange)="updateTags()"
+    ></div>
+  </div>
+</div>

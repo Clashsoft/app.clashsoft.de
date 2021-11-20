@@ -5,9 +5,12 @@ export interface Reference {
 }
 
 export interface Event {
+  story: string;
   _id: string;
-  timestamp: Date;
+  timestamp: Date | string;
   description: (string | Reference)[];
 }
 
-export type CreateEventDto = Omit<Event, '_id'>;
+export type CreateEventDto = Omit<Event, '_id' | 'story'>;
+
+export type UpdateEventDto = Partial<CreateEventDto>;

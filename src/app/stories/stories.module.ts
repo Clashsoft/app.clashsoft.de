@@ -12,6 +12,7 @@ import { StoryComponent } from './story/story.component';
 import { EntryListComponent } from './entry-list/entry-list.component';
 import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { EntryComponent } from './entry/entry.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { EntryComponent } from './entry/entry.component';
     EntryListComponent,
     EditEntryComponent,
     EntryComponent,
+    EditEventComponent,
   ],
   imports: [
     CommonModule,

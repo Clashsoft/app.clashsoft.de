@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CreateEventDto, Event} from './model/event';
+import {CreateEventDto, Event, UpdateEventDto} from './model/event';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -21,5 +21,9 @@ export class EventService {
 
   create(story: string, dto: CreateEventDto): Observable<Event> {
     return this.http.post<Event>(`${environment.storyApiUrl}/stories/${story}/events`, dto);
+  }
+
+  update(story: string, event: string, dto: UpdateEventDto): Observable<Event> {
+    return this.http.patch<Event>(`${environment.storyApiUrl}/stories/${story}/events/${event}`, dto);
   }
 }
