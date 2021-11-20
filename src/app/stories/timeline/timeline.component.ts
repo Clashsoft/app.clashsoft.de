@@ -66,4 +66,17 @@ export class TimelineComponent implements OnInit {
   isReference(item: string | Reference): item is Reference {
     return typeof item !== 'string';
   }
+
+  delete(event: Event) {
+    if (!confirm('Are you sure you want to delete this event? This cannot be undone.')) {
+      return;
+    }
+
+    this.eventService.delete(event.story, event._id).subscribe(() => {
+      const index = this.timeline.indexOf(event);
+      if (index >= 0) {
+        this.timeline.splice(index, 1);
+      }
+    })
+  }
 }

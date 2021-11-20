@@ -26,4 +26,8 @@ export class EventService {
   update(story: string, event: string, dto: UpdateEventDto): Observable<Event> {
     return this.http.patch<Event>(`${environment.storyApiUrl}/stories/${story}/events/${event}`, dto);
   }
+
+  delete(story: string, event: string): Observable<Event> {
+    return this.http.delete<Event>(`${environment.storyApiUrl}/stories/${story}/events/${event}`);
+  }
 }
