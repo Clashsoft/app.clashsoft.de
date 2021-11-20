@@ -30,4 +30,8 @@ export class EntryService {
   update(story: string, id: string, dto: UpdateEntryDto): Observable<Entry> {
     return this.http.patch<Entry>(`${environment.storyApiUrl}/stories/${story}/entries/${id}`, dto);
   }
+
+  delete(story: string, id: string): Observable<Entry> {
+    return this.http.delete<Entry>(`${environment.storyApiUrl}/stories/${story}/entries/${id}`);
+  }
 }

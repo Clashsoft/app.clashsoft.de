@@ -63,4 +63,15 @@ export class EditEntryComponent implements OnInit {
   addProperty() {
     this.properties.push(['', '']);
   }
+
+  delete() {
+    if (!confirm('Are you sure you want to delete this entry? This cannot be undone.')) {
+      return;
+    }
+
+    const {story, entry} = this.route.snapshot.params;
+    this.entryService.delete(story, entry).subscribe(() => {
+      this.router.navigate(['../..'], {relativeTo: this.route});
+    });
+  }
 }
