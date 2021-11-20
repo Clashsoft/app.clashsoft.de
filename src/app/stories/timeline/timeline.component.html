@@ -21,7 +21,8 @@
   <ng-container *ngFor="let event of timeline; trackBy eventId">
     <div class="card mb-3" *ngIf="editing !== event._id else edit">
       <div class="card-header">
-        {{ event.timestamp | date:'medium' }}
+        {{ event.timestamp | date:'fullDate' }}
+        {{ event.timestamp | date:'shortTime' }}
         <button type="button" class="btn btn-sm btn-outline-primary" (click)="editing = event._id">
           Edit
         </button>
