@@ -18,8 +18,8 @@ const routes: Routes = [
     component: StoryComponent,
     children: [
       {path: 'timeline', component: TimelineComponent, data: {title: 'Timeline'}},
-      {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
       {path: 'entries', component: EntryListComponent, data: {title: 'Entries'}},
+      {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
       {path: '', redirectTo: 'timeline'},
     ],
   },
