@@ -22,6 +22,8 @@ export class EditEntryComponent implements OnInit {
   };
   properties: [string, string][] = [];
 
+  customType = false;
+
   constructor(
     private entryService: EntryService,
     private route: ActivatedRoute,
