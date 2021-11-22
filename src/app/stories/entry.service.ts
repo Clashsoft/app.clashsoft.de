@@ -13,10 +13,15 @@ export class EntryService {
   ) {
   }
 
-  getAll(story: string, search?: string): Observable<Entry[]> {
-    return this.http.get<Entry[]>(`${environment.storyApiUrl}/stories/${story}/entries`, {
-      params: search ? {search} : {},
-    });
+  getAll(story: string, type?: string, search?: string): Observable<Entry[]> {
+    const params: Record<string, string> = {};
+    type && (params.type = type);
+    search && (params.search = search);
+    return this.http.get<Entry[]>(`${environment.storyApiUrl}/stories/${story}/entries`, {params});
+  }
+
+  getTypes(story: string): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.storyApiUrl}/stories/${story}/entries/types`);
   }
 
   get(story: string, id: string): Observable<Entry> {
