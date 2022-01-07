@@ -19,7 +19,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ~13.1.1
   '@angular/router': ~13.1.1
   '@angular/service-worker': ~13.1.1
-  '@ng-bootstrap/ng-bootstrap': ^10.0.0
+  '@ng-bootstrap/ng-bootstrap': ^11.0.0
   '@ng-stack/contenteditable': ^1.1.1
   '@types/jasmine': ~3.7.8
   '@types/jasminewd2': ~2.0.10
@@ -38,9 +38,9 @@ specifiers:
   karma-jasmine: ~4.0.1
   karma-jasmine-html-reporter: ^1.7.0
   ng-bootstrap-darkmode: ^0.5.0
-  ngx-clipboard: ^14.0.2
+  ngx-clipboard: ^15.0.1
   protractor: ~7.0.0
-  rxjs: ~6.6.7
+  rxjs: ~7.5.1
   ts-node: ~10.1.0
   tslib: ^2.3.1
   typescript: ~4.5.4
@@ -48,22 +48,22 @@ specifiers:
 
 dependencies:
   '@angular/animations': 13.1.1_@angular+core@13.1.1
-  '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
+  '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
   '@angular/compiler': 13.1.1
-  '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
-  '@angular/forms': 13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d
+  '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
+  '@angular/forms': 13.1.1_08b80eec157f3b321ee2225dd1a68122
   '@angular/localize': 13.1.1_8c9cbf9f52813daa0196579292d829a7
   '@angular/platform-browser': 13.1.1_ba78c0245ba37c1eb9e40fba17f0c0db
   '@angular/platform-browser-dynamic': 13.1.1_53ae741ee19166964f64e7b56404e938
-  '@angular/router': 13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d
+  '@angular/router': 13.1.1_08b80eec157f3b321ee2225dd1a68122
   '@angular/service-worker': 13.1.1_97c374658fb8cefbe875884a7f473e47
-  '@ng-bootstrap/ng-bootstrap': 10.0.0_f86cff275b636f78033aebd0c4ec5b6a
+  '@ng-bootstrap/ng-bootstrap': 11.0.0_b573d6817ea37f219a6ad3cbdf3db8ae
   '@ng-stack/contenteditable': 1.1.1_@angular+core@13.1.1
   bootstrap: 4.6.1
   bootstrap-darkmode: 0.9.1_bootstrap@4.6.1
   ng-bootstrap-darkmode: 0.5.0_5063f7afcb3e6c46d6c515cc8acf1080
-  ngx-clipboard: 14.0.2_97c374658fb8cefbe875884a7f473e47
-  rxjs: 6.6.7
+  ngx-clipboard: 15.0.1_97c374658fb8cefbe875884a7f473e47
+  rxjs: 7.5.1
   tslib: 2.3.1
   zone.js: 0.11.4
 
@@ -366,7 +366,7 @@ packages:
     peerDependencies:
       '@angular/core': 13.1.1
     dependencies:
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
@@ -400,15 +400,15 @@ packages:
       - supports-color
     dev: true
 
-  /@angular/common/13.1.1_@angular+core@13.1.1+rxjs@6.6.7:
+  /@angular/common/13.1.1_@angular+core@13.1.1+rxjs@7.5.1:
     resolution: {integrity: sha512-FQwRZ1XgTH2PbPjBmq2jAZzETVNX9yWQt21MuNGtokC7V4eS0NYlFIDbhy3UPWCzRgd3+P7P4+HdX15VxCjf9g==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0}
     peerDependencies:
       '@angular/core': 13.1.1
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
-      rxjs: 6.6.7
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
+      rxjs: 7.5.1
       tslib: 2.3.1
     dev: false
 
@@ -444,19 +444,19 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /@angular/core/13.1.1_rxjs@6.6.7+zone.js@0.11.4:
+  /@angular/core/13.1.1_rxjs@7.5.1+zone.js@0.11.4:
     resolution: {integrity: sha512-oLGKgzUbHqte/q7EokOJWUiXAtBjwuZM6c9Or2a7WDJNeImQilxk5qy91RPSbP8FhOBysebqAayrfiCYexlShg==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0}
     peerDependencies:
       rxjs: ^6.5.3 || ^7.4.0
       zone.js: ~0.11.4
     dependencies:
-      rxjs: 6.6.7
+      rxjs: 7.5.1
       tslib: 2.3.1
       zone.js: 0.11.4
     dev: false
 
-  /@angular/forms/13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d:
+  /@angular/forms/13.1.1_08b80eec157f3b321ee2225dd1a68122:
     resolution: {integrity: sha512-wtYzRHPv4mf1Vsi4GEal5qcI2wjqUW+lu8Fsd2Aoe8NqkwtY3fq+iWEP/4pnvmH0RlC+3QbNNV/01D5UKolvgg==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0}
     peerDependencies:
@@ -465,10 +465,10 @@ packages:
       '@angular/platform-browser': 13.1.1
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       '@angular/platform-browser': 13.1.1_ba78c0245ba37c1eb9e40fba17f0c0db
-      rxjs: 6.6.7
+      rxjs: 7.5.1
       tslib: 2.3.1
     dev: false
 
@@ -498,9 +498,9 @@ packages:
       '@angular/core': 13.1.1
       '@angular/platform-browser': 13.1.1
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
       '@angular/compiler': 13.1.1
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       '@angular/platform-browser': 13.1.1_ba78c0245ba37c1eb9e40fba17f0c0db
       tslib: 2.3.1
     dev: false
@@ -517,12 +517,12 @@ packages:
         optional: true
     dependencies:
       '@angular/animations': 13.1.1_@angular+core@13.1.1
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
-  /@angular/router/13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d:
+  /@angular/router/13.1.1_08b80eec157f3b321ee2225dd1a68122:
     resolution: {integrity: sha512-rlz5BBgNX+G2vVu2Gb5avx3LL08i7R/xZO7zPwh0HhXz/Vp8XFlWwaqAGb6Hgat772K2uCxF1/JBLQCUBY2MNQ==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0}
     peerDependencies:
@@ -531,10 +531,10 @@ packages:
       '@angular/platform-browser': 13.1.1
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       '@angular/platform-browser': 13.1.1_ba78c0245ba37c1eb9e40fba17f0c0db
-      rxjs: 6.6.7
+      rxjs: 7.5.1
       tslib: 2.3.1
     dev: false
 
@@ -546,8 +546,8 @@ packages:
       '@angular/common': 13.1.1
       '@angular/core': 13.1.1
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
@@ -1849,20 +1849,20 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
-  /@ng-bootstrap/ng-bootstrap/10.0.0_f86cff275b636f78033aebd0c4ec5b6a:
-    resolution: {integrity: sha512-Sz+QaxjuyJYJ+zyUbf0TevgcgVesCPQiiFiggEzxKjzY5R+Hvq3YgryLdXf2r/ryePL+C3FXCcmmKpTM5bfczQ==}
+  /@ng-bootstrap/ng-bootstrap/11.0.0_b573d6817ea37f219a6ad3cbdf3db8ae:
+    resolution: {integrity: sha512-qDnB0+jbpQ4wjXpM4NPRAtwmgTDUCjGavoeRDZHOvFfYvx/MBf1RTjZEqTJ1Yqq1pKP4BWpzxCgVTunfnpmsjA==}
     peerDependencies:
-      '@angular/common': ^12.0.0
-      '@angular/core': ^12.0.0
-      '@angular/forms': ^12.0.0
-      '@angular/localize': ^12.0.0
-      rxjs: ^6.5.5
+      '@angular/common': ^13.0.0
+      '@angular/core': ^13.0.0
+      '@angular/forms': ^13.0.0
+      '@angular/localize': ^13.0.0
+      rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
-      '@angular/forms': 13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
+      '@angular/forms': 13.1.1_08b80eec157f3b321ee2225dd1a68122
       '@angular/localize': 13.1.1_8c9cbf9f52813daa0196579292d829a7
-      rxjs: 6.6.7
+      rxjs: 7.5.1
       tslib: 2.3.1
     dev: false
 
@@ -1871,7 +1871,7 @@ packages:
     peerDependencies:
       '@angular/core': '>=4.0.0'
     dependencies:
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
@@ -5750,34 +5750,34 @@ packages:
       '@angular/forms': ^12.1.1
       bootstrap-darkmode: ^0.7.0
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
-      '@angular/forms': 13.1.1_e501d38cd0d5a91bf68d9abb1ed3344d
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
+      '@angular/forms': 13.1.1_08b80eec157f3b321ee2225dd1a68122
       bootstrap-darkmode: 0.9.1_bootstrap@4.6.1
       tslib: 2.3.1
     dev: false
 
-  /ngx-clipboard/14.0.2_97c374658fb8cefbe875884a7f473e47:
-    resolution: {integrity: sha512-zJaFi09D2bq9X1RYvFixE0AfYOI7E8mUO8S0GXcq76HisuE816HRl+8A46G+NML5GPA3Lr5qaGnQJN533So+8g==}
+  /ngx-clipboard/15.0.1_97c374658fb8cefbe875884a7f473e47:
+    resolution: {integrity: sha512-Bx0MvAvcYmLL/6TxScltzvYlRKu7JOVnrstzI+r4yXMTWP/0nUiEZ83UzjYbjf8FRlSuXDWeEYGhw5SNh/swSg==}
     peerDependencies:
-      '@angular/common': '>=10.0.0 <13.0.0'
-      '@angular/core': '>=10.0.0 <13.0.0'
+      '@angular/common': '>=13.0.0'
+      '@angular/core': '>=13.0.0'
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
-      ngx-window-token: 5.0.0_97c374658fb8cefbe875884a7f473e47
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
+      ngx-window-token: 6.0.0_97c374658fb8cefbe875884a7f473e47
       tslib: 2.3.1
     dev: false
 
-  /ngx-window-token/5.0.0_97c374658fb8cefbe875884a7f473e47:
-    resolution: {integrity: sha512-DhigCrm9QO8R29lqJYzBC9aaTU0KiWgdnt8RNcTN/DvMaS7shfzAqyvUtxSIm/+JR4gW5JKqR/JODU8760nJMw==}
-    engines: {node: '>=10.13.x'}
+  /ngx-window-token/6.0.0_97c374658fb8cefbe875884a7f473e47:
+    resolution: {integrity: sha512-IeLKO1jzfzSvZ6vlAt4QSY/B5XcHEhdOwTjqvWEPt6/esWV9T3mA2ln10kj6SCc9pUSx4NybxE10gcyyYroImg==}
+    engines: {node: '>=12.20.x'}
     peerDependencies:
-      '@angular/common': '>=10.0.0'
-      '@angular/core': '>=10.0.0'
+      '@angular/common': '>=13.0.0'
+      '@angular/core': '>=13.0.0'
     dependencies:
-      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@6.6.7
-      '@angular/core': 13.1.1_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/common': 13.1.1_@angular+core@13.1.1+rxjs@7.5.1
+      '@angular/core': 13.1.1_rxjs@7.5.1+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
@@ -7040,12 +7040,12 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       tslib: 1.14.1
+    dev: true
 
   /rxjs/7.5.1:
     resolution: {integrity: sha512-KExVEeZWxMZnZhUZtsJcFwz8IvPvgu4G2Z2QyqjZQzUGr32KDYuSxrEYO4w3tFFNbfLozcrKUTvTPi+E9ywJkQ==}
     dependencies:
       tslib: 2.3.1
-    dev: true
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
@@ -7760,6 +7760,7 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
 
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
