@@ -1,4 +1,4 @@
-export class EffectType {
+export interface EffectType {
   id: string;
   name: string;
   description: string;

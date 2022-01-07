@@ -12,8 +12,8 @@ import {GradingHelperService} from '../grading-helper.service';
 export class GradingHelperComponent implements OnInit {
   active = 'template';
   tabs: GradingTab[] = [];
-  template: string;
-  section?: Section;
+  template!: string;
+  section!: Section;
 
   constructor(
     private templateService: TemplateService,

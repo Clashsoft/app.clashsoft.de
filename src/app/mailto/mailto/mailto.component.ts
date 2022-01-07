@@ -100,7 +100,11 @@ export class MailtoComponent implements OnInit {
   }
 
   paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number): void {
-    const text = event.clipboardData.getData('text');
+    const clipboard = event.clipboardData;
+    if (!clipboard) {
+      return;
+    }
+    const text = clipboard.getData('text');
 
     const matrix = text.split('\n').map(s => s.split('\t'));
 

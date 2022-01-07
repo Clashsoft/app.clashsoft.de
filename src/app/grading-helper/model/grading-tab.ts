@@ -1,6 +1,6 @@
 import {Section} from './section';
 
-export class GradingTab {
+export interface GradingTab {
   id: string;
   title: string;
   section: Section;

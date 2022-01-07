@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="form-inline mb-3">
+    <div class="form-group">
+      <label for="typeFilter">
+        Filter by Type:
+      </label>
+      <select class="form-control mx-sm-2" id="typeFilter"
+              [ngModel]="route.snapshot.queryParams.type" (ngModelChange)="setFilter({type: $event})">
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        <option [ngValue]="undefined">-</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="search">
+        Search:
+      </label>
+      <input type="search" class="form-control mx-sm-2" id="search"
+             [ngModel]="searchFilter$.value" (ngModelChange)="searchFilter$.next($event)">
+    </div>
+    <a class="btn btn-success ml-auto" routerLink="new">
+      New
+    </a>
+  </div>
+  <div class="list-group">
+    <a *ngFor="let entry of entries trackBy entryId"
+       class="list-group-item list-group-item-action"
+       [routerLink]="[entry._id]"
+    >
+      <img *ngIf="entry.imageUrl" [src]="entry.imageUrl" [alt]="entry.name" class="float-left entry-icon mr-3">
+      <h4>
+        {{ entry.name }}
+        <small class="text-muted">
+          {{ entry.type }}
+        </small>
+      </h4>
+      <p class="text-muted text-truncate">
+        {{ entry.description }}
+      </p>
+    </a>
+  </div>
+</div>

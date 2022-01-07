@@ -1,38 +1,30 @@
 import {Component} from '@angular/core';
 
-const properties = ['names', 'cities', 'colors', 'drinks', 'heirlooms'];
-
 @Component({
   selector: 'app-jindosh-riddle',
   templateUrl: './jindosh-riddle.component.html',
   styleUrls: ['./jindosh-riddle.component.scss'],
 })
 export class JindoshRiddleComponent {
-  names: string[] = [];
-  cities: string[] = [];
-  colors: string[] = [];
-  drinks: string[] = [];
-  heirlooms: string[] = [];
+  data = {
+    names: [] as string[],
+    cities: [] as string[],
+    colors: [] as string[],
+    drinks: [] as string[],
+    heirlooms: [] as string[],
+  } as const;
 
   save(): void {
-    const data = {};
-    for (const property of properties) {
-      data[property] = this[property];
-    }
-
-    localStorage.setItem('jindoshRiddle', JSON.stringify(data));
+    localStorage.setItem('jindoshRiddle', JSON.stringify(this.data));
   }
 
   load(): void {
-    const data = JSON.parse(localStorage.getItem('jindoshRiddle') || '{}');
-    for (const property of properties) {
-      this[property] = data[property];
-    }
+    this.data = JSON.parse(localStorage.getItem('jindoshRiddle') || '{}');
   }
 
   reset(): void {
-    for (const property of properties) {
-      this[property].length = 0;
+    for (const array of Object.values(this.data)) {
+      array.length = 0;
     }
   }
 }

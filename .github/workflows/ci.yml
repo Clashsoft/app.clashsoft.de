@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up Node 14
+      - name: Set up Node 16
         uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Install PNPM
         run: npm install -g pnpm
       - name: Cache PNPM Store
@@ -24,16 +24,16 @@ jobs:
             /.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.os }}-pnpm
-      - name: Install Angular CLI
-        run: pnpm install -g @angular/cli
-      - name: Setup Angular CLI to use PNPM
-        run: ng config -g cli.packageManager pnpm
       - name: Install
-        run: pnpm install --shamefully-hoist
+        run: pnpm install
       - name: Build
-        run: ng build --prod
+        run: pnpm build
+      - name: Build again
+        if: github.ref == 'refs/heads/master'
+        run: pnpm build
+        # Building again fixes a weird issue with missing code from the main.js bundle
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: pnpx angular-cli-ghpages --dir=dist/clashsoft-apps --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}
+        run: pnpm run -- ng deploy --no-build --cname=app.clashsoft.de --name=Clashsoft --email=${{ secrets.EMAIL }}

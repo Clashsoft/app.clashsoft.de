@@ -1,6 +1,6 @@
 import {Item} from './item';
 
-export class Section {
+export interface Section {
   title: string;
   points: number;
   maxPoints: number;

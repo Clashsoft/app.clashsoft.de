@@ -11,8 +11,12 @@ export class AchievementService {
 
   constructor() {
     this.#threeSymbolMode = localStorage.getItem('threeSymbolMode') === 'true';
-    this.pinned = (localStorage.getItem('pinned') || '').split('\n').map(n => this.getAchievement(n)).filter(a => a);
-    this.completed = (localStorage.getItem('completed') || '').split('\n').map(n => this.getAchievement(n)).filter(a => a);
+    this.pinned = this.loadAchievements('pinned');
+    this.completed = this.loadAchievements('completed');
+  }
+
+  private loadAchievements(key: string) {
+    return (localStorage.getItem(key) || '').split('\n').map(n => this.getAchievement(n)).filter((a): a is Achievement => !!a);
   }
 
   get threeSymbolMode(): boolean {

@@ -1,0 +1,74 @@
+<div class="container">
+  <h1>
+    {{ $any(entry)['_id'] ? 'Edit' : 'New' }}
+    Entry
+  </h1>
+  <div class="form">
+    <div class="form-group">
+      <label for="typeInput">Type</label>
+      <div class="input-group">
+        <select *ngIf="!customType" class="form-control" id="typeInput" [(ngModel)]="entry.type">
+          <option *ngFor="let type of types" [ngValue]="type">{{ type }}</option>
+        </select>
+        <input *ngIf="customType" type="text" class="form-control" id="typeInput" [(ngModel)]="entry.type">
+        <div class="input-group-append">
+          <label class="input-group-text">
+            <input type="checkbox" [(ngModel)]="customType">
+            Custom
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Name</label>
+      <input type="text" class="form-control" id="nameInput" [(ngModel)]="entry.name">
+    </div>
+    <div class="form-group">
+      <label for="imageUrlInput">Image URL</label>
+      <input type="url" class="form-control" id="imageUrlInput" [(ngModel)]="entry.imageUrl">
+    </div>
+    <div class="form-group">
+      <label for="descriptionInput">Description</label>
+      <textarea class="form-control" id="descriptionInput" [(ngModel)]="entry.description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="propertiesTable">Properties</label>
+      <table class="table table-sm" id="propertiesTable">
+        <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let property of properties">
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="property[0]">
+          </td>
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="property[1]">
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td>
+            <button type="button" class="btn btn-success ml-auto" (click)="addProperty()">
+              Add Row
+            </button>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="save()">
+      Save
+    </button>
+    <a class="btn btn-secondary" routerLink="..">
+      Cancel
+    </a>
+    <button *ngIf="$any(entry)._id" type="button" class="btn btn-danger" (click)="delete()">
+      Delete
+    </button>
+  </div>
+</div>

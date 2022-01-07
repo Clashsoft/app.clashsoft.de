@@ -1,0 +1,7 @@
+.form-inline > * {
+  margin-right: 0.5rem;
+}
+
+.form-inline > :first-child {
+  margin-left: -0.5rem;
+}

@@ -11,10 +11,14 @@ const routes: Routes = [
   {path: 'multi-timer', loadChildren: () => import('./multi-timer/multi-timer.module').then(it => it.MultiTimerModule)},
   {path: 'led-strip', loadChildren: () => import('./led-strip/led-strip.module').then(it => it.LedStripModule)},
   {path: 'grading-helper', loadChildren: () => import('./grading-helper/grading-helper.module').then(it => it.GradingHelperModule)},
+  {path: 'stories', loadChildren: () => import('./stories/stories.module').then(it => it.StoriesModule)},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
+  imports: [RouterModule.forRoot(routes, {
+    relativeLinkResolution: 'legacy',
+    paramsInheritanceStrategy: 'always',
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

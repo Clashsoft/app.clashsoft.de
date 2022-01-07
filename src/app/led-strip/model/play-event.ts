@@ -1,6 +1,6 @@
 import {Effect} from './effect';
 
-export class PlayEvent {
+export interface PlayEvent {
   id: number;
   timestamp: Date;
   user: string;

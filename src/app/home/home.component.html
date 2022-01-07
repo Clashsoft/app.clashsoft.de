@@ -16,7 +16,7 @@
       </app-app-card>
     </div>
     <div class="col">
-      <app-app-card id="jindosh-riddle" title="Jindosh Riddle Solver" wip="wip" color="warning">
+      <app-app-card id="jindosh-riddle" title="Jindosh Riddle Solver" [wip]="true" color="warning">
         <ng-container header>
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Dishonored_2_logo.png" class="card-img-top p-3"
                alt="Dishonored 2 Logo">
@@ -103,6 +103,16 @@
         </ng-container>
         <ng-container description>
           Control the LED strip under my desk.
+        </ng-container>
+      </app-app-card>
+    </div>
+    <div class="col">
+      <app-app-card id="stories" title="Stories" color="dark">
+        <ng-container header>
+          <code class="h1 text-muted">Stories</code>
+        </ng-container>
+        <ng-container description>
+          Track your story's timeline, characters, locations and more!
         </ng-container>
       </app-app-card>
     </div>

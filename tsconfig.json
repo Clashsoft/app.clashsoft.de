@@ -1,9 +1,11 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "strict": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -16,5 +18,10 @@
       "es2018",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "strictInjectionParameters": true,
+    "fullTemplateTypeCheck": true
   }
 }

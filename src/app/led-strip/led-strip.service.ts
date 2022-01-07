@@ -20,9 +20,9 @@ export class LedStripService {
         subscriptionInfo: token,
       },
       {
-        headers: {
+        headers: key ? {
           'X-LED-Key': key,
-        },
+        } : undefined,
       },
     );
   }
@@ -35,17 +35,17 @@ export class LedStripService {
 
   playEffect(effect: Effect, key?: string): Observable<{}> {
     return this.http.post(environment.apiUrl + '/effect', effect, {
-      headers: {
+      headers: key ? {
         'X-LED-Key': key,
-      },
+      } : undefined,
     });
   }
 
   getLatestEvents(key?: string): Observable<PlayEvent[]> {
     return this.http.get<PlayEvent[]>(environment.apiUrl + '/events', {
-      headers: {
+      headers: key ? {
         'X-LED-Key': key,
-      },
+      } : undefined,
     });
   }
 }
