@@ -31,10 +31,10 @@
     </div>
   </div>
   <div>
-    <button type="button" class="btn btn-lg btn-primary" (click)="timerSub ? stop() : start()">
+    <button type="button" class="btn btn-lg btn-primary me-3" (click)="timerSub ? stop() : start()">
       {{timerSub ? 'Stop' : 'Start!'}}
     </button>
-    <button *ngIf="!timerSub && total !== 0" type="button" class="btn btn btn-danger ml-3" (click)="reset()">
+    <button *ngIf="!timerSub && total !== 0" type="button" class="btn btn btn-danger me-3" (click)="reset()">
       Reset
     </button>
   </div>
