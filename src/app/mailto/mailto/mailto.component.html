@@ -25,13 +25,21 @@
       <th *ngFor="let _ of variableNames; let i=index; trackBy:index">
         <div class="input-group">
           <input type="text" class="form-control" [(ngModel)]="variableNames[i]" (change)="update()">
-          <button type="button" class="btn btn-danger" ngbTooltip="Delete Variable/Column" (click)="deleteColumn(i)">
-            &times;
-          </button>
+          <button
+            type="button"
+            class="btn btn-danger bi-trash"
+            ngbTooltip="Delete Variable/Column"
+            (click)="deleteColumn(i)"
+          ></button>
         </div>
       </th>
       <th>
-        <button type="button" class="btn btn-success" (click)="addColumn()" ngbTooltip="Add Variable/Column">+</button>
+        <button
+          type="button"
+          class="btn btn-success bi-plus-square-dotted"
+          (click)="addColumn()"
+          ngbTooltip="Add Variable/Column"
+        ></button>
       </th>
       <th>mailto-Link</th>
       <th></th>
@@ -50,8 +58,7 @@
         <a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a>
       </td>
       <td>
-        <button type="button" class="btn btn-danger" ngbTooltip="Delete Row" (click)="deleteRow(i)">
-          &times;
+        <button type="button" class="btn btn-danger bi-trash" ngbTooltip="Delete Row" (click)="deleteRow(i)">
         </button>
       </td>
     </tr>
