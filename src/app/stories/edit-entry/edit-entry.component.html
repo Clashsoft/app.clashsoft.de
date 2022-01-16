@@ -4,35 +4,35 @@
     Entry
   </h1>
   <div class="form">
-    <div class="form-group">
-      <label for="typeInput">Type</label>
+    <div class="mb-3">
+      <label class="form-label" for="typeInput">Type</label>
       <div class="input-group">
         <select *ngIf="!customType" class="form-control" id="typeInput" [(ngModel)]="entry.type">
           <option *ngFor="let type of types" [ngValue]="type">{{ type }}</option>
         </select>
         <input *ngIf="customType" type="text" class="form-control" id="typeInput" [(ngModel)]="entry.type">
-        <div class="input-group-append">
-          <label class="input-group-text">
-            <input type="checkbox" [(ngModel)]="customType">
-            Custom
-          </label>
+        <div class="input-group-text">
+          <div class="form-check">
+            <input type="checkbox" [(ngModel)]="customType" class="form-check-input" id="customCheck">
+            <label class="form-check-label" for="customCheck">Custom</label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="nameInput">Name</label>
+    <div class="mb-3">
+      <label class="form-label" for="nameInput">Name</label>
       <input type="text" class="form-control" id="nameInput" [(ngModel)]="entry.name">
     </div>
-    <div class="form-group">
-      <label for="imageUrlInput">Image URL</label>
+    <div class="mb-3">
+      <label class="form-label" for="imageUrlInput">Image URL</label>
       <input type="url" class="form-control" id="imageUrlInput" [(ngModel)]="entry.imageUrl">
     </div>
-    <div class="form-group">
-      <label for="descriptionInput">Description</label>
+    <div class="mb-3">
+      <label class="form-label" for="descriptionInput">Description</label>
       <textarea class="form-control" id="descriptionInput" [(ngModel)]="entry.description"></textarea>
     </div>
-    <div class="form-group">
-      <label for="propertiesTable">Properties</label>
+    <div class="mb-3">
+      <label class="form-label" for="propertiesTable">Properties</label>
       <table class="table table-sm" id="propertiesTable">
         <thead>
         <tr>
@@ -61,13 +61,13 @@
         </tfoot>
       </table>
     </div>
-    <button type="button" class="btn btn-primary" (click)="save()">
+    <button type="button" class="btn btn-primary me-2" (click)="save()">
       Save
     </button>
-    <a class="btn btn-secondary" routerLink="..">
+    <a class="btn btn-secondary me-2" routerLink="..">
       Cancel
     </a>
-    <button *ngIf="$any(entry)._id" type="button" class="btn btn-danger" (click)="delete()">
+    <button *ngIf="$any(entry)._id" type="button" class="btn btn-danger me-2" (click)="delete()">
       Delete
     </button>
   </div>

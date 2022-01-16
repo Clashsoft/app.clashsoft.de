@@ -9,11 +9,11 @@
         {{entry?.type}}
       </small>
     </span>
-    <a class="btn btn-primary ml-auto" routerLink="edit">
+    <a class="btn btn-primary ms-auto" routerLink="edit">
       Edit
     </a>
   </h1>
-  <img class="entry-image float-left mb-3 mr-3" *ngIf="entry?.imageUrl" [src]="entry!.imageUrl" [alt]="entry!.name">
+  <img class="entry-image float-start mb-3 me-3" *ngIf="entry?.imageUrl" [src]="entry!.imageUrl" [alt]="entry!.name">
   <p>
     {{entry?.description}}
   </p>

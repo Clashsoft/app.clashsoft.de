@@ -1,34 +1,31 @@
 <div class="container">
   <h1>Timeline</h1>
-  <div class="form-inline mb-3">
-    <div class="form-group">
-      <label for="searchInput" class="mr-2">
-        Filter by Reference:
-      </label>
-      <input
-        type="search"
-        class="form-control"
-        id="searchInput"
-        [ngbTypeahead]="search"
-        [inputFormatter]="render"
-        [resultFormatter]="render"
-        [editable]="false"
-        [ngModel]="searchEntry$ | async"
-        (ngModelChange)="searchEntry$.next($event)"
-      >
-    </div>
+  <div class="mb-3">
+    <label for="searchInput" class="visually-hidden">
+      Filter by Reference
+    </label>
+    <input
+      type="search"
+      class="form-control"
+      id="searchInput"
+      placeholder="Filter by Reference..."
+      [ngbTypeahead]="search"
+      [inputFormatter]="render"
+      [resultFormatter]="render"
+      [editable]="false"
+      [ngModel]="searchEntry$ | async"
+      (ngModelChange)="searchEntry$.next($event)"
+    >
   </div>
   <div *ngFor="let event of timeline; trackBy eventId" class="mb-3" >
     <div class="card" *ngIf="editing !== event._id else edit">
       <div class="card-header">
         {{ event.timestamp | date:'fullDate' }}
         {{ event.timestamp | date:'shortTime' }}
-        <button type="button" class="btn btn-sm btn-outline-primary" (click)="editing = event._id">
-          Edit
-        </button>
-        <button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(event)">
-          Delete
-        </button>
+        &bull;
+        <a class="text-primary" routerLink="." (click)="editing = event._id">Edit</a>
+        &bull;
+        <a class="text-danger" routerLink="." (click)="delete(event)">Delete</a>
       </div>
       <div class="card-body">
         <p class="card-text">

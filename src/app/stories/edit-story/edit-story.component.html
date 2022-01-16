@@ -4,12 +4,12 @@
     Story
   </h1>
   <div class="form">
-    <div class="form-group">
-      <label for="titleInput">Title</label>
+    <div class="mb-3">
+      <label for="titleInput" class="form-label">Title</label>
       <input type="text" class="form-control" id="titleInput" [(ngModel)]="story.title">
     </div>
-    <div class="form-group">
-      <label for="descriptionInput">Description</label>
+    <div class="mb-3">
+      <label for="descriptionInput" class="form-label">Description</label>
       <textarea class="form-control" id="descriptionInput" [(ngModel)]="story.description"></textarea>
     </div>
     <button type="button" class="btn btn-primary" (click)="save()">
