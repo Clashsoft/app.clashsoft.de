@@ -1,14 +1,12 @@
 <div class="container">
   <h1 class="d-flex align-items-center">
-    <a routerLink="..">
-      &leftarrow;
-    </a>
-    <span>
+    <div>
+      <a class="bi-chevron-left" routerLink=".."></a>
       {{entry?.name}}
       <small class="text-muted">
         {{entry?.type}}
       </small>
-    </span>
+    </div>
     <a class="btn btn-primary ms-auto" routerLink="edit">
       Edit
     </a>

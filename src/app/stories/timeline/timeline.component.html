@@ -20,12 +20,12 @@
   <div *ngFor="let event of timeline; trackBy eventId" class="mb-3" >
     <div class="card" *ngIf="editing !== event._id else edit">
       <div class="card-header">
-        {{ event.timestamp | date:'fullDate' }}
-        {{ event.timestamp | date:'shortTime' }}
-        &bull;
-        <a class="text-primary" routerLink="." (click)="editing = event._id">Edit</a>
-        &bull;
-        <a class="text-danger" routerLink="." (click)="delete(event)">Delete</a>
+        <time [dateTime]="event.timestamp" class="me-2">
+          {{ event.timestamp | date:'fullDate' }}
+          {{ event.timestamp | date:'shortTime' }}
+        </time>
+        <a class="link-primary bi-pencil me-2" ngbTooltip="Edit" routerLink="." (click)="editing = event._id"></a>
+        <a class="link-danger bi-trash me-2" ngbTooltip="Delete" routerLink="." (click)="delete(event)"></a>
       </div>
       <div class="card-body">
         <p class="card-text">

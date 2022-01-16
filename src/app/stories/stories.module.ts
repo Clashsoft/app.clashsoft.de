@@ -5,7 +5,7 @@ import {StoriesRoutingModule} from './stories-routing.module';
 import {TimelineComponent} from './timeline/timeline.component';
 import {ContenteditableModule} from '@ng-stack/contenteditable';
 import {FormsModule} from '@angular/forms';
-import {NgbNavModule, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbNavModule, NgbTooltipModule, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import { StoryListComponent } from './story-list/story-list.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
 import { StoryComponent } from './story/story.component';
@@ -26,14 +26,15 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     EntryComponent,
     EditEventComponent,
   ],
-  imports: [
-    CommonModule,
-    StoriesRoutingModule,
-    FormsModule,
-    ContenteditableModule,
-    NgbTypeaheadModule,
-    NgbNavModule,
-  ],
+    imports: [
+        CommonModule,
+        StoriesRoutingModule,
+        FormsModule,
+        ContenteditableModule,
+        NgbTypeaheadModule,
+        NgbNavModule,
+        NgbTooltipModule,
+    ],
 })
 export class StoriesModule {
 }
