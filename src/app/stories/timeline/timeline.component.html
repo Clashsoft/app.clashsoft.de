@@ -12,7 +12,6 @@
       [ngbTypeahead]="search"
       [inputFormatter]="render"
       [resultFormatter]="render"
-      [editable]="false"
       [ngModel]="searchEntry$ | async"
       (ngModelChange)="searchEntry$.next($event)"
     >

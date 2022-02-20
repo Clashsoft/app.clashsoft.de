@@ -15,10 +15,10 @@
     <div
       class="form-control h-auto d-inline-block"
       id="description-editor"
-      [contenteditable]="true"
+      [editable]="true"
       propValueAccessor="innerHTML"
-      [(ngModel)]="description"
-      (ngModelChange)="updateTags()"
+      [ngModel]="description"
+      (ngModelChange)="description = $event; updateTags()"
     ></div>
   </div>
 </div>
