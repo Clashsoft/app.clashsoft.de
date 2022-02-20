@@ -6,10 +6,10 @@
   <div class="mb-3">
     <div class="mb-3">
       <label class="form-label" for="effectSelect">Effect</label>
-      <select class="form-select" id="effectSelect" aria-describedby="emailDescription" [(ngModel)]="effect">
+      <select class="form-select" id="effectSelect" aria-describedby="effectDescription" [(ngModel)]="effect">
         <option *ngFor="let effect of effects" [ngValue]="effect">{{effect.name}}</option>
       </select>
-      <div id="emailDescription" class="form-text text-muted">
+      <div id="effectDescription" class="form-text">
         {{effect ? effect.description : 'No effect selected.'}}
       </div>
     </div>
