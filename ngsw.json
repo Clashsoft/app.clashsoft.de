@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1641551811633,
+  "timestamp": 1645386365642,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,20 +11,20 @@
         "ignoreVary": true
       },
       "urls": [
-        "/219.6eeef7df0bdb4619.js",
-        "/222.8672343dd1224774.js",
-        "/279.8fded39ea36075e8.js",
-        "/300.6936ea848e27dab5.js",
-        "/395.0f89a5701010e333.js",
-        "/570.5e69f8fb86d3aa29.js",
-        "/986.0cabccf454b6957a.js",
+        "/127.23d22d72340d6eaa.js",
+        "/202.3fcd4bcb8b50d22e.js",
+        "/340.e5c0f42c98de993d.js",
+        "/626.4d4797475ddad4d6.js",
+        "/745.b8a0515572eca315.js",
+        "/785.c426ed568bb10f75.js",
+        "/843.5ac4702fe4e02f59.js",
         "/favicon.ico",
         "/index.html",
-        "/main.c59b4481a477c9d3.js",
+        "/main.5ac7bf87bccc3c96.js",
         "/manifest.webmanifest",
-        "/polyfills.e936dc91652840af.js",
-        "/runtime.889177859b3924fc.js",
-        "/styles.10a0d2d6142aacd0.css"
+        "/polyfills.4838e3157dad35f2.js",
+        "/runtime.a2283ab66ed6d668.js",
+        "/styles.2984e5000bcf72f8.css"
       ],
       "patterns": []
     },
@@ -48,20 +48,22 @@
         "/assets/payday2-secret/example.png",
         "/assets/payday2-secret/example_highlighted.png",
         "/assets/payday2-secret/pin.svg",
-        "/assets/payday2-secret/x.svg"
+        "/assets/payday2-secret/x.svg",
+        "/bootstrap-icons.51e2826a5e883791.woff",
+        "/bootstrap-icons.988b20fa812f3498.woff2"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/219.6eeef7df0bdb4619.js": "22208abd1bb3e0f02b7eb4dd89fd093aa9691d7e",
-    "/222.8672343dd1224774.js": "617b90570b20bd3cdf3628557df763eb1a1779c8",
-    "/279.8fded39ea36075e8.js": "9c3ea2bf9c307fb8130509ad1429c409283282d4",
-    "/300.6936ea848e27dab5.js": "b0692725b021ba45c120ed2ba4cf2e5ba234c96f",
-    "/395.0f89a5701010e333.js": "94afbe6db94457962b1b8ff8fb94b0886ff2e2b1",
-    "/570.5e69f8fb86d3aa29.js": "56df121b4776f749e52fe76d5b2559058e019c7d",
-    "/986.0cabccf454b6957a.js": "129f553bd21979d23c0d6f445eb27d74f4da14e7",
+    "/127.23d22d72340d6eaa.js": "d037f97930e744c982d4ee6149ac946a079b34dd",
+    "/202.3fcd4bcb8b50d22e.js": "c944cb6ddbd4e41ef3302f9b6fdc0e0823f24a2e",
+    "/340.e5c0f42c98de993d.js": "8f49cdbb9cedb3036d9e856141a7a204d1d4da4a",
+    "/626.4d4797475ddad4d6.js": "e8fecdaba7ccec091668d455ad1969bc125d61cd",
+    "/745.b8a0515572eca315.js": "a752aee58469cb2c7c2cd8c435d8c3d5208ac0ff",
+    "/785.c426ed568bb10f75.js": "584c251d2bdfc51fb0b20105a077304ae288ad15",
+    "/843.5ac4702fe4e02f59.js": "ffad350e9a024adf8bd4390c380e8cd7f8dc2118",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -75,13 +77,15 @@
     "/assets/payday2-secret/example_highlighted.png": "569517bb1eea70169fec9d614e3d603a9075b02b",
     "/assets/payday2-secret/pin.svg": "64c1240389a285b73dc64ea839d26d2b9bd32d42",
     "/assets/payday2-secret/x.svg": "6b29566f7c6d0d0842168bb7b39f2c750ac17eb1",
+    "/bootstrap-icons.51e2826a5e883791.woff": "36952dbeb50a08a17d0dba69fa9cccde990ed10d",
+    "/bootstrap-icons.988b20fa812f3498.woff2": "1ca5e8c7d2fb8e9d60ad1a1feb2a46e98c248a3d",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "719787ab24deb430f20e043a0a275cc34d99a9b2",
-    "/main.c59b4481a477c9d3.js": "c89dc33dc1dfa9cc160948a3d9e1b19029bc4b50",
+    "/index.html": "9a4a1db9798366c00a60ef276df425888051c454",
+    "/main.5ac7bf87bccc3c96.js": "eefae887e8b60c091b204994f606d3ba893b10c5",
     "/manifest.webmanifest": "5c966ce52729e2f07ac67e1b640c8f79ca87944f",
-    "/polyfills.e936dc91652840af.js": "67b4d44c387843c3027c19588468453ee3e5eb36",
-    "/runtime.889177859b3924fc.js": "6a73ed6e1288a77a3275a78e07a8df6ca0b0d0d9",
-    "/styles.10a0d2d6142aacd0.css": "f1ce8e437d82d75973493315d24ac05bae1d92a3"
+    "/polyfills.4838e3157dad35f2.js": "eef60bed7e2e771cb8436f502e31d85b979291f6",
+    "/runtime.a2283ab66ed6d668.js": "410942c6a4f3ea56008a86e1555d2be64c87ba09",
+    "/styles.2984e5000bcf72f8.css": "c8fda4fdc03ea5bdfd3ef3f5d8ba7125ed17aa68"
   },
   "navigationUrls": [
     {
