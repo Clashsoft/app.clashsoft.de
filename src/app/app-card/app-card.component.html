@@ -1,17 +1,19 @@
-<div class="card-header">
-  <ng-content select="[header]"></ng-content>
-</div>
-<div class="card-body">
-  <h5 class="card-title">
-    {{title}}
-    <span class="badge bg-secondary" *ngIf="wip">WIP</span>
-  </h5>
-  <p class="card-text">
-    <ng-content select="[description]"></ng-content>
-  </p>
-</div>
-<div class="card-footer">
-  <a [routerLink]="id" role="button" class="btn btn-{{color}} btn-lg">
-    Open
-  </a>
+<div class="card h-100 shadow">
+  <div class="card-header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{title}}
+      <span class="badge bg-secondary" *ngIf="wip">WIP</span>
+    </h5>
+    <p class="card-text">
+      <ng-content select="[description]"></ng-content>
+    </p>
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="id" role="button" class="btn btn-{{color}} btn-lg">
+      Open
+    </a>
+  </div>
 </div>

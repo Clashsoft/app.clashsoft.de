@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-app-card',
@@ -10,6 +10,4 @@ export class AppCardComponent {
   @Input() title!: string;
   @Input() wip?: boolean;
   @Input() color!: string;
-
-  @HostBinding('class') hostClass = 'card h-100';
 }
