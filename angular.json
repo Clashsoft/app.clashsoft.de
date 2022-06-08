@@ -125,10 +125,6 @@
               "devServerTarget": "clashsoft-apps:serve:production"
             }
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {}
         }
       }
     }
