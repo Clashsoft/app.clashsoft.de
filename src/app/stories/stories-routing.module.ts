@@ -20,10 +20,10 @@ const routes: Routes = [
       {path: 'timeline', component: TimelineComponent, data: {title: 'Timeline'}},
       {path: 'entries', component: EntryListComponent, data: {title: 'Entries'}},
       {path: 'edit', component: EditStoryComponent, data: {title: 'Settings'}},
-      {path: '', redirectTo: 'timeline'},
+      {path: '', pathMatch: 'full', redirectTo: 'timeline'},
     ],
   },
-  {path: '', component: StoryListComponent},
+  {path: '', pathMatch: 'full', component: StoryListComponent},
 ];
 
 @NgModule({
