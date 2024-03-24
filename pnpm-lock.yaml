@@ -35,6 +35,9 @@ dependencies:
   '@angular/service-worker':
     specifier: ^17.3.1
     version: 17.3.1(@angular/common@17.3.1)(@angular/core@17.3.1)
+  '@mean-stream/ngbx':
+    specifier: ^0.13.0
+    version: 0.13.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/router@17.3.1)(@ng-bootstrap/ng-bootstrap@16.0.0)(bootstrap@5.3.3)(class-validator@0.14.1)
   '@ng-bootstrap/ng-bootstrap':
     specifier: ^16.0.0
     version: 16.0.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/forms@17.3.1)(@angular/localize@17.3.1)(@popperjs/core@2.11.8)(rxjs@7.5.7)
@@ -47,15 +50,12 @@ dependencies:
   bootstrap:
     specifier: ^5.3.3
     version: 5.3.3(@popperjs/core@2.11.8)
-  bootstrap-darkmode:
-    specifier: ^5.0.1
-    version: 5.0.1(bootstrap@5.3.3)
   bootstrap-icons:
     specifier: ^1.11.3
     version: 1.11.3
-  ng-bootstrap-darkmode:
-    specifier: ^0.5.0
-    version: 0.5.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/forms@17.3.1)(bootstrap-darkmode@5.0.1)
+  class-validator:
+    specifier: ^0.14.1
+    version: 0.14.1
   ngx-clipboard:
     specifier: ^16.0.0
     version: 16.0.0(@angular/common@17.3.1)(@angular/core@17.3.1)
@@ -2530,6 +2530,31 @@ packages:
       call-bind: 1.0.7
     dev: true
 
+  /@mean-stream/ngbx@0.13.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/router@17.3.1)(@ng-bootstrap/ng-bootstrap@16.0.0)(bootstrap@5.3.3)(class-validator@0.14.1):
+    resolution: {integrity: sha512-d6pHvmS2UCMLA+TRAH0CSdVraCyiBvthuO0WEp/U4h/35miva5YZbSAh0F35tzOqdKxBKpJRD1+jdTfM8G4Rhg==}
+    peerDependencies:
+      '@angular/common': '>=16.2.0 <18.0.0'
+      '@angular/core': '>=16.2.0 <18.0.0'
+      '@angular/router': '>=16.2.0 <18.0.0'
+      '@ng-bootstrap/ng-bootstrap': '>=15.1.0 <17.0.0'
+      bootstrap: '>=5.2.0 <6.0.0'
+      class-validator: ^0.14.0
+      reflect-metadata: ^0.1.13
+    peerDependenciesMeta:
+      class-validator:
+        optional: true
+      reflect-metadata:
+        optional: true
+    dependencies:
+      '@angular/common': 17.3.1(@angular/core@17.3.1)(rxjs@7.5.7)
+      '@angular/core': 17.3.1(rxjs@7.5.7)(zone.js@0.14.4)
+      '@angular/router': 17.3.1(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/platform-browser@17.3.1)(rxjs@7.5.7)
+      '@ng-bootstrap/ng-bootstrap': 16.0.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/forms@17.3.1)(@angular/localize@17.3.1)(@popperjs/core@2.11.8)(rxjs@7.5.7)
+      bootstrap: 5.3.3(@popperjs/core@2.11.8)
+      class-validator: 0.14.1
+      tslib: 2.6.2
+    dev: false
+
   /@ng-bootstrap/ng-bootstrap@16.0.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/forms@17.3.1)(@angular/localize@17.3.1)(@popperjs/core@2.11.8)(rxjs@7.5.7):
     resolution: {integrity: sha512-+FJ3e6cX9DW2t7021Ji3oz433rk3+4jLfqzU+Jyx6/vJz1dIOaML3EAY6lYuW4TLiXgMPOMvs6KzPFALGh4Lag==}
     peerDependencies:
@@ -3203,6 +3228,10 @@ packages:
     dependencies:
       '@types/node': 20.11.30
     dev: true
+
+  /@types/validator@13.11.9:
+    resolution: {integrity: sha512-FCTsikRozryfayPuiI46QzH3fnrOoctTjvOYZkho9BTFLCOZ2rgZJHMOVgCOfttjPJcgOx52EpkY0CMfy87MIw==}
+    dev: false
 
   /@types/ws@8.5.10:
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
@@ -4026,15 +4055,6 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap-darkmode@5.0.1(bootstrap@5.3.3):
-    resolution: {integrity: sha512-jyl507aEItDG7PHVdFgVNZ+qBX+Gffo6uGYOY9waegHcNRqBuajwyfkLpCGczMlhAQiEcms3jdxfhMg3AZJMfA==}
-    peerDependencies:
-      bootstrap: '>=5'
-    dependencies:
-      bootstrap: 5.3.3(@popperjs/core@2.11.8)
-      tslib: 2.6.2
-    dev: false
-
   /bootstrap-icons@1.11.3:
     resolution: {integrity: sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==}
     dev: false
@@ -4216,6 +4236,14 @@ packages:
     resolution: {integrity: sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==}
     engines: {node: '>=6.0'}
     dev: true
+
+  /class-validator@0.14.1:
+    resolution: {integrity: sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==}
+    dependencies:
+      '@types/validator': 13.11.9
+      libphonenumber-js: 1.10.58
+      validator: 13.11.0
+    dev: false
 
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -6511,6 +6539,10 @@ packages:
       type-check: 0.4.0
     dev: true
 
+  /libphonenumber-js@1.10.58:
+    resolution: {integrity: sha512-53A0IpJFL9LdHbpeatwizf8KSwPICrqn9H0g3Y7WQ+Jgeu9cQ4Ew3WrRtrLBu/CX2lXd5+rgT01/tGlkbkzOjw==}
+    dev: false
+
   /license-webpack-plugin@4.0.2(webpack@5.90.3):
     resolution: {integrity: sha512-771TFWFD70G1wLTC4oU2Cw4qvtmNrIw+wRvBtn+okgHl7slJVi7zfNcdmqDL72BojM30VNJ2UHylr1o77U37Jw==}
     peerDependencies:
@@ -6934,22 +6966,6 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
-
-  /ng-bootstrap-darkmode@0.5.0(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/forms@17.3.1)(bootstrap-darkmode@5.0.1):
-    resolution: {integrity: sha512-HmdPg5rYAIDZvKFtMrMnXXeazfhm3D3weM8jrqdEQFy7R7gDrEXCKfQolq604xBNOgESb1xxIayRoD8+1IGHHA==}
-    deprecated: Use @mean-stream/ngbx instead
-    peerDependencies:
-      '@angular/common': ^12.1.1
-      '@angular/core': ^12.1.1
-      '@angular/forms': ^12.1.1
-      bootstrap-darkmode: ^0.7.0
-    dependencies:
-      '@angular/common': 17.3.1(@angular/core@17.3.1)(rxjs@7.5.7)
-      '@angular/core': 17.3.1(rxjs@7.5.7)(zone.js@0.14.4)
-      '@angular/forms': 17.3.1(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/platform-browser@17.3.1)(rxjs@7.5.7)
-      bootstrap-darkmode: 5.0.1(bootstrap@5.3.3)
-      tslib: 2.6.2
-    dev: false
 
   /ngx-clipboard@16.0.0(@angular/common@17.3.1)(@angular/core@17.3.1):
     resolution: {integrity: sha512-rZ/Eo1PqiKMiyF8tdjhmUkoUu68f7OzBJ7YH1YFeh2RAaNrerTaW8XfFOzppSckjFQqA1fwGSYuTTJlDhDag5w==}
@@ -8985,6 +9001,11 @@ packages:
     dependencies:
       builtins: 5.0.1
     dev: true
+
+  /validator@13.11.0:
+    resolution: {integrity: sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==}
+    engines: {node: '>= 0.10'}
+    dev: false
 
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}

@@ -9,10 +9,10 @@ import {ClipboardModule} from 'ngx-clipboard';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {AppCardComponent} from './app-card/app-card.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {NgbxDarkmodeModule} from '@mean-stream/ngbx';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ClipboardModule,
     NgbModule,
-    NgBootstrapDarkmodeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgbxDarkmodeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
   ],
   providers: [],
   bootstrap: [AppComponent],

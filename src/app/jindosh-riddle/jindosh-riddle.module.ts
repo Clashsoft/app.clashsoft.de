@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {JindoshRiddleComponent} from './jindosh-riddle/jindosh-riddle.component';
-import {NgBootstrapDarkmodeModule} from 'ng-bootstrap-darkmode';
 import {
   CharacterComponent,
   CityComponent,
@@ -26,7 +25,6 @@ import {JindoshRiddleRoutingModule} from './jindosh-riddle-routing.module';
   ],
   imports: [
     CommonModule,
-    NgBootstrapDarkmodeModule,
     FormsModule,
     JindoshRiddleRoutingModule,
   ],
