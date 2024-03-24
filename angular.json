@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "clashsoft-apps:build"
+            "buildTarget": "clashsoft-apps:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "clashsoft-apps:build:production"
+              "buildTarget": "clashsoft-apps:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "clashsoft-apps:build"
+            "buildTarget": "clashsoft-apps:build"
           }
         },
         "test": {
