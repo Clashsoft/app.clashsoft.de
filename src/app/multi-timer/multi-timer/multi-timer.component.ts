@@ -11,6 +11,7 @@ interface Event {
   selector: 'app-multi-timer',
   templateUrl: './multi-timer.component.html',
   styleUrls: ['./multi-timer.component.scss'],
+  standalone: false,
 })
 export class MultiTimerComponent implements OnInit {
   count!: number;

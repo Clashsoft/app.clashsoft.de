@@ -9,6 +9,7 @@ import {of} from 'rxjs';
   selector: 'app-edit-story',
   templateUrl: './edit-story.component.html',
   styleUrls: ['./edit-story.component.scss'],
+  standalone: false,
 })
 export class EditStoryComponent implements OnInit {
   story: Story | CreateStoryDto = {

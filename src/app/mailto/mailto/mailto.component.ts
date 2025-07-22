@@ -4,6 +4,7 @@ import {Component, OnInit} from '@angular/core';
   selector: 'app-mailto',
   templateUrl: './mailto.component.html',
   styleUrls: ['./mailto.component.scss'],
+  standalone: false,
 })
 export class MailtoComponent implements OnInit {
   subject = '';

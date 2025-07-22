@@ -7,6 +7,7 @@ import {TemplateService} from '../template.service';
   selector: 'app-grading-tab',
   templateUrl: './grading-tab.component.html',
   styleUrls: ['./grading-tab.component.scss'],
+  standalone: false,
 })
 export class GradingTabComponent implements OnInit {
   @Input() tab!: GradingTab;

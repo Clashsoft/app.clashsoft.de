@@ -9,6 +9,7 @@ import {EventService} from '../event.service';
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.scss'],
+  standalone: false,
 })
 export class EditEventComponent implements OnInit {
   @Input() event?: Event;

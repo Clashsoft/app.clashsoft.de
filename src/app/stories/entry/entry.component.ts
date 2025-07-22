@@ -8,6 +8,7 @@ import {switchMap} from 'rxjs/operators';
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss'],
+  standalone: false,
 })
 export class EntryComponent implements OnInit {
   entry?: Entry;

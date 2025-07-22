@@ -10,6 +10,7 @@ import {TYPES} from '../model/constants';
   selector: 'app-entry-list',
   templateUrl: './entry-list.component.html',
   styleUrls: ['./entry-list.component.scss'],
+  standalone: false,
 })
 export class EntryListComponent implements OnInit {
   entries: Entry[] = [];

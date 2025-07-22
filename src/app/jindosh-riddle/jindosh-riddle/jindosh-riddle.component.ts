@@ -4,6 +4,7 @@ import {Component} from '@angular/core';
   selector: 'app-jindosh-riddle',
   templateUrl: './jindosh-riddle.component.html',
   styleUrls: ['./jindosh-riddle.component.scss'],
+  standalone: false,
 })
 export class JindoshRiddleComponent {
   data = {

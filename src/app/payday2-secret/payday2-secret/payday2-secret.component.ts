@@ -11,6 +11,7 @@ import {AchievementService} from '../achievement.service';
   selector: 'app-payday2-secret',
   templateUrl: './payday2-secret.component.html',
   styleUrls: ['./payday2-secret.component.scss'],
+  standalone: false,
 })
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;

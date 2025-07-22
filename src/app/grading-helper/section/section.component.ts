@@ -7,6 +7,7 @@ import {Item} from '../model/item';
   selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss'],
+  standalone: false,
 })
 export class SectionComponent implements OnInit {
   @Input() section!: Section;

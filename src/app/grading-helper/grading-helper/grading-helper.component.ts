@@ -8,6 +8,7 @@ import {GradingHelperService} from '../grading-helper.service';
   selector: 'app-grading-helper',
   templateUrl: './grading-helper.component.html',
   styleUrls: ['./grading-helper.component.scss'],
+  standalone: false,
 })
 export class GradingHelperComponent implements OnInit {
   active = 'template';

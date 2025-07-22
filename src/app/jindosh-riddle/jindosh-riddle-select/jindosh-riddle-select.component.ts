@@ -4,6 +4,7 @@ import * as Constants from '../jindosh-riddle.constants';
 @Component({
   selector: 'app-jindosh-riddle-select',
   templateUrl: 'jindosh-riddle-select.component.html',
+  standalone: false,
 })
 export class JindoshRiddleSelectComponent {
   @Input() placeholder!: string;
@@ -14,8 +15,9 @@ export class JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'app-character',
-  templateUrl: 'jindosh-riddle-select.component.html',
+    selector: 'app-character',
+    templateUrl: 'jindosh-riddle-select.component.html',
+    standalone: false
 })
 export class CharacterComponent extends JindoshRiddleSelectComponent {
   options = Constants.names;
@@ -23,8 +25,9 @@ export class CharacterComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'app-city',
-  templateUrl: 'jindosh-riddle-select.component.html',
+    selector: 'app-city',
+    templateUrl: 'jindosh-riddle-select.component.html',
+    standalone: false
 })
 export class CityComponent extends JindoshRiddleSelectComponent {
   options = Constants.cities;
@@ -32,8 +35,9 @@ export class CityComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'app-color',
-  templateUrl: 'jindosh-riddle-select.component.html',
+    selector: 'app-color',
+    templateUrl: 'jindosh-riddle-select.component.html',
+    standalone: false
 })
 export class ColorComponent extends JindoshRiddleSelectComponent {
   options = Constants.colors;
@@ -41,8 +45,9 @@ export class ColorComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'app-drink',
-  templateUrl: 'jindosh-riddle-select.component.html',
+    selector: 'app-drink',
+    templateUrl: 'jindosh-riddle-select.component.html',
+    standalone: false
 })
 export class DrinkComponent extends JindoshRiddleSelectComponent {
   options = Constants.drinks;
@@ -50,8 +55,9 @@ export class DrinkComponent extends JindoshRiddleSelectComponent {
 }
 
 @Component({
-  selector: 'app-heirloom',
-  templateUrl: 'jindosh-riddle-select.component.html',
+    selector: 'app-heirloom',
+    templateUrl: 'jindosh-riddle-select.component.html',
+    standalone: false
 })
 export class HeirloomComponent extends JindoshRiddleSelectComponent {
   options = Constants.heirlooms;

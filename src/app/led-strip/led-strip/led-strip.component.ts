@@ -15,6 +15,7 @@ import {Subscription} from 'rxjs';
   selector: 'app-led-strip',
   templateUrl: './led-strip.component.html',
   styleUrls: ['./led-strip.component.scss'],
+  standalone: false,
 })
 export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('keyModal') keyModal!: TemplateRef<any>;
