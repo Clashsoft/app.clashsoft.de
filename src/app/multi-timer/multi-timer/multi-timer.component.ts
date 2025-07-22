@@ -11,6 +11,7 @@ interface Event {
   selector: 'app-multi-timer',
   templateUrl: './multi-timer.component.html',
   styleUrls: ['./multi-timer.component.scss'],
+  standalone: false,
 })
 export class MultiTimerComponent implements OnInit {
   count!: number;
@@ -26,9 +27,6 @@ export class MultiTimerComponent implements OnInit {
   timerSub?: Subscription;
 
   startTime = 0;
-
-  constructor() {
-  }
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('multiTimer') || '{}');

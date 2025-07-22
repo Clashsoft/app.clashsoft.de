@@ -12,6 +12,7 @@ import {COLORS} from '../model/constants';
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss'],
+  standalone: false,
 })
 export class TimelineComponent implements OnInit {
   readonly colors = COLORS;

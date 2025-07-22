@@ -7,7 +7,9 @@
     <div class="mb-3">
       <label class="form-label" for="effectSelect">Effect</label>
       <select class="form-select" id="effectSelect" aria-describedby="effectDescription" [(ngModel)]="effect">
-        <option *ngFor="let effect of effects" [ngValue]="effect">{{effect.name}}</option>
+        @for (effect of effects; track effect.id) {
+          <option [ngValue]="effect">{{ effect.name }}</option>
+        }
       </select>
       <div id="effectDescription" class="form-text">
         {{effect ? effect.description : 'No effect selected.'}}
@@ -20,9 +22,11 @@
     <div class="mb-3">
       <label class="form-label" for="presets">Presets</label>
       <div class="btn-group d-block" role="group" id="presets">
-        <button *ngFor="let preset of presets" class="btn" [style.background]="preset" (click)="color = preset">
-          &nbsp;
-        </button>
+        @for (preset of presets; track preset) {
+          <button class="btn" [style.background]="preset" (click)="color = preset">
+            &nbsp;
+          </button>
+        }
       </div>
     </div>
     <div class="mb-3">
@@ -30,23 +34,29 @@
       <input type="text" class="form-control" id="messageInput" [(ngModel)]="message">
     </div>
     <button type="button" class="btn btn-primary" [disabled]="submitting" (click)="submit()">
-      <span *ngIf="submitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      @if (submitting) {
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      }
       {{submitting ? 'Playing...' : 'Play'}}
     </button>
   </div>
-  <div *ngIf="error" class="alert alert-danger" role="alert">
-    {{error}}
-  </div>
-  <ng-container *ngIf="events.length > 0">
+  @if (error) {
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  }
+  @if (events.length > 0) {
     <hr/>
     <h2>Latest Events</h2>
     <ul class="list-group">
-      <li *ngFor="let event of events" class="list-group-item">
-        <span class="text-muted float-right">{{event.timestamp|date:'short'}}</span>
-        {{event.user}}: {{event.effect.message}}
-      </li>
+      @for (event of events; track event) {
+        <li class="list-group-item">
+          <span class="text-muted float-right">{{ event.timestamp|date:'short' }}</span>
+          {{ event.user }}: {{ event.effect.message }}
+        </li>
+      }
     </ul>
-  </ng-container>
+  }
 </div>
 
 <ng-template #keyModal let-modal>

@@ -22,17 +22,19 @@
   <table class="table table-bordered table-condensed">
     <tr>
       <th>Address</th>
-      <th *ngFor="let _ of variableNames; let i=index; trackBy:index">
-        <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="variableNames[i]" (change)="update()">
-          <button
-            type="button"
-            class="btn btn-danger bi-trash"
-            ngbTooltip="Delete Variable/Column"
-            (click)="deleteColumn(i)"
-          ></button>
-        </div>
-      </th>
+      @for (col of variableNames; track col) {
+        <th>
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="variableNames[$index]" (change)="update()">
+            <button
+              type="button"
+              class="btn btn-danger bi-trash"
+              ngbTooltip="Delete Variable/Column"
+              (click)="deleteColumn($index)"
+            ></button>
+          </div>
+        </th>
+      }
       <th>
         <button
           type="button"
@@ -44,24 +46,28 @@
       <th>mailto-Link</th>
       <th></th>
     </tr>
-    <tr *ngFor="let row of variables; let i=index">
-      <td>
-        <input type="email" class="form-control"
-               [(ngModel)]="addresses[i]" (change)="updateRow(i)" (paste)="paste($event, i, -1)">
-      </td>
-      <td *ngFor="let _ of variableNames; let j=index; trackBy:index">
-        <input type="text" class="form-control"
-               [(ngModel)]="row[j]" (change)="updateRow(i)" (paste)="paste($event, i, j)">
-      </td>
-      <td></td>
-      <td>
-        <a [href]="links[i]">{{links[i].substring(0, links[i].indexOf('?'))}}</a>
-      </td>
-      <td>
-        <button type="button" class="btn btn-danger bi-trash" ngbTooltip="Delete Row" (click)="deleteRow(i)">
-        </button>
-      </td>
-    </tr>
+    @for (row of variables; track row; let i = $index) {
+      <tr>
+        <td>
+          <input type="email" class="form-control"
+                 [(ngModel)]="addresses[i]" (change)="updateRow(i)" (paste)="paste($event, i, -1)">
+        </td>
+        @for (_ of variableNames; track $index; let j = $index) {
+          <td>
+            <input type="text" class="form-control"
+                   [(ngModel)]="row[j]" (change)="updateRow(i)" (paste)="paste($event, i, j)">
+          </td>
+        }
+        <td></td>
+        <td>
+          <a [href]="links[i]">{{ links[i].substring(0, links[i].indexOf('?')) }}</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger bi-trash" ngbTooltip="Delete Row" (click)="deleteRow(i)">
+          </button>
+        </td>
+      </tr>
+    }
     <tr>
       <td [colSpan]="3+variableNames.length">
       </td>

@@ -99,7 +99,9 @@
     <div class="col">
       <app-app-card id="led-strip" title="LED Strip" color="light">
         <ng-container header>
-          <code *ngFor="let color of ['primary', 'success', 'warning', 'error']" class="h1 text-{{color}}">* </code>
+          @for (color of ['primary', 'success', 'warning', 'error']; track color) {
+            <code class="h1 text-{{color}}">* </code>
+          }
         </ng-container>
         <ng-container description>
           Control the LED strip under my desk.

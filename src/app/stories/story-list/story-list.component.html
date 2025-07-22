@@ -6,11 +6,13 @@
     </a>
   </h1>
   <div class="list-group">
-    <a *ngFor="let story of stories" class="list-group-item list-group-item-action" [routerLink]="story._id">
-      <h4>{{story.title}}</h4>
-      <p class="text-muted text-truncate">
-        {{story.description}}
-      </p>
-    </a>
+    @for (story of stories; track story._id) {
+      <a class="list-group-item list-group-item-action" [routerLink]="story._id">
+        <h4>{{ story.title }}</h4>
+        <p class="text-muted text-truncate">
+          {{ story.description }}
+        </p>
+      </a>
+    }
   </div>
 </div>

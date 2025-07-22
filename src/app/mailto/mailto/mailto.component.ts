@@ -4,6 +4,7 @@ import {Component, OnInit} from '@angular/core';
   selector: 'app-mailto',
   templateUrl: './mailto.component.html',
   styleUrls: ['./mailto.component.scss'],
+  standalone: false,
 })
 export class MailtoComponent implements OnInit {
   subject = '';
@@ -13,9 +14,6 @@ export class MailtoComponent implements OnInit {
   variableNames: string[] = ['1'];
   variables: string[][] = [];
   links: string[] = [];
-
-  constructor() {
-  }
 
   ngOnInit(): void {
     this.subject = localStorage.getItem('subjectTemplate') || '';
@@ -93,10 +91,6 @@ export class MailtoComponent implements OnInit {
       row.splice(index, 1);
     }
     this.update();
-  }
-
-  index(index: number, value: any): number {
-    return index;
   }
 
   paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number): void {

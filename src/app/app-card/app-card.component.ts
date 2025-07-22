@@ -4,6 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'app-app-card',
   templateUrl: './app-card.component.html',
   styleUrls: ['./app-card.component.scss'],
+  standalone: false,
 })
 export class AppCardComponent {
   @Input() id!: string;

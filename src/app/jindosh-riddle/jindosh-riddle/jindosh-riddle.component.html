@@ -89,14 +89,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let i of [0,1,2,3,4]">
-      <th scope="row">{{data.names[i]}}</th>
-      <td>{{data.cities[i]}}</td>
-      <td>{{data.colors[i]}}</td>
-      <td>{{data.drinks[i]}}</td>
-      <td>{{data.heirlooms[i]}}</td>
-      <td></td>
-    </tr>
+      @for (i of [0, 1, 2, 3, 4]; track i) {
+        <tr>
+          <th scope="row">{{ data.names[i] }}</th>
+          <td>{{ data.cities[i] }}</td>
+          <td>{{ data.colors[i] }}</td>
+          <td>{{ data.drinks[i] }}</td>
+          <td>{{ data.heirlooms[i] }}</td>
+          <td></td>
+        </tr>
+      }
     </tbody>
   </table>
 

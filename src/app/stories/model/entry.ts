@@ -4,7 +4,7 @@ export interface Entry {
   name: string;
   imageUrl?: string;
   description: string;
-  properties: Record<string, any>;
+  properties: Record<string, unknown>;
 }
 
 export type CreateEntryDto = Omit<Entry, '_id'>;

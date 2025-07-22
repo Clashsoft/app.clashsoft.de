@@ -8,6 +8,7 @@ import {Story} from '../model/story';
   selector: 'app-story',
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.scss'],
+  standalone: false,
 })
 export class StoryComponent implements OnInit {
   story?: Story;

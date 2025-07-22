@@ -11,6 +11,7 @@ import {AchievementService} from '../achievement.service';
   selector: 'app-payday2-secret',
   templateUrl: './payday2-secret.component.html',
   styleUrls: ['./payday2-secret.component.scss'],
+  standalone: false,
 })
 export class Payday2SecretComponent implements OnInit {
   achievements: Achievement[] = achievements;
@@ -28,7 +29,7 @@ export class Payday2SecretComponent implements OnInit {
     this.threeSymbolMode = this.achievementService.threeSymbolMode;
   }
 
-  openModal(content: TemplateRef<any>): void {
+  openModal(content: TemplateRef<unknown>): void {
     this.modalService.open(content, {size: 'lg'});
   }
 

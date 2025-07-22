@@ -10,6 +10,7 @@ import {TYPES} from '../model/constants';
   selector: 'app-edit-entry',
   templateUrl: './edit-entry.component.html',
   styleUrls: ['./edit-entry.component.scss'],
+  standalone: false,
 })
 export class EditEntryComponent implements OnInit {
   readonly types = TYPES;

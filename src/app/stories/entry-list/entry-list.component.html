@@ -6,7 +6,9 @@
     <div class="col-auto">
       <select class="form-control" id="typeFilter"
               [ngModel]="route.snapshot.queryParams.type" (ngModelChange)="setFilter({type: $event})">
-        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        @for (type of types; track type) {
+          <option [value]="type">{{ type }}</option>
+        }
         <option [ngValue]="undefined">-</option>
       </select>
     </div>
@@ -24,20 +26,24 @@
     </div>
   </div>
   <div class="list-group">
-    <a *ngFor="let entry of entries trackBy entryId"
-       class="list-group-item list-group-item-action"
-       [routerLink]="[entry._id]"
-    >
-      <img *ngIf="entry.imageUrl" [src]="entry.imageUrl" [alt]="entry.name" class="float-start entry-icon me-3">
-      <h4>
-        {{ entry.name }}
-        <small class="text-muted">
-          {{ entry.type }}
-        </small>
-      </h4>
-      <p class="text-muted text-truncate">
-        {{ entry.description }}
-      </p>
-    </a>
+    @for (entry of entries; track entry._id) {
+      <a
+        class="list-group-item list-group-item-action"
+        [routerLink]="[entry._id]"
+      >
+        @if (entry.imageUrl) {
+          <img [src]="entry.imageUrl" [alt]="entry.name" class="float-start entry-icon me-3">
+        }
+        <h4>
+          {{ entry.name }}
+          <small class="text-muted">
+            {{ entry.type }}
+          </small>
+        </h4>
+        <p class="text-muted text-truncate">
+          {{ entry.description }}
+        </p>
+      </a>
+    }
   </div>
 </div>

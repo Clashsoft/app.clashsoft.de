@@ -1,4 +1,4 @@
-import {Component, OnInit, TrackByFunction} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Entry} from '../model/entry';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {EntryService} from '../entry.service';
@@ -10,14 +10,13 @@ import {TYPES} from '../model/constants';
   selector: 'app-entry-list',
   templateUrl: './entry-list.component.html',
   styleUrls: ['./entry-list.component.scss'],
+  standalone: false,
 })
 export class EntryListComponent implements OnInit {
   entries: Entry[] = [];
   types: string[] = [...TYPES];
 
   searchFilter$ = new BehaviorSubject<string | undefined>(undefined);
-
-  entryId: TrackByFunction<Entry> = (index, entry) => entry._id;
 
   constructor(
     private entryService: EntryService,

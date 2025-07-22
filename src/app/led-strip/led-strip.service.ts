@@ -14,8 +14,8 @@ export class LedStripService {
   ) {
   }
 
-  createSubscription(token: PushSubscription, key?: string): Observable<{ id?: any }> {
-    return this.http.post<{ id?: any }>(environment.apiUrl + '/subscriptions',
+  createSubscription(token: PushSubscription, key?: string): Observable<{ id?: unknown }> {
+    return this.http.post<{ id?: unknown }>(environment.apiUrl + '/subscriptions',
       {
         subscriptionInfo: token,
       },
@@ -33,8 +33,8 @@ export class LedStripService {
     }));
   }
 
-  playEffect(effect: Effect, key?: string): Observable<{}> {
-    return this.http.post(environment.apiUrl + '/effect', effect, {
+  playEffect(effect: Effect, key?: string): Observable<void> {
+    return this.http.post<void>(environment.apiUrl + '/effect', effect, {
       headers: key ? {
         'X-LED-Key': key,
       } : undefined,

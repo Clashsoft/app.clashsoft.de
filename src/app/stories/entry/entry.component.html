@@ -11,14 +11,18 @@
       Edit
     </a>
   </h1>
-  <img class="entry-image float-start mb-3 me-3" *ngIf="entry?.imageUrl" [src]="entry!.imageUrl" [alt]="entry!.name">
+  @if (entry?.imageUrl) {
+    <img class="entry-image float-start mb-3 me-3" [src]="entry!.imageUrl" [alt]="entry!.name">
+  }
   <p>
     {{entry?.description}}
   </p>
   <table class="table table-sm table-borderless">
-    <tr *ngFor="let property of entry?.properties | keyvalue">
-      <td>{{property.key}}</td>
-      <td>{{property.value}}</td>
-    </tr>
+    @for (property of entry?.properties | keyvalue; track property) {
+      <tr>
+        <td>{{ property.key }}</td>
+        <td>{{ property.value }}</td>
+      </tr>
+    }
   </table>
 </div>

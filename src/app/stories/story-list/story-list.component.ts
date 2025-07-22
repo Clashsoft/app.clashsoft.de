@@ -6,6 +6,7 @@ import {StoryService} from '../story.service';
   selector: 'app-story-list',
   templateUrl: './story-list.component.html',
   styleUrls: ['./story-list.component.scss'],
+  standalone: false,
 })
 export class StoryListComponent implements OnInit {
   stories: Story[] = [];

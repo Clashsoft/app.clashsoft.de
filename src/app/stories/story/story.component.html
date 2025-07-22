@@ -7,11 +7,13 @@
     {{ story?.description }}
   </p>
   <ul ngbNav class="nav-tabs mb-3" [activeId]="route.firstChild?.routeConfig?.path">
-    <li *ngFor="let route of route.routeConfig?.children" [ngbNavItem]="route.path">
-      <a ngbNavLink [routerLink]="route.path">
-        {{ route.data?.title }}
-      </a>
-    </li>
+    @for (route of route.routeConfig?.children; track route) {
+      <li [ngbNavItem]="route.path">
+        <a ngbNavLink [routerLink]="route.path">
+          {{ route.data?.title }}
+        </a>
+      </li>
+    }
   </ul>
 </div>
 <router-outlet></router-outlet>
