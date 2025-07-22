@@ -1,26 +1,54 @@
 <ng-template #header>
   {{section.title}} ({{section.points}}P/{{section.maxPoints}}P)
 </ng-template>
-<ng-container [ngSwitch]="depth">
-  <h1 *ngSwitchCase="1"><ng-container [ngTemplateOutlet]="header"></ng-container></h1>
-  <h2 *ngSwitchCase="2"><ng-container [ngTemplateOutlet]="header"></ng-container></h2>
-  <h3 *ngSwitchCase="3"><ng-container [ngTemplateOutlet]="header"></ng-container></h3>
-  <h4 *ngSwitchCase="4"><ng-container [ngTemplateOutlet]="header"></ng-container></h4>
-  <h5 *ngSwitchCase="5"><ng-container [ngTemplateOutlet]="header"></ng-container></h5>
-  <h6 *ngSwitchCase="6"><ng-container [ngTemplateOutlet]="header"></ng-container></h6>
-</ng-container>
+@switch (depth) {
+  @case (1) {
+    <h1>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h1>
+  }
+  @case (2) {
+    <h2>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h2>
+  }
+  @case (3) {
+    <h3>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h3>
+  }
+  @case (4) {
+    <h4>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h4>
+  }
+  @case (5) {
+    <h5>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h5>
+  }
+  @case (6) {
+    <h6>
+      <ng-container [ngTemplateOutlet]="header"></ng-container>
+    </h6>
+  }
+}
 <ul>
-  <li *ngFor="let item of section.items; let index=index">
-    <div class="custom-control custom-checkbox" (auxclick)="setChecked(item, undefined)">
-      <input type="checkbox" class="custom-control-input"
-             [id]="idPrefix + index"
-             [indeterminate]="item.checked === undefined"
-             [ngModel]="item.checked" (ngModelChange)="setChecked(item, $event)"
-      >
-      <label class="custom-control-label" [for]="idPrefix + index">
-        {{item.description}} ({{item.points}}P)
-      </label>
-    </div>
-  </li>
+  @for (item of section.items; track item; let index = $index) {
+    <li>
+      <div class="custom-control custom-checkbox" (auxclick)="setChecked(item, undefined)">
+        <input type="checkbox" class="custom-control-input"
+               [id]="idPrefix + index"
+               [indeterminate]="item.checked === undefined"
+               [ngModel]="item.checked" (ngModelChange)="setChecked(item, $event)"
+        >
+        <label class="custom-control-label" [for]="idPrefix + index">
+          {{ item.description }} ({{ item.points }}P)
+        </label>
+      </div>
+    </li>
+  }
 </ul>
-<app-section *ngFor="let child of section.children" [section]="child" [depth]="depth + 1" (pointsChanged)="applyDelta($event)"></app-section>
+@for (child of section.children; track child) {
+  <app-section [section]="child" [depth]="depth + 1" (pointsChanged)="applyDelta($event)"></app-section>
+}

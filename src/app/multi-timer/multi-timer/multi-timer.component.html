@@ -34,9 +34,11 @@
     <button type="button" class="btn btn-lg btn-primary me-3" (click)="timerSub ? stop() : start()">
       {{timerSub ? 'Stop' : 'Start!'}}
     </button>
-    <button *ngIf="!timerSub && total !== 0" type="button" class="btn btn btn-danger me-3" (click)="reset()">
-      Reset
-    </button>
+    @if (!timerSub && total !== 0) {
+      <button type="button" class="btn btn btn-danger me-3" (click)="reset()">
+        Reset
+      </button>
+    }
   </div>
   <div class="display-4 text-center">
     <span class="text-monospace">{{(duration*1000 - total)|duration}}</span> remaining!
@@ -45,20 +47,24 @@
     <ngb-progressbar type="success" height="3em" [value]="total" [max]="duration*1000"></ngb-progressbar>
   </div>
   <div class="list-group mb-3">
-    <a *ngFor="let i of (count < 100 ? count : 100)|range"
-      class="list-group-item list-group-item-action" [class.active]="active === i" (click)="select(i)">
-      <h2>Timer #{{i + 1}}</h2>
-      <span class="text-monospace">{{(elapsed[i] || 0)|duration}}</span> total
-      <div class="progress">
-        <div *ngFor="let event of events"
-             role="progressbar"
-             class="progress-bar"
-             [class.bg-secondary]="event.timer !== i"
-             [style.width.%]="((event.end || currentDate) - event.start)/(duration*1000)*100"
-        >
-          {{((event.end || currentDate) - event.start) | duration}}
+    @for (i of (count < 100 ? count : 100)|range; track i) {
+      <a
+        class="list-group-item list-group-item-action" [class.active]="active === i" (click)="select(i)">
+        <h2>Timer #{{ i + 1 }}</h2>
+        <span class="text-monospace">{{ (elapsed[i] || 0)|duration }}</span> total
+        <div class="progress">
+          @for (event of events; track event) {
+            <div
+              role="progressbar"
+              class="progress-bar"
+              [class.bg-secondary]="event.timer !== i"
+              [style.width.%]="((event.end || currentDate) - event.start)/(duration*1000)*100"
+            >
+              {{ ((event.end || currentDate) - event.start) | duration }}
+            </div>
+          }
         </div>
-      </div>
-    </a>
+      </a>
+    }
   </div>
 </div>

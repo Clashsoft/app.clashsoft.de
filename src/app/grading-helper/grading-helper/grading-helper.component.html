@@ -9,15 +9,17 @@
         <textarea class="form-control text-monospace" rows="30" [(ngModel)]="template" (change)="saveTemplate()"></textarea>
       </ng-template>
     </li>
-    <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id">
-      <a ngbNavLink>
-        {{ tab.title }}
-        <span class="close position-relative pl-2 font-weight-light" (click)="close($event, tab)">×</span>
-      </a>
-      <ng-template ngbNavContent>
-        <app-grading-tab [tab]="tab"></app-grading-tab>
-      </ng-template>
-    </li>
+    @for (tab of tabs; track tab.id) {
+      <li [ngbNavItem]="tab.id">
+        <a ngbNavLink>
+          {{ tab.title }}
+          <span class="close position-relative pl-2 font-weight-light" (click)="close($event, tab)">×</span>
+        </a>
+        <ng-template ngbNavContent>
+          <app-grading-tab [tab]="tab"></app-grading-tab>
+        </ng-template>
+      </li>
+    }
     <li class="nav-item">
       <a class="nav-link close" href (click)="add($event)">+</a>
     </li>

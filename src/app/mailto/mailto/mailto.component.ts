@@ -96,10 +96,6 @@ export class MailtoComponent implements OnInit {
     this.update();
   }
 
-  index(index: number, value: any): number {
-    return index;
-  }
-
   paste(event: ClipboardEvent, startRowIndex: number, startColumnIndex: number): void {
     const clipboard = event.clipboardData;
     if (!clipboard) {

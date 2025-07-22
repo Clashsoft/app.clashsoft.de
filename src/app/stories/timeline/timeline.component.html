@@ -16,36 +16,40 @@
       (ngModelChange)="searchEntry$.next($event)"
     >
   </div>
-  <div *ngFor="let event of timeline; trackBy eventId" class="mb-3" >
-    <div class="card" *ngIf="editing !== event._id else edit">
-      <div class="card-header">
-        <time [dateTime]="event.timestamp" class="me-2">
-          {{ event.timestamp | date:'fullDate' }}
-          {{ event.timestamp | date:'shortTime' }}
-        </time>
-        <a class="link-primary bi-pencil me-2" ngbTooltip="Edit" routerLink="." (click)="editing = event._id"></a>
-        <a class="link-danger bi-trash me-2" ngbTooltip="Delete" routerLink="." (click)="delete(event)"></a>
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          <ng-container *ngFor="let item of event.description">
-            <a
-              *ngIf="isReference(item); else text"
-              class="alert alert-{{colors[item.type] || 'secondary'}} p-0"
-              [routerLink]="['../entries', item.id]"
-              [attr.data-reference]="item.type"
-              [attr.data-id]="item.id"
-            >{{ item.name }}</a>
-            <ng-template #text>
-              {{ item }}
-            </ng-template>
-          </ng-container>
-        </p>
-      </div>
+  @for (event of timeline; track event._id) {
+    <div class="mb-3">
+      @if (editing !== event._id) {
+        <div class="card">
+          <div class="card-header">
+            <time [dateTime]="event.timestamp" class="me-2">
+              {{ event.timestamp | date:'fullDate' }}
+              {{ event.timestamp | date:'shortTime' }}
+            </time>
+            <a class="link-primary bi-pencil me-2" ngbTooltip="Edit" routerLink="." (click)="editing = event._id"></a>
+            <a class="link-danger bi-trash me-2" ngbTooltip="Delete" routerLink="." (click)="delete(event)"></a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              @for (item of event.description; track item) {
+                @if (isReference(item)) {
+                  <a
+                    class="alert alert-{{colors[item.type] || 'secondary'}} p-0"
+                    [routerLink]="['../entries', item.id]"
+                    [attr.data-reference]="item.type"
+                    [attr.data-id]="item.id"
+                  >{{ item.name }}</a>
+                } @else {
+                  {{ item }}
+                }
+              }
+            </p>
+          </div>
+        </div>
+      } @else {
+        <app-edit-event [timeline]="timeline" [entries]="entries" [event]="event"
+                        (done)="editing = undefined"></app-edit-event>
+      }
     </div>
-    <ng-template #edit>
-      <app-edit-event [timeline]="timeline" [entries]="entries" [event]="event" (done)="editing = undefined"></app-edit-event>
-    </ng-template>
-  </div>
+  }
   <app-edit-event [entries]="entries" [timeline]="timeline"></app-edit-event>
 </div>
