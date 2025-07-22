@@ -7,9 +7,6 @@ import {Item} from './model/item';
 })
 export class TemplateService {
 
-  constructor() {
-  }
-
   get savedTemplate(): string {
     return localStorage.getItem('grading-helper/template') || '';
   }

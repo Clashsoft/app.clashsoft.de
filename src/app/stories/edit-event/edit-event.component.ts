@@ -130,7 +130,7 @@ export class EditEventComponent implements OnInit {
 
         const name = node.textContent;
         description.push({
-          type: reference as any,
+          type: reference as Reference['type'],
           id: id!,
           name: name!,
         });

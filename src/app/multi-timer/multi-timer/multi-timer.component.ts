@@ -28,9 +28,6 @@ export class MultiTimerComponent implements OnInit {
 
   startTime = 0;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('multiTimer') || '{}');
     this.count = data.count || 3;

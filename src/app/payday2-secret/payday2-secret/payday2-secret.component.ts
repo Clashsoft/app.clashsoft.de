@@ -29,7 +29,7 @@ export class Payday2SecretComponent implements OnInit {
     this.threeSymbolMode = this.achievementService.threeSymbolMode;
   }
 
-  openModal(content: TemplateRef<any>): void {
+  openModal(content: TemplateRef<unknown>): void {
     this.modalService.open(content, {size: 'lg'});
   }
 

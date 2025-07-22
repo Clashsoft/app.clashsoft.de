@@ -15,9 +15,6 @@ export class MailtoComponent implements OnInit {
   variables: string[][] = [];
   links: string[] = [];
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.subject = localStorage.getItem('subjectTemplate') || '';
     this.body = localStorage.getItem('bodyTemplate') || '';

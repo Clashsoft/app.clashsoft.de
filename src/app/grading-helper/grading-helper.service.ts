@@ -7,9 +7,6 @@ import {GradingTab} from './model/grading-tab';
 export class GradingHelperService {
   private readonly prefix = 'grading-helper/tabs/';
 
-  constructor() {
-  }
-
   saveTab(tab: GradingTab): void {
     localStorage.setItem(this.prefix + tab.id, JSON.stringify(tab));
   }

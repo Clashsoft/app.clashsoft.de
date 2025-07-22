@@ -18,7 +18,7 @@ import {Subscription} from 'rxjs';
   standalone: false,
 })
 export class LedStripComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('keyModal') keyModal!: TemplateRef<any>;
+  @ViewChild('keyModal') keyModal!: TemplateRef<unknown>;
 
   effects: EffectType[] = [];
 
