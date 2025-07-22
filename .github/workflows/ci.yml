@@ -26,5 +26,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/clashsoft-apps/
+          publish_dir: dist/clashsoft-apps/browser/
           cname: app.clashsoft.de
